@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Paleta ────────────────────────────────────────────────────────────────
+     Cartulina de archivo entomológico y tinta. El único color saturado es el
+     azul del Morpho, porque es el del insecto: color estructural, no pigmento.
+     Todo lo demás está desaturado a propósito para que el azul sea el evento. */
+  --color-lino: #f7f6f3;    /* fondo de página */
+  --color-papel: #ffffff;   /* superficies */
+  --color-tinta: #101314;   /* texto principal */
+  --color-noche: #0b0e0f;   /* secciones oscuras */
+  --color-pizarra: #6a7278; /* texto secundario */
+  --color-linea: #e2e0da;   /* filetes */
+  --color-morpho: #1b4fd6;  /* azul de acento */
+  --color-hoja: #2f4a33;    /* trabajo social */
+  --color-nube: #eef1f6;
+
+  /* Alias que sigue usando el panel de clientes */
+  --color-crema: #f7f6f3;
+  --color-tenue: #6a7278;
+  --color-borde: #e2e0da;
+  --color-musgo: #101314;
+  --color-musgo-medio: #1b4fd6;
+  --color-musgo-suave: #eef1f6;
+  --color-monarca: #1b4fd6;
+  --color-monarca-suave: #e3ebfb;
+
+  --font-titulo: var(--font-spectral), ui-serif, Georgia, serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--color-lino);
+    color: var(--color-tinta);
+  }
+  /* Los datos duros (guías, códigos, temperaturas) se alinean en columna. */
+  .datos {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .cifras {
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: var(--color-morpho);
+    color: var(--color-papel);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-morpho);
+    outline-offset: 3px;
+  }
+}
+
+/* ── Escala tipográfica ──────────────────────────────────────────────────────
+   Spectral en peso liviano y tracking negativo: a tamaño grande el peso 300
+   tiene más presencia que el 700, y deja respirar la forma de la letra. */
+.display {
+  font-family: var(--font-titulo);
+  font-weight: 300;
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.028em;
+}
+.titulo-2 {
+  font-family: var(--font-titulo);
+  font-weight: 300;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+}
+.titulo-3 {
+  font-family: var(--font-titulo);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+.lede {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  max-width: 58ch;
+  color: var(--color-pizarra);
+}
+.prosa {
+  line-height: 1.7;
+  max-width: 66ch;
+}
+
+/* Nombre científico: en entomología siempre va en cursiva. */
+.cientifico {
+  font-family: var(--font-titulo);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ── Movimiento ──────────────────────────────────────────────────────────────
+   Un solo momento orquestado: la apertura de alas al cargar. El resto del
+   movimiento responde al cursor, que es lo que hace el color estructural. */
+@keyframes abrir-alas {
+  from {
+    transform: scaleX(0.14) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes respirar {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.955);
+  }
+}
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-0.5deg);
+  }
+}
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alas {
+  transform-origin: 500px 470px;
+  animation: abrir-alas 1.5s cubic-bezier(0.16, 0.84, 0.3, 1) both,
+    respirar 7s ease-in-out 1.5s infinite;
+}
+.flota {
+  animation: flotar 11s ease-in-out infinite;
+}
+/* Entrada escalonada del texto del encabezado, sincronizada con las alas. */
+.entra {
+  animation: entrar 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alas,
+  .flota,
+  .entra {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Fotografía ──────────────────────────────────────────────────────────────
+   Las fotos llevan el color del sitio; el resto de la interfaz es neutra. */
+.marco-foto {
+  overflow: hidden;
+  background-color: var(--color-nube);
+}
+.marco-foto img {
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.marco-foto:hover img,
+a:focus-visible .marco-foto img {
+  transform: scale(1.045);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marco-foto img { transition: none; }
+  .marco-foto:hover img { transform: none; }
+}

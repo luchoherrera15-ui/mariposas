@@ -1,0 +1,61 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { obtenerMarca } from "@/lib/ajustes";
+import { modoDemo } from "@/lib/config";
+import { obtenerUsuario } from "@/lib/datos";
+import FormularioEntrar from "./FormularioEntrar";
+
+export const metadata: Metadata = { title: "Entrar" };
+
+export default async function Entrar() {
+  const [usuario, marca] = await Promise.all([obtenerUsuario(), obtenerMarca()]);
+  if (usuario) redirect("/panel");
+
+  return (
+    <div className="grid min-h-screen lg:grid-cols-2">
+      {/* Formulario */}
+      <div className="flex flex-col justify-center px-6 py-16 sm:px-14">
+        <div className="mx-auto w-full max-w-sm">
+          <Link href="/" className="font-titulo text-[1.4rem] leading-none tracking-tight">
+            {marca.nombre}
+          </Link>
+
+          <h1 className="titulo-2 mt-14">Panel de clientes</h1>
+          <p className="mt-4 text-pizarra">
+            Tus pedidos, el tracking de cada envío y el trabajo social que generaron tus compras.
+          </p>
+
+          <div className="mt-10">
+            <FormularioEntrar demo={modoDemo} />
+          </div>
+
+          <p className="mt-12 text-sm">
+            <Link href="/" className="border-b border-linea pb-0.5 text-pizarra transition-colors hover:border-tinta hover:text-tinta">
+              Volver al sitio
+            </Link>
+          </p>
+        </div>
+      </div>
+
+      {/* Foto */}
+      <div className="relative hidden lg:block">
+        <Image
+          src="/fotos/cebra.jpg"
+          alt="Heliconius charithonia posada sobre una flor"
+          fill
+          sizes="50vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10" />
+        <p className="absolute bottom-10 left-10 right-10 text-white">
+          <span className="cientifico text-lg">Heliconius charithonia</span>
+          <span className="mt-1 block text-sm text-white/70">
+            Cebra de alas largas. Vuelo lento, ideal para mariposarios abiertos.
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
