@@ -4,13 +4,22 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { obtenerMarca } from "@/lib/ajustes";
 import { modoDemo } from "@/lib/config";
+import SelectorIdioma from "@/components/SelectorIdioma";
 import { obtenerUsuario } from "@/lib/datos";
+import { obtenerIdioma, obtenerTextos } from "@/lib/i18n/servidor";
 import FormularioEntrar from "./FormularioEntrar";
 
-export const metadata: Metadata = { title: "Entrar" };
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await obtenerTextos()).entrar.metaTitulo };
+}
 
 export default async function Entrar() {
-  const [usuario, marca] = await Promise.all([obtenerUsuario(), obtenerMarca()]);
+  const [usuario, marca, idioma, t] = await Promise.all([
+    obtenerUsuario(),
+    obtenerMarca(),
+    obtenerIdioma(),
+    obtenerTextos(),
+  ]);
   if (usuario) redirect("/panel");
 
   return (
@@ -18,22 +27,25 @@ export default async function Entrar() {
       {/* Formulario */}
       <div className="flex flex-col justify-center px-6 py-16 sm:px-14">
         <div className="mx-auto w-full max-w-sm">
-          <Link href="/" className="font-titulo text-[1.4rem] leading-none tracking-tight">
-            {marca.nombre}
-          </Link>
+          <div className="flex items-center justify-between gap-4">
+            <Link href="/" className="font-titulo text-[1.4rem] leading-none tracking-tight">
+              {marca.nombre}
+            </Link>
+            <SelectorIdioma actual={idioma} etiqueta={t.idioma.etiqueta} />
+          </div>
 
-          <h1 className="titulo-2 mt-14">Panel de clientes</h1>
+          <h1 className="titulo-2 mt-14">{t.entrar.titulo}</h1>
           <p className="mt-4 text-pizarra">
-            Tus pedidos, el tracking de cada envío y el trabajo social que generaron tus compras.
+            {t.entrar.texto}
           </p>
 
           <div className="mt-10">
-            <FormularioEntrar demo={modoDemo} />
+            <FormularioEntrar demo={modoDemo} t={t.entrar} />
           </div>
 
           <p className="mt-12 text-sm">
             <Link href="/" className="border-b border-linea pb-0.5 text-pizarra transition-colors hover:border-tinta hover:text-tinta">
-              Volver al sitio
+              {t.entrar.volver}
             </Link>
           </p>
         </div>
@@ -43,7 +55,7 @@ export default async function Entrar() {
       <div className="relative hidden lg:block">
         <Image
           src="/fotos/cebra.jpg"
-          alt="Heliconius charithonia posada sobre una flor"
+          alt={t.entrar.fotoAlt}
           fill
           sizes="50vw"
           className="object-cover"
@@ -52,7 +64,7 @@ export default async function Entrar() {
         <p className="absolute bottom-10 left-10 right-10 text-white">
           <span className="cientifico text-lg">Heliconius charithonia</span>
           <span className="mt-1 block text-sm text-white/70">
-            Cebra de alas largas. Vuelo lento, ideal para mariposarios abiertos.
+            {t.entrar.fotoTexto}
           </span>
         </p>
       </div>

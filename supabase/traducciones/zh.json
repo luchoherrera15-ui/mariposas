@@ -1,0 +1,117 @@
+{
+  "especies": {
+    "Morpho peleides": {
+      "nombre_comun": "大蓝闪蝶",
+      "region": "哥斯达黎加",
+      "descripcion": "经典的金属蓝色。在展览和活动中需求量很大。"
+    },
+    "Caligo memnon": {
+      "nombre_comun": "猫头鹰环蝶",
+      "region": "哥斯达黎加",
+      "descripcion": "巨大的眼斑酷似猫头鹰的眼睛。非常耐受运输。"
+    },
+    "Danaus plexippus": {
+      "nombre_comun": "帝王蝶",
+      "region": "中美洲",
+      "descripcion": "迁徙的标志性物种。非常适合科普教育项目。"
+    },
+    "Greta oto": {
+      "nombre_comun": "透翅蝶",
+      "region": "哥斯达黎加",
+      "descripcion": "翅膀透明，深受摄影师喜爱。"
+    },
+    "Heliconius charithonia": {
+      "nombre_comun": "斑马长翅蝶",
+      "region": "中美洲",
+      "descripcion": "飞行缓慢而引人注目。非常适合开放式蝴蝶馆。"
+    },
+    "Papilio thoas": {
+      "nombre_comun": "托阿斯凤蝶",
+      "region": "哥斯达黎加",
+      "descripcion": "明亮的黄色，尾突明显。"
+    },
+    "Siproeta stelenes": {
+      "nombre_comun": "孔雀石蛱蝶",
+      "region": "哥斯达黎加",
+      "descripcion": "半透明的翡翠绿色。人工饲养下寿命很长。"
+    },
+    "Diaethria astala": {
+      "nombre_comun": "88 蛱蝶",
+      "region": "哥斯达黎加",
+      "descripcion": "后翅上绘有「88」的图案。"
+    }
+  },
+  "proyectos": {
+    "semillas-manzano": {
+      "nombre": "已播种的苹果种子",
+      "descripcion": "我们购买苹果种子，并与高海拔地区的家庭一起播种，帮助他们实现作物多样化。",
+      "unidad": "粒种子",
+      "unidad_singular": "粒种子"
+    },
+    "arboles-nativos": {
+      "nombre": "已种植的本土树木",
+      "descripcion": "以蝴蝶寄主植物进行植树造林：麻栎豆（madero negro）、号角树（guarumo）、西番莲。",
+      "unidad": "棵树",
+      "unidad_singular": "棵树"
+    },
+    "metros-conservados": {
+      "nombre": "受保护的森林",
+      "descripcion": "由销售收入资助、签订禁伐协议的森林面积（平方米）。",
+      "unidad": "平方米",
+      "unidad_singular": "平方米"
+    },
+    "horas-empleo": {
+      "nombre": "农村就业工时",
+      "descripcion": "支付给为我们供货的养殖家庭的工时，其中大多数家庭由女性当家。",
+      "unidad": "小时",
+      "unidad_singular": "小时"
+    },
+    "talleres-escolares": {
+      "nombre": "校园生态工作坊",
+      "descripcion": "在农村学校免费举办关于传粉者和生命周期的工作坊。",
+      "unidad": "场工作坊",
+      "unidad_singular": "场工作坊"
+    }
+  },
+  "registros": {
+    "Entrega a 14 familias de Cerro Alto": "向 Cerro Alto 的 14 户家庭交付",
+    "Segunda entrega + capacitación de injerto": "第二次交付及嫁接培训",
+    "Vivero comunitario de La Cima": "La Cima 社区苗圃",
+    "Jornada de reforestación Día del Agua": "世界水日植树造林活动",
+    "Corredor biológico quebrada Los Ángeles": "Los Ángeles 溪生物走廊",
+    "Acuerdo de conservación finca San Isidro": "San Isidro 农场保护协议",
+    "Ampliación del acuerdo, sector norte": "协议扩展至北部区域",
+    "Primer cuatrimestre: 9 familias criadoras": "第一个四个月周期：9 户养殖家庭",
+    "Segundo cuatrimestre: 11 familias criadoras": "第二个四个月周期：11 户养殖家庭",
+    "Escuelas de San Rafael y Río Segundo": "San Rafael 和 Río Segundo 的学校",
+    "Circuito escolar de Sarapiquí": "Sarapiquí 学区"
+  },
+  "ajustes": {
+    "marca_descripcion": "从哥斯达黎加销售并出口热带活体蝴蝶，并带来可衡量的社会影响。",
+    "marca_ubicacion": "哥斯达黎加阿拉胡埃拉省圣拉斐尔",
+    "marca_pie": "热带活体蝴蝶贸易与出口商。哥斯达黎加阿拉胡埃拉省圣拉斐尔。",
+    "inicio_titular": "以蛹的形态从哥斯达黎加启程，在您的蝴蝶馆中破蛹而出。",
+    "inicio_entradilla": "我们经营八个热带蝴蝶品种，以活体形式出口至蝴蝶馆、博物馆和科学中心。我们与哥斯达黎加养殖户合作，全程冷链均有温度记录，任何未能羽化的蛹都将免费补发。",
+    "cifra1_valor": "38,420",
+    "cifra1_texto": "自 2019 年以来出口的蝴蝶数量",
+    "cifra2_valor": "97.4%",
+    "cifra2_texto": "抵达目的地后健康羽化",
+    "cifra3_valor": "11",
+    "cifra3_texto": "个国家定期发货",
+    "ciclo_titulo": "从您确认订单起，只需九天",
+    "ciclo_texto": "蛹在羽化前可维持十到十四天。整个流程都经过精心安排，确保货物留有充足余量送达，而不是踩着时间点。",
+    "ciclo_pasos": "0|确认订单|确定品种、数量和航班日期。\n3|收集与筛选|从养殖户处收货，剔除一切存疑的蛹。\n5|冷藏包装|棉垫、冷却凝胶和温度记录仪。\n9|送达|清关、植物检疫查验，直至送到蝴蝶馆门口。",
+    "envio_condiciones": "每个品种起订量|25 枚蛹\n运输温度|13 °C 至 16 °C\n随附文件|CITES 许可证及植物检疫证书\n无法羽化的蛹|在下一批货物中免费补发",
+    "envio_texto": "蝴蝶以蛹的形态出口，这是昆虫最能承受运输的阶段。蛹装在铺有棉垫的托盘中，配有冷却凝胶和温度记录仪，开箱时即可读取温度数据。"
+  },
+  "fichas": {
+    "Morpho peleides": { "vuelo": "高飞且飞行轨迹不规则，常见于林间空地", "disponibilidad": "全年供应" },
+    "Caligo memnon": { "vuelo": "晨昏活动，低飞", "disponibilidad": "全年供应" },
+    "Danaus plexippus": { "vuelo": "滑翔，持久飞行", "disponibilidad": "全年供应" },
+    "Greta oto": { "vuelo": "低飞，穿行于林下植被间", "disponibilidad": "全年供应" },
+    "Heliconius charithonia": { "vuelo": "缓慢，似漂浮", "disponibilidad": "全年供应" },
+    "Papilio thoas": { "vuelo": "快速，持续振翅", "disponibilidad": "全年供应" },
+    "Siproeta stelenes": { "vuelo": "中等高度，经常停歇", "disponibilidad": "全年供应" },
+    "Diaethria astala": { "vuelo": "快速且低飞", "disponibilidad": "3 月至 10 月" }
+  }
+}

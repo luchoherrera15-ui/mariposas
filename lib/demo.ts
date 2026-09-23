@@ -24,31 +24,31 @@ export const proyectosDemo: ProyectoImpacto[] = [
   {
     id: "p1", slug: "semillas-manzano", nombre: "Semillas de manzano sembradas",
     descripcion: "Compramos y sembramos semillas de manzano con familias de la zona alta para diversificar sus cultivos.",
-    unidad: "semillas", emoji: "🍎", meta_anual: 12000, orden: 1, ejecutado: 8650,
+    unidad: "semillas", unidad_singular: "semilla", emoji: "🍎", meta_anual: 12000, orden: 1, ejecutado: 8650,
     regla: { mariposas_por_bloque: 1, unidades_por_bloque: 3 },
   },
   {
     id: "p2", slug: "arboles-nativos", nombre: "Árboles nativos plantados",
     descripcion: "Reforestación con especies hospederas de mariposas: madero negro, guarumo, pasiflora.",
-    unidad: "árboles", emoji: "🌳", meta_anual: 2500, orden: 2, ejecutado: 1030,
+    unidad: "árboles", unidad_singular: "árbol", emoji: "🌳", meta_anual: 2500, orden: 2, ejecutado: 1030,
     regla: { mariposas_por_bloque: 25, unidades_por_bloque: 1 },
   },
   {
     id: "p3", slug: "metros-conservados", nombre: "Bosque en conservación",
     descripcion: "Metros cuadrados de bosque bajo acuerdo de no tala financiados con las ventas.",
-    unidad: "m²", emoji: "🌿", meta_anual: 80000, orden: 3, ejecutado: 44500,
+    unidad: "m²", unidad_singular: "m²", emoji: "🌿", meta_anual: 80000, orden: 3, ejecutado: 44500,
     regla: { mariposas_por_bloque: 5, unidades_por_bloque: 10 },
   },
   {
     id: "p4", slug: "horas-empleo", nombre: "Horas de empleo rural",
     descripcion: "Horas pagadas a las familias criadoras que nos abastecen, la mayoría encabezadas por mujeres.",
-    unidad: "horas", emoji: "🧑‍🌾", meta_anual: 9000, orden: 4, ejecutado: 5840,
+    unidad: "horas", unidad_singular: "hora", emoji: "🧑‍🌾", meta_anual: 9000, orden: 4, ejecutado: 5840,
     regla: { mariposas_por_bloque: 4, unidades_por_bloque: 1 },
   },
   {
     id: "p5", slug: "talleres-escolares", nombre: "Talleres escolares de ecología",
     descripcion: "Talleres gratuitos en escuelas rurales sobre polinizadores y ciclo de vida.",
-    unidad: "talleres", emoji: "🎓", meta_anual: 60, orden: 5, ejecutado: 29,
+    unidad: "talleres", unidad_singular: "taller", emoji: "🎓", meta_anual: 60, orden: 5, ejecutado: 29,
     regla: { mariposas_por_bloque: 500, unidades_por_bloque: 1 },
   },
 ];

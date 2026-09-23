@@ -1,5 +1,8 @@
 import "server-only";
 import { modoDemo } from "./config";
+import { type Traducciones } from "./i18n/contenido";
+import { IDIOMA_BASE_CONTENIDO } from "./i18n/idiomas";
+import { obtenerIdioma } from "./i18n/servidor";
 import { supabaseServidor } from "./supabase-servidor";
 
 /**
@@ -55,17 +58,22 @@ export async function obtenerAjustes(): Promise<Ajustes> {
   const valores = { ...AJUSTES_POR_DEFECTO } as Ajustes;
   if (modoDemo) return valores;
 
+  const idioma = await obtenerIdioma();
   const supabase = await supabaseServidor();
-  const { data, error } = await supabase.from("ajustes").select("clave, valor");
+  const { data, error } = await supabase.from("ajustes").select("clave, valor, traducciones");
   if (error || !data) {
     // Si todavía no corrieron 005_ajustes.sql, el sitio sigue funcionando.
     return valores;
   }
   for (const fila of data) {
     const clave = fila.clave as ClaveAjuste;
-    if (clave in valores && typeof fila.valor === "string" && fila.valor.trim() !== "") {
-      valores[clave] = fila.valor;
-    }
+    if (!(clave in valores)) continue;
+    // El valor base está en español; si hay traducción al idioma de la
+    // visita se usa esa (se editan por idioma en /admin/ajustes).
+    const traducido =
+      idioma === IDIOMA_BASE_CONTENIDO ? null : (fila.traducciones as Traducciones)?.[idioma]?.valor;
+    const valor = typeof traducido === "string" && traducido.trim() !== "" ? traducido : fila.valor;
+    if (typeof valor === "string" && valor.trim() !== "") valores[clave] = valor;
   }
   return valores;
 }

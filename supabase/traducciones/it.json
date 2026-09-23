@@ -1,0 +1,117 @@
+{
+  "especies": {
+    "Morpho peleides": {
+      "nombre_comun": "Morfo blu",
+      "region": "Costa Rica",
+      "descripcion": "Il classico blu metallizzato. Molto richiesta per mostre ed eventi."
+    },
+    "Caligo memnon": {
+      "nombre_comun": "Farfalla civetta",
+      "region": "Costa Rica",
+      "descripcion": "Grandi ocelli che imitano gli occhi di una civetta. Molto resistente al trasporto."
+    },
+    "Danaus plexippus": {
+      "nombre_comun": "Monarca",
+      "region": "Mesoamerica",
+      "descripcion": "Simbolo della migrazione. Ideale per i programmi educativi."
+    },
+    "Greta oto": {
+      "nombre_comun": "Ali di vetro",
+      "region": "Costa Rica",
+      "descripcion": "Ali trasparenti. La preferita dei fotografi."
+    },
+    "Heliconius charithonia": {
+      "nombre_comun": "Zebra dalle ali lunghe",
+      "region": "America centrale",
+      "descripcion": "Volo lento e appariscente. Eccellente per le case delle farfalle aperte."
+    },
+    "Papilio thoas": {
+      "nombre_comun": "Coda di rondine reale",
+      "region": "Costa Rica",
+      "descripcion": "Giallo intenso con code pronunciate."
+    },
+    "Siproeta stelenes": {
+      "nombre_comun": "Malachite",
+      "region": "Costa Rica",
+      "descripcion": "Verde giada traslucido. Molto longeva in cattività."
+    },
+    "Diaethria astala": {
+      "nombre_comun": "Ottantotto",
+      "region": "Costa Rica",
+      "descripcion": "Un \"88\" disegnato sulle ali posteriori."
+    }
+  },
+  "proyectos": {
+    "semillas-manzano": {
+      "nombre": "Semi di melo piantati",
+      "descripcion": "Acquistiamo e piantiamo semi di melo con le famiglie contadine d'altura per diversificare le loro colture.",
+      "unidad": "semi",
+      "unidad_singular": "seme"
+    },
+    "arboles-nativos": {
+      "nombre": "Alberi autoctoni piantati",
+      "descripcion": "Riforestazione con piante ospiti delle farfalle: madero negro, guarumo e passiflora.",
+      "unidad": "alberi",
+      "unidad_singular": "albero"
+    },
+    "metros-conservados": {
+      "nombre": "Foresta protetta",
+      "descripcion": "Metri quadrati di foresta con accordi di non disboscamento, finanziati dalle vendite.",
+      "unidad": "m²",
+      "unidad_singular": "m²"
+    },
+    "horas-empleo": {
+      "nombre": "Ore di lavoro rurale",
+      "descripcion": "Ore retribuite alle famiglie di allevatori che ci riforniscono, per lo più guidate da donne.",
+      "unidad": "ore",
+      "unidad_singular": "ora"
+    },
+    "talleres-escolares": {
+      "nombre": "Laboratori scolastici di ecologia",
+      "descripcion": "Laboratori gratuiti nelle scuole rurali su impollinatori e ciclo di vita delle farfalle.",
+      "unidad": "laboratori",
+      "unidad_singular": "laboratorio"
+    }
+  },
+  "registros": {
+    "Entrega a 14 familias de Cerro Alto": "Consegna a 14 famiglie di Cerro Alto",
+    "Segunda entrega + capacitación de injerto": "Seconda consegna + formazione sull'innesto",
+    "Vivero comunitario de La Cima": "Vivaio comunitario di La Cima",
+    "Jornada de reforestación Día del Agua": "Giornata di riforestazione per la Giornata mondiale dell'acqua",
+    "Corredor biológico quebrada Los Ángeles": "Corridoio biologico del torrente Los Ángeles",
+    "Acuerdo de conservación finca San Isidro": "Accordo di conservazione, tenuta San Isidro",
+    "Ampliación del acuerdo, sector norte": "Ampliamento dell'accordo, settore nord",
+    "Primer cuatrimestre: 9 familias criadoras": "Primo quadrimestre: 9 famiglie di allevatori",
+    "Segundo cuatrimestre: 11 familias criadoras": "Secondo quadrimestre: 11 famiglie di allevatori",
+    "Escuelas de San Rafael y Río Segundo": "Scuole di San Rafael e Río Segundo",
+    "Circuito escolar de Sarapiquí": "Circuito scolastico di Sarapiquí"
+  },
+  "ajustes": {
+    "marca_descripcion": "Commercializzazione ed esportazione di farfalle tropicali vive dalla Costa Rica, con un impatto sociale misurabile.",
+    "marca_ubicacion": "San Rafael de Alajuela, Costa Rica",
+    "marca_pie": "Commercializzazione ed esportazione di farfalle tropicali vive. San Rafael de Alajuela, Costa Rica.",
+    "inicio_titular": "Partono come pupe dalla Costa Rica e sfarfallano nella tua casa delle farfalle.",
+    "inicio_entradilla": "Commercializziamo otto specie tropicali e le esportiamo vive a case delle farfalle, musei e centri scientifici. Lavoriamo con allevamenti costaricani, con una catena del freddo registrata dall'inizio alla fine, e sostituiamo ogni pupa che non si schiude.",
+    "cifra1_valor": "38.420",
+    "cifra1_texto": "farfalle esportate dal 2019",
+    "cifra2_valor": "97,4%",
+    "cifra2_texto": "sfarfallano sane all'arrivo a destinazione",
+    "cifra3_valor": "11",
+    "cifra3_texto": "paesi con spedizioni ricorrenti",
+    "ciclo_titulo": "Nove giorni da quando confermi l'ordine",
+    "ciclo_texto": "La pupa resiste da dieci a quattordici giorni prima di schiudersi. Tutto il processo è calibrato perché arrivi con margine, non all'ultimo momento.",
+    "ciclo_pasos": "0|Conferma|Definiamo specie, quantità e data di volo.\n3|Raccolta e selezione|Riceviamo le pupe dagli allevamenti e scartiamo quelle dubbie.\n5|Imballaggio refrigerato|Cotone, gel refrigerante e registratore di temperatura.\n9|Consegna|Dogana, ispezione fitosanitaria e consegna alla porta della tua casa delle farfalle.",
+    "envio_condiciones": "Minimo per specie|25 pupe\nTemperatura di transito|Da 13 °C a 16 °C\nDocumenti inclusi|Permesso CITES e certificato fitosanitario\nPupe non vitali|Sostituite senza costi nella spedizione successiva",
+    "envio_texto": "Vengono esportate allo stadio di pupa, la fase in cui l'insetto sopporta meglio il viaggio. Viaggiano in vassoi di cotone con gel refrigerante e un registratore di temperatura che si legge all'apertura della scatola."
+  },
+  "fichas": {
+    "Morpho peleides": { "vuelo": "Alto e irregolare, nelle radure", "disponibilidad": "Tutto l'anno" },
+    "Caligo memnon": { "vuelo": "Crepuscolare, basso", "disponibilidad": "Tutto l'anno" },
+    "Danaus plexippus": { "vuelo": "Planato, prolungato", "disponibilidad": "Tutto l'anno" },
+    "Greta oto": { "vuelo": "Basso, nel sottobosco", "disponibilidad": "Tutto l'anno" },
+    "Heliconius charithonia": { "vuelo": "Lento e fluttuante", "disponibilidad": "Tutto l'anno" },
+    "Papilio thoas": { "vuelo": "Rapido, con battito d'ali continuo", "disponibilidad": "Tutto l'anno" },
+    "Siproeta stelenes": { "vuelo": "Medio, si posa spesso", "disponibilidad": "Tutto l'anno" },
+    "Diaethria astala": { "vuelo": "Rapido e basso", "disponibilidad": "Da marzo a ottobre" }
+  }
+}

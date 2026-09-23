@@ -2,16 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Textos } from "@/lib/i18n/textos";
 
-const enlaces = [
-  { href: "/panel", texto: "Resumen" },
-  { href: "/panel/pedidos", texto: "Pedidos" },
-  { href: "/panel/envios", texto: "Envíos y tracking" },
-  { href: "/panel/impacto", texto: "Mi impacto social" },
-];
-
-export default function NavPanel() {
+/** Con `completo` en false (cuenta sin aprobar) se esconden Pedidos y Envíos. */
+export default function NavPanel({ textos, completo }: { textos: Textos["panel"]["nav"]; completo: boolean }) {
   const ruta = usePathname();
+  const enlaces = [
+    { href: "/panel", texto: textos.resumen },
+    ...(completo
+      ? [
+          { href: "/panel/pedidos", texto: textos.pedidos },
+          { href: "/panel/envios", texto: textos.envios },
+        ]
+      : []),
+    { href: "/panel/impacto", texto: textos.impacto },
+  ];
 
   return (
     <nav className="flex gap-1.5 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0">

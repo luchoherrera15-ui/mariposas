@@ -8,14 +8,22 @@ import { leerPares, obtenerAjustes, obtenerMarca } from "@/lib/ajustes";
 import { obtenerEspecies } from "@/lib/datos";
 import { slugDeEspecie } from "@/lib/especies-foto";
 import { ficha } from "@/lib/fichas";
+import { fmt } from "@/lib/i18n/idiomas";
+import { obtenerIdioma, obtenerTextos } from "@/lib/i18n/servidor";
 
-export const metadata: Metadata = {
-  title: "Especies",
-  description: "Especies de mariposas tropicales que exportamos vivas en fase de pupa.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await obtenerTextos();
+  return { title: t.especies.metaTitulo, description: t.especies.metaDescripcion };
+}
 
 export default async function Especies() {
-  const [especies, ajustes, marca] = await Promise.all([obtenerEspecies(), obtenerAjustes(), obtenerMarca()]);
+  const [especies, ajustes, marca, idioma, t] = await Promise.all([
+    obtenerEspecies(),
+    obtenerAjustes(),
+    obtenerMarca(),
+    obtenerIdioma(),
+    obtenerTextos(),
+  ]);
   const condiciones = leerPares(ajustes.envio_condiciones);
 
   return (
@@ -26,10 +34,9 @@ export default async function Especies() {
       <main className="flex-1">
         <div className="mx-auto w-full max-w-[82rem] px-6 pb-16 pt-16">
           <div className="max-w-2xl">
-            <h1 className="display">Ocho especies, todas de criaderos costarricenses.</h1>
+            <h1 className="display">{t.especies.titulo}</h1>
             <p className="lede mt-8">
-              Cada pedido se cotiza según especie, cantidad y destino. Escribinos con lo que necesitás y te
-              confirmamos disponibilidad y fecha de vuelo en 24 horas.
+              {t.especies.entradilla}
             </p>
           </div>
         </div>
@@ -38,7 +45,7 @@ export default async function Especies() {
             mariposario antes de comprar. */}
         <ul>
           {especies.map((e, indice) => {
-            const f = ficha(e.nombre_cientifico);
+            const f = ficha(e.nombre_cientifico, idioma);
             const invertida = indice % 2 === 1;
             return (
               <li key={e.id} className={indice % 2 === 0 ? "bg-lino" : "bg-papel"}>
@@ -60,18 +67,18 @@ export default async function Especies() {
                     <p className="prosa mt-6 text-pizarra">{e.descripcion}</p>
 
                     <dl className="mt-8 divide-y divide-linea border-y border-linea">
-                      <Dato etiqueta="Familia" valor={e.familia ?? "—"} />
-                      <Dato etiqueta="Origen" valor={e.region ?? "—"} />
-                      {f ? <Dato etiqueta="Envergadura" valor={f.envergadura} mono /> : null}
-                      {f ? <Dato etiqueta="Vuelo" valor={f.vuelo} /> : null}
-                      {f ? <Dato etiqueta="Disponibilidad" valor={f.disponibilidad} /> : null}
+                      <Dato etiqueta={t.especies.familia} valor={e.familia ?? "—"} />
+                      <Dato etiqueta={t.especies.origen} valor={e.region ?? "—"} />
+                      {f ? <Dato etiqueta={t.especies.envergadura} valor={f.envergadura} mono /> : null}
+                      {f ? <Dato etiqueta={t.especies.vuelo} valor={f.vuelo} /> : null}
+                      {f ? <Dato etiqueta={t.especies.disponibilidad} valor={f.disponibilidad} /> : null}
                     </dl>
 
                     <a
-                      href={`mailto:${marca.correo}?subject=${encodeURIComponent(`Consulta: ${e.nombre_comun}`)}`}
+                      href={`mailto:${marca.correo}?subject=${encodeURIComponent(fmt(t.especies.asuntoConsulta, { especie: e.nombre_comun }))}`}
                       className="mt-8 inline-block border-b border-linea pb-0.5 text-sm transition-colors hover:border-tinta"
                     >
-                      Consultar disponibilidad de esta especie
+                      {t.especies.consultar}
                     </a>
                   </div>
                 </div>
@@ -84,7 +91,7 @@ export default async function Especies() {
         <section className="bg-noche text-white">
           <div className="mx-auto grid max-w-[82rem] gap-12 px-6 py-24 lg:grid-cols-[24rem_1fr] lg:gap-20">
             <div>
-              <h2 className="titulo-2">Cómo viajan</h2>
+              <h2 className="titulo-2">{t.especies.comoViajan}</h2>
               <p className="prosa mt-6 text-white/65">{ajustes.envio_texto}</p>
             </div>
             <dl className="divide-y divide-white/15 border-y border-white/15">
@@ -99,7 +106,7 @@ export default async function Especies() {
         </section>
 
         <section className="mx-auto w-full max-w-[82rem] px-6 py-24">
-          <h2 className="titulo-2 max-w-2xl">¿Armamos tu pedido?</h2>
+          <h2 className="titulo-2 max-w-2xl">{t.especies.armamos}</h2>
           <div className="mt-8 flex flex-wrap gap-x-12 gap-y-4 text-[1.05rem]">
             <a
               href={`mailto:${marca.correo}`}
@@ -108,7 +115,7 @@ export default async function Especies() {
               {marca.correo}
             </a>
             <Link href="/entrar" className="border-b border-linea pb-0.5 transition-colors hover:border-tinta">
-              Si ya sos cliente, entrá al panel
+              {t.especies.yaCliente}
             </Link>
           </div>
         </section>

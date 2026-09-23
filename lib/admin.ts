@@ -105,6 +105,8 @@ export type Cliente = {
   nombre: string;
   empresa: string | null;
   rol: string;
+  /** Sin aprobar ve su panel, pero no pedidos, envíos ni precios. */
+  aprobado: boolean;
   creado_en: string;
 };
 
@@ -117,27 +119,20 @@ export async function listarClientes(): Promise<Cliente[]> {
         nombre: "Cliente de demostración",
         empresa: "Mariposario de ejemplo",
         rol: "cliente",
+        aprobado: true,
         creado_en: new Date(Date.now() - 90 * 86_400_000).toISOString(),
       },
     ];
   }
 
-  const admin = supabaseAdmin();
-  const { data: usuarios } = await admin.auth.admin.listUsers({ page: 1, perPage: 200 });
-  const { data: perfiles } = await admin.from("perfiles").select("id, nombre, empresa, rol");
-  const porId = new Map((perfiles ?? []).map((p) => [p.id as string, p]));
-
-  return (usuarios?.users ?? []).map((u) => {
-    const p = porId.get(u.id);
-    return {
-      id: u.id,
-      email: u.email ?? "",
-      nombre: (p?.nombre as string) || (u.email ?? "").split("@")[0],
-      empresa: (p?.empresa as string) ?? null,
-      rol: (p?.rol as string) ?? "cliente",
-      creado_en: u.created_at,
-    };
-  });
+  // Solo quien tiene perfil de mariposas: auth.users incluye a los usuarios
+  // de las otras apps del mismo proyecto de Supabase. Pendientes primero.
+  const { data, error } = await supabaseAdmin().rpc("clientes_admin");
+  if (error) console.error("listarClientes:", error.message);
+  return ((data ?? []) as Cliente[]).map((c) => ({
+    ...c,
+    nombre: c.nombre || c.email.split("@")[0],
+  }));
 }
 
 export async function listarPedidos(estado?: string): Promise<PedidoAdmin[]> {
@@ -179,7 +174,7 @@ export type EspecieAdmin = {
 export async function listarEspecies(): Promise<EspecieAdmin[]> {
   if (modoDemo) {
     const { especiesDemo } = await import("./demo");
-    return especiesDemo.map((e) => ({ ...e, activo: true }));
+    return especiesDemo.map((e) => ({ ...e, precio_unitario: e.precio_unitario ?? 0, activo: true }));
   }
   const { data } = await supabaseAdmin()
     .from("especies")
@@ -257,11 +252,12 @@ export async function listarAjustes() {
       grupo: "Demostración",
       multilinea: valor.length > 60,
       orden: i,
+      traducciones: {} as unknown,
     }));
   }
   const { data } = await supabaseAdmin()
     .from("ajustes")
-    .select("clave, valor, etiqueta, ayuda, grupo, multilinea, orden")
+    .select("clave, valor, etiqueta, ayuda, grupo, multilinea, orden, traducciones")
     .order("grupo")
     .order("orden");
   return data ?? [];

@@ -1,10 +1,20 @@
-import { etiquetaEnvio, fechaHora } from "@/lib/formato";
 import type { EnvioEvento, EstadoEnvio } from "@/lib/tipos";
 
 /** Historial de eventos de un envío, del más reciente al más antiguo. */
-export default function LineaTiempo({ eventos }: { eventos: EnvioEvento[] }) {
+export default function LineaTiempo({
+  eventos,
+  estados,
+  vacio,
+  fechaHora,
+}: {
+  eventos: EnvioEvento[];
+  /** Nombre de cada estado en el idioma de la visita. */
+  estados: Record<EstadoEnvio, string>;
+  vacio: string;
+  fechaHora: (valor: string | null) => string;
+}) {
   if (eventos.length === 0) {
-    return <p className="text-sm text-pizarra">Todavía no hay movimientos registrados.</p>;
+    return <p className="text-sm text-pizarra">{vacio}</p>;
   }
 
   return (
@@ -21,7 +31,7 @@ export default function LineaTiempo({ eventos }: { eventos: EnvioEvento[] }) {
             />
             <div className="flex flex-wrap items-baseline gap-x-3">
               <p className={`text-sm font-semibold ${actual ? "text-morpho" : "text-tinta"}`}>
-                {etiquetaEnvio[e.estado as EstadoEnvio] ?? e.estado}
+                {estados[e.estado as EstadoEnvio] ?? e.estado}
               </p>
               <p className="datos text-xs text-pizarra">{fechaHora(e.ocurrido_en)}</p>
               {e.ubicacion ? <p className="text-xs font-medium text-pizarra">· {e.ubicacion}</p> : null}

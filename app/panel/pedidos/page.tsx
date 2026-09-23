@@ -1,26 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CuentaEnRevision from "@/components/panel/CuentaEnRevision";
 import { Chip, Tarjeta, Vacio } from "@/components/ui";
-import { obtenerPedidos } from "@/lib/datos";
-import { colorEnvio, colorPedido, etiquetaEnvio, etiquetaPedido, fecha, moneda, numero } from "@/lib/formato";
+import { obtenerPedidos, obtenerUsuario } from "@/lib/datos";
+import { colorEnvio, colorPedido } from "@/lib/formato";
+import { fmt } from "@/lib/i18n/idiomas";
+import { obtenerFormato, obtenerTextos } from "@/lib/i18n/servidor";
 
-export const metadata: Metadata = { title: "Pedidos" };
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await obtenerTextos()).panel.pedidos.metaTitulo };
+}
 
 export default async function PanelPedidos() {
-  const pedidos = await obtenerPedidos();
+  const [usuario, pedidos, t, { fecha, moneda, numero }] = await Promise.all([
+    obtenerUsuario(),
+    obtenerPedidos(),
+    obtenerTextos(),
+    obtenerFormato(),
+  ]);
+  const tp = t.panel.pedidos;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="titulo-2">Pedidos</h1>
-        <p className="mt-1 text-pizarra">Todo tu historial, con el detalle por especie de cada pedido.</p>
+        <h1 className="titulo-2">{tp.titulo}</h1>
+        <p className="mt-1 text-pizarra">{tp.subtitulo}</p>
       </div>
 
-      {pedidos.length === 0 ? (
-        <Vacio>
-          Todavía no hay pedidos en tu cuenta. Si acabás de correr las migraciones, ejecutá también{" "}
-          <code>003_pedidos_demo.sql</code> con tu correo.
-        </Vacio>
+      {!usuario?.aprobado ? (
+        <CuentaEnRevision />
+      ) : pedidos.length === 0 ? (
+        <Vacio>{tp.vacio}</Vacio>
       ) : (
         pedidos.map((p) => {
           const mariposas = p.items.reduce((s, i) => s + i.cantidad, 0);
@@ -30,7 +40,7 @@ export default async function PanelPedidos() {
                 <div>
                   <div className="flex items-center gap-3">
                     <h2 className="datos text-lg">{p.codigo}</h2>
-                    <Chip className={colorPedido[p.estado]}>{etiquetaPedido[p.estado]}</Chip>
+                    <Chip className={colorPedido[p.estado]}>{t.estadosPedido[p.estado]}</Chip>
                   </div>
                   <p className="mt-1 text-sm text-pizarra">
                     <span className="datos">{fecha(p.creado_en)}</span>
@@ -38,10 +48,8 @@ export default async function PanelPedidos() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="datos text-2xl">
-                    {moneda(p.total, p.moneda)}
-                  </p>
-                  <p className="datos text-sm text-pizarra">{numero(mariposas)} mariposas</p>
+                  <p className="datos text-2xl">{moneda(p.total, p.moneda)}</p>
+                  <p className="datos text-sm text-pizarra">{fmt(tp.nMariposas, { n: numero(mariposas) })}</p>
                 </div>
               </div>
 
@@ -49,10 +57,10 @@ export default async function PanelPedidos() {
                 <table className="w-full min-w-[30rem] text-sm">
                   <thead>
                     <tr className="border-b border-linea bg-lino text-left text-xs text-pizarra">
-                      <th className="px-4 py-2.5 font-semibold">Especie</th>
-                      <th className="px-4 py-2.5 text-right font-semibold">Cantidad</th>
-                      <th className="px-4 py-2.5 text-right font-semibold">Precio</th>
-                      <th className="px-4 py-2.5 text-right font-semibold">Subtotal</th>
+                      <th className="px-4 py-2.5 font-semibold">{tp.especie}</th>
+                      <th className="px-4 py-2.5 text-right font-semibold">{tp.cantidad}</th>
+                      <th className="px-4 py-2.5 text-right font-semibold">{tp.precio}</th>
+                      <th className="px-4 py-2.5 text-right font-semibold">{tp.subtotal}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -77,7 +85,7 @@ export default async function PanelPedidos() {
 
               {p.envio ? (
                 <div className="mt-4 flex flex-wrap items-center gap-3 bg-lino px-4 py-3">
-                  <Chip className={colorEnvio[p.envio.estado]}>{etiquetaEnvio[p.envio.estado]}</Chip>
+                  <Chip className={colorEnvio[p.envio.estado]}>{t.estadosEnvio[p.envio.estado]}</Chip>
                   <p className="text-sm text-pizarra">
                     {p.envio.transportista}
                     {p.envio.numero_guia ? ` · ${p.envio.numero_guia}` : ""}
@@ -86,13 +94,11 @@ export default async function PanelPedidos() {
                     href={`/panel/envios/${p.envio.id}`}
                     className="ml-auto text-sm font-semibold text-morpho hover:text-tinta"
                   >
-                    Ver tracking
+                    {tp.verTracking}
                   </Link>
                 </div>
               ) : (
-                <p className="mt-4 bg-lino px-4 py-3 text-sm text-pizarra">
-                  Este pedido todavía no tiene envío asignado.
-                </p>
+                <p className="mt-4 bg-lino px-4 py-3 text-sm text-pizarra">{tp.sinEnvio}</p>
               )}
             </Tarjeta>
           );

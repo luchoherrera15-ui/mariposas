@@ -1,0 +1,117 @@
+{
+  "especies": {
+    "Morpho peleides": {
+      "nombre_comun": "Morpho bleu",
+      "region": "Costa Rica",
+      "descripcion": "Le classique bleu métallique. Très demandé pour les expositions et les événements."
+    },
+    "Caligo memnon": {
+      "nombre_comun": "Papillon hibou géant",
+      "region": "Costa Rica",
+      "descripcion": "D'immenses ocelles qui imitent les yeux d'un hibou. Très résistant au transport."
+    },
+    "Danaus plexippus": {
+      "nombre_comun": "Monarque",
+      "region": "Mésoamérique",
+      "descripcion": "L'icône de la migration. Idéal pour les programmes éducatifs."
+    },
+    "Greta oto": {
+      "nombre_comun": "Papillon de verre",
+      "region": "Costa Rica",
+      "descripcion": "Des ailes transparentes. Le préféré des photographes."
+    },
+    "Heliconius charithonia": {
+      "nombre_comun": "Zèbre à longues ailes",
+      "region": "Amérique centrale",
+      "descripcion": "Vol lent et spectaculaire. Excellent pour les serres à papillons ouvertes."
+    },
+    "Papilio thoas": {
+      "nombre_comun": "Porte-queue de Thoas",
+      "region": "Costa Rica",
+      "descripcion": "Jaune intense, avec des queues prononcées."
+    },
+    "Siproeta stelenes": {
+      "nombre_comun": "Malachite",
+      "region": "Costa Rica",
+      "descripcion": "Vert jade translucide. Très grande longévité en captivité."
+    },
+    "Diaethria astala": {
+      "nombre_comun": "Quatre-vingt-huit",
+      "region": "Costa Rica",
+      "descripcion": "Le « 88 » dessiné sur les ailes postérieures."
+    }
+  },
+  "proyectos": {
+    "semillas-manzano": {
+      "nombre": "Graines de pommier semées",
+      "descripcion": "Nous achetons et semons des graines de pommier avec des familles des hauteurs pour diversifier leurs cultures.",
+      "unidad": "graines",
+      "unidad_singular": "graine"
+    },
+    "arboles-nativos": {
+      "nombre": "Arbres indigènes plantés",
+      "descripcion": "Reboisement avec des espèces hôtes de papillons : madero negro, guarumo, passiflore.",
+      "unidad": "arbres",
+      "unidad_singular": "arbre"
+    },
+    "metros-conservados": {
+      "nombre": "Forêt en conservation",
+      "descripcion": "Mètres carrés de forêt placés sous accord de non-abattage, financés par les ventes.",
+      "unidad": "m²",
+      "unidad_singular": "m²"
+    },
+    "horas-empleo": {
+      "nombre": "Heures d'emploi rural",
+      "descripcion": "Heures rémunérées aux familles d'éleveurs qui nous approvisionnent, pour la plupart dirigées par des femmes.",
+      "unidad": "heures",
+      "unidad_singular": "heure"
+    },
+    "talleres-escolares": {
+      "nombre": "Ateliers scolaires d'écologie",
+      "descripcion": "Ateliers gratuits dans les écoles rurales sur les pollinisateurs et le cycle de vie.",
+      "unidad": "ateliers",
+      "unidad_singular": "atelier"
+    }
+  },
+  "registros": {
+    "Entrega a 14 familias de Cerro Alto": "Remise à 14 familles de Cerro Alto",
+    "Segunda entrega + capacitación de injerto": "Deuxième remise + formation au greffage",
+    "Vivero comunitario de La Cima": "Pépinière communautaire de La Cima",
+    "Jornada de reforestación Día del Agua": "Journée de reboisement pour la Journée de l'eau",
+    "Corredor biológico quebrada Los Ángeles": "Corridor biologique du ruisseau Los Ángeles",
+    "Acuerdo de conservación finca San Isidro": "Accord de conservation du domaine San Isidro",
+    "Ampliación del acuerdo, sector norte": "Extension de l'accord, secteur nord",
+    "Primer cuatrimestre: 9 familias criadoras": "Premier quadrimestre : 9 familles d'éleveurs",
+    "Segundo cuatrimestre: 11 familias criadoras": "Deuxième quadrimestre : 11 familles d'éleveurs",
+    "Escuelas de San Rafael y Río Segundo": "Écoles de San Rafael et de Río Segundo",
+    "Circuito escolar de Sarapiquí": "Circonscription scolaire de Sarapiquí"
+  },
+  "ajustes": {
+    "marca_descripcion": "Commercialisation et exportation de papillons tropicaux vivants depuis le Costa Rica, avec un impact social mesurable.",
+    "marca_ubicacion": "San Rafael de Alajuela, Costa Rica",
+    "marca_pie": "Commercialisation et exportation de papillons tropicaux vivants. San Rafael de Alajuela, Costa Rica.",
+    "inicio_titular": "Chrysalides au départ du Costa Rica, papillons à l'arrivée dans votre serre.",
+    "inicio_entradilla": "Nous commercialisons huit espèces tropicales et les exportons vivantes vers des serres à papillons, des musées et des centres de sciences. Nous travaillons avec des élevages costaricains, avec une chaîne du froid enregistrée de bout en bout et le remplacement de toute chrysalide qui n'éclot pas.",
+    "cifra1_valor": "38 420",
+    "cifra1_texto": "papillons exportés depuis 2019",
+    "cifra2_valor": "97,4 %",
+    "cifra2_texto": "éclosent en bonne santé à destination",
+    "cifra3_valor": "11",
+    "cifra3_texto": "pays avec des envois réguliers",
+    "ciclo_titulo": "Neuf jours après la validation de votre commande",
+    "ciclo_texto": "La chrysalide tient entre dix et quatorze jours avant d'éclore. Tout le processus est calibré pour qu'elle arrive avec de la marge, et non tout juste.",
+    "ciclo_pasos": "0|Confirmation|Nous arrêtons les espèces, les quantités et la date du vol.\n3|Collecte et tri|Nous réceptionnons les chrysalides des élevages et écartons toute chrysalide douteuse.\n5|Emballage réfrigéré|Coton, gel réfrigérant et enregistreur de température.\n9|Livraison|Douane, inspection phytosanitaire et livraison jusqu'à la porte de votre serre à papillons.",
+    "envio_condiciones": "Minimum par espèce|25 chrysalides\nTempérature de transit|13 °C à 16 °C\nDocuments inclus|Permis CITES et certificat phytosanitaire\nChrysalides non viables|Remplacées gratuitement lors de l'envoi suivant",
+    "envio_texto": "Elles sont exportées au stade de chrysalide, lorsque l'insecte supporte le mieux le transport. Elles voyagent sur des plateaux de coton avec du gel réfrigérant et un enregistreur de température, relevé à l'ouverture du colis."
+  },
+  "fichas": {
+    "Morpho peleides": { "vuelo": "Haut et erratique, dans les clairières", "disponibilidad": "Toute l'année" },
+    "Caligo memnon": { "vuelo": "Crépusculaire, bas", "disponibilidad": "Toute l'année" },
+    "Danaus plexippus": { "vuelo": "Plané, soutenu", "disponibilidad": "Toute l'année" },
+    "Greta oto": { "vuelo": "Bas, dans le sous-bois", "disponibilidad": "Toute l'année" },
+    "Heliconius charithonia": { "vuelo": "Lent et flottant", "disponibilidad": "Toute l'année" },
+    "Papilio thoas": { "vuelo": "Rapide, avec des battements d'ailes continus", "disponibilidad": "Toute l'année" },
+    "Siproeta stelenes": { "vuelo": "Moyen, se pose fréquemment", "disponibilidad": "Toute l'année" },
+    "Diaethria astala": { "vuelo": "Rapide et bas", "disponibilidad": "De mars à octobre" }
+  }
+}

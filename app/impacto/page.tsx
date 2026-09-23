@@ -4,19 +4,22 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { obtenerAjustes } from "@/lib/ajustes";
 import { obtenerImpacto, obtenerRegistrosImpacto } from "@/lib/datos";
-import { fecha, numero } from "@/lib/formato";
+import { fmt } from "@/lib/i18n/idiomas";
+import { obtenerFormato, obtenerTextos } from "@/lib/i18n/servidor";
 import { avanceMeta, textoRegla } from "@/lib/impacto";
 
-export const metadata: Metadata = {
-  title: "Trabajo social",
-  description: "La regla que convierte cada mariposa vendida en semillas, árboles, bosque conservado y empleo rural.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await obtenerTextos();
+  return { title: t.impacto.metaTitulo, description: t.impacto.metaDescripcion };
+}
 
 export default async function Impacto() {
-  const [proyectos, registros, ajustes] = await Promise.all([
+  const [proyectos, registros, ajustes, t, { fecha, numero }] = await Promise.all([
     obtenerImpacto(),
     obtenerRegistrosImpacto(),
     obtenerAjustes(),
+    obtenerTextos(),
+    obtenerFormato(),
   ]);
 
   return (
@@ -26,11 +29,10 @@ export default async function Impacto() {
 
       <main className="mx-auto w-full max-w-[76rem] flex-1 px-6 py-16">
         <div className="max-w-3xl">
-          <h1 className="display">Dónde termina la plata de cada mariposa.</h1>
+          <h1 className="display">{t.impacto.titulo}</h1>
           <p className="lede mt-7">
-            Publicamos tres cosas: la regla de conversión, cuánto se ejecutó y con quién. Si una cifra no tiene
-            respaldo documentado, no aparece acá. La base de cálculo son{" "}
-            <span className="datos text-tinta">{ajustes.cifra1_valor}</span> mariposas vendidas.
+            {t.impacto.entradillaAntes} <span className="datos text-tinta">{ajustes.cifra1_valor}</span>{" "}
+            {t.impacto.entradillaDespues}
           </p>
         </div>
 
@@ -43,7 +45,7 @@ export default async function Impacto() {
                 <div>
                   <h2 className="titulo-3">{p.nombre}</h2>
                   <p className="mt-2 max-w-lg text-sm leading-relaxed text-pizarra">{p.descripcion}</p>
-                  <p className="datos mt-3 text-sm text-morpho">{textoRegla(p)}</p>
+                  <p className="datos mt-3 text-sm text-morpho">{textoRegla(p, t)}</p>
                 </div>
 
                 <div>
@@ -51,7 +53,7 @@ export default async function Impacto() {
                     {numero(p.ejecutado)}{" "}
                     <span className="text-base text-pizarra">{p.unidad}</span>
                   </p>
-                  <p className="mt-1.5 text-sm text-pizarra">ejecutado y documentado</p>
+                  <p className="mt-1.5 text-sm text-pizarra">{t.impacto.ejecutado}</p>
                 </div>
 
                 {avance !== null ? (
@@ -59,7 +61,7 @@ export default async function Impacto() {
                     <div className="flex items-baseline justify-between text-sm">
                       <span className="datos">{avance} %</span>
                       <span className="text-pizarra">
-                        meta {numero(p.meta_anual ?? 0)}
+                        {fmt(t.impacto.meta, { n: numero(p.meta_anual ?? 0) })}
                       </span>
                     </div>
                     <div className="mt-2 h-px w-full bg-linea">
@@ -74,19 +76,19 @@ export default async function Impacto() {
 
         {/* Bitácora */}
         <section className="mt-24">
-          <h2 className="titulo-2">Bitácora</h2>
+          <h2 className="titulo-2">{t.impacto.bitacora}</h2>
           <p className="prosa mt-4 text-pizarra">
-            Cada línea es una entrega hecha, con la fecha y la contraparte. Los comprobantes se piden por correo.
+            {t.impacto.bitacoraTexto}
           </p>
 
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[40rem] text-left text-sm">
               <thead>
                 <tr className="border-y border-linea text-pizarra">
-                  <th className="py-3 pr-6 font-normal">Fecha</th>
-                  <th className="py-3 pr-6 font-normal">Proyecto</th>
-                  <th className="py-3 pr-6 font-normal">Detalle</th>
-                  <th className="py-3 text-right font-normal">Cantidad</th>
+                  <th className="py-3 pr-6 font-normal">{t.impacto.fecha}</th>
+                  <th className="py-3 pr-6 font-normal">{t.impacto.proyecto}</th>
+                  <th className="py-3 pr-6 font-normal">{t.impacto.detalle}</th>
+                  <th className="py-3 text-right font-normal">{t.impacto.cantidad}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-linea">

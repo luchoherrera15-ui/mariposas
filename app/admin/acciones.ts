@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { bloqueoDemo, requerirAdmin } from "@/lib/admin";
+import type { Traducciones } from "@/lib/i18n/contenido";
+import { IDIOMA_BASE_CONTENIDO, NOMBRE_IDIOMA, esIdioma } from "@/lib/i18n/idiomas";
 import { supabaseAdmin } from "@/lib/supabase-servidor";
 
 /**
@@ -311,6 +313,8 @@ export async function guardarAjustes(_previo: Resultado, formulario: FormData): 
   if (alto) return alto;
 
   const admin = supabaseAdmin();
+  const idiomaPedido = texto(formulario, "idioma");
+  const idioma = esIdioma(idiomaPedido) ? idiomaPedido : IDIOMA_BASE_CONTENIDO;
   const cambios: { clave: string; valor: string }[] = [];
   for (const [campo, valor] of formulario.entries()) {
     if (campo.startsWith("ajuste_") && typeof valor === "string") {
@@ -319,26 +323,53 @@ export async function guardarAjustes(_previo: Resultado, formulario: FormData): 
   }
   if (cambios.length === 0) return { error: "No hubo cambios que guardar." };
 
+  // El español va en "valor"; los demás idiomas, en "traducciones".
+  const { data: actuales } = await admin.from("ajustes").select("clave, traducciones");
+  const traduccionesDe = new Map((actuales ?? []).map((f) => [f.clave as string, (f.traducciones ?? {}) as Traducciones]));
+
   for (const cambio of cambios) {
+    let fila: Record<string, unknown>;
+    if (idioma === IDIOMA_BASE_CONTENIDO) {
+      fila = { valor: cambio.valor };
+    } else {
+      const traducciones = { ...(traduccionesDe.get(cambio.clave) ?? {}) };
+      // Vacío = sin traducción: el sitio muestra el español.
+      if (cambio.valor.trim() === "") delete traducciones[idioma];
+      else traducciones[idioma] = { valor: cambio.valor };
+      fila = { traducciones };
+    }
     const { error } = await admin
       .from("ajustes")
-      .update({ valor: cambio.valor, actualizado_en: new Date().toISOString() })
+      .update({ ...fila, actualizado_en: new Date().toISOString() })
       .eq("clave", cambio.clave);
     if (error) return { error: `No se pudo guardar "${cambio.clave}": ${error.message}` };
   }
 
   refrescar("/admin/ajustes");
-  return { ok: `Guardado. Se actualizaron ${cambios.length} campos del sitio.` };
+  return { ok: `Guardado en ${NOMBRE_IDIOMA[idioma]}. Se actualizaron ${cambios.length} campos del sitio.` };
 }
 
 // ─── Clientes ────────────────────────────────────────────────────────────────
 
+export async function cambiarAprobacion(formulario: FormData) {
+  const alto = await preparar();
+  if (alto) return;
+  const aprobado = texto(formulario, "aprobado") === "true";
+  await supabaseAdmin()
+    .from("perfiles")
+    .update({ aprobado, aprobado_en: aprobado ? new Date().toISOString() : null })
+    .eq("id", texto(formulario, "cliente_id"));
+  refrescar("/admin/clientes");
+}
+
 export async function cambiarRol(formulario: FormData) {
   const alto = await preparar();
   if (alto) return;
+  const rol = texto(formulario, "rol");
+  // Un administrador siempre queda con la cuenta aprobada.
   await supabaseAdmin()
     .from("perfiles")
-    .update({ rol: texto(formulario, "rol") })
+    .update(rol === "admin" ? { rol, aprobado: true, aprobado_en: new Date().toISOString() } : { rol })
     .eq("id", texto(formulario, "cliente_id"));
   refrescar("/admin/clientes");
 }

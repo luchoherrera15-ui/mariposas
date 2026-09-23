@@ -12,16 +12,20 @@ import {
 } from "@/lib/datos";
 import { slugDeEspecie } from "@/lib/especies-foto";
 import { ficha } from "@/lib/fichas";
-import { fecha, numero } from "@/lib/formato";
+import { fmt } from "@/lib/i18n/idiomas";
+import { obtenerFormato, obtenerIdioma, obtenerTextos } from "@/lib/i18n/servidor";
 import { textoRegla } from "@/lib/impacto";
 
 export default async function Inicio() {
-  const [especies, proyectos, registros, ajustes, marca] = await Promise.all([
+  const [especies, proyectos, registros, ajustes, marca, idioma, t, { fecha, numero }] = await Promise.all([
     obtenerEspecies(),
     obtenerImpacto(),
     obtenerRegistrosImpacto(),
     obtenerAjustes(),
     obtenerMarca(),
+    obtenerIdioma(),
+    obtenerTextos(),
+    obtenerFormato(),
   ]);
 
   const ciclo = leerPasos(ajustes.ciclo_pasos);
@@ -39,7 +43,7 @@ export default async function Inicio() {
         <section className="relative flex h-[92vh] min-h-[34rem] items-end overflow-hidden">
           <Image
             src="/fotos/portada.jpg"
-            alt="Morpho peleides posado sobre una hoja, con las alas azules abiertas"
+            alt={t.inicio.portadaAlt}
             fill
             priority
             sizes="100vw"
@@ -65,10 +69,10 @@ export default async function Inicio() {
               style={{ animationDelay: "0.44s" }}
             >
               <Link href="/especies" className="bg-white px-7 py-3.5 text-tinta transition-colors hover:bg-white/85">
-                Ver las especies
+                {t.inicio.verEspecies}
               </Link>
               <Link href="/entrar" className="border-b border-white/40 pb-0.5 transition-colors hover:border-white">
-                Entrar al panel de clientes
+                {t.inicio.entrarPanel}
               </Link>
             </div>
           </div>
@@ -94,23 +98,23 @@ export default async function Inicio() {
       {/* ── Catálogo ────────────────────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-[82rem] px-6 py-24">
         <div className="grid gap-8 lg:grid-cols-[28rem_1fr] lg:items-end lg:gap-20">
-          <h2 className="titulo-2">Las cuatro que más se piden</h2>
+          <h2 className="titulo-2">{t.inicio.masPedidas}</h2>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <p className="max-w-md text-pizarra">
-              Todas se exportan en pupa y se cotizan por pedido, según cantidad y destino.
+              {t.inicio.cotizacion}
             </p>
             <Link
               href="/especies"
               className="border-b border-linea pb-0.5 text-sm transition-colors hover:border-tinta"
             >
-              Ver las ocho especies
+              {t.inicio.verTodas}
             </Link>
           </div>
         </div>
 
         <ul className="mt-14 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {destacadas.map((e) => {
-            const f = ficha(e.nombre_cientifico);
+            const f = ficha(e.nombre_cientifico, idioma);
             return (
               <li key={e.id}>
                 <Link href="/especies" className="group block">
@@ -130,11 +134,11 @@ export default async function Inicio() {
                   {f ? (
                     <dl className="mt-4 space-y-2 text-sm">
                       <div className="flex justify-between gap-3 border-t border-linea pt-3">
-                        <dt className="text-pizarra">Envergadura</dt>
+                        <dt className="text-pizarra">{t.inicio.envergadura}</dt>
                         <dd className="datos">{f.envergadura}</dd>
                       </div>
                       <div className="flex justify-between gap-3">
-                        <dt className="text-pizarra">Disponibilidad</dt>
+                        <dt className="text-pizarra">{t.inicio.disponibilidad}</dt>
                         <dd>{f.disponibilidad}</dd>
                       </div>
                     </dl>
@@ -156,7 +160,7 @@ export default async function Inicio() {
           <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
             {ciclo.map((paso) => (
               <li key={paso.dia} className="border-t border-linea pt-5">
-                <p className="datos text-sm text-morpho">día {paso.dia}</p>
+                <p className="datos text-sm text-morpho">{fmt(t.inicio.dia, { n: paso.dia })}</p>
                 <h3 className="titulo-3 mt-2">{paso.titulo}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-pizarra">{paso.detalle}</p>
               </li>
@@ -171,17 +175,17 @@ export default async function Inicio() {
           <div className="grid gap-12 lg:grid-cols-[26rem_1fr] lg:gap-20">
             <div>
               <h2 className="titulo-2">
-                Cada pupa que sale tiene una <span className="italic">contrapartida</span> escrita.
+                {t.inicio.socialTituloAntes} <span className="italic">{t.inicio.socialTituloDestacado}</span>{" "}
+                {t.inicio.socialTituloDespues}
               </h2>
               <p className="prosa mt-6 text-white/65">
-                No donamos un porcentaje difuso a fin de año. Cada mariposa vendida está atada por regla fija a un
-                proyecto concreto, la regla es pública, y tu panel calcula tu parte con esa misma regla.
+                {t.inicio.socialTexto}
               </p>
               <Link
                 href="/impacto"
                 className="mt-8 inline-block border-b border-white/40 pb-0.5 text-sm transition-colors hover:border-white"
               >
-                Ver la bitácora completa
+                {t.inicio.verBitacora}
               </Link>
             </div>
 
@@ -190,12 +194,12 @@ export default async function Inicio() {
                 {conReglas.map((p) => (
                   <li key={p.id} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4">
                     <span className="text-[1.05rem]">{p.nombre}</span>
-                    <span className="datos text-sm text-white/55">{textoRegla(p)}</span>
+                    <span className="datos text-sm text-white/55">{textoRegla(p, t)}</span>
                   </li>
                 ))}
               </ul>
 
-              <h3 className="titulo-3 mt-14">Lo último ejecutado</h3>
+              <h3 className="titulo-3 mt-14">{t.inicio.ultimoEjecutado}</h3>
               <table className="mt-5 w-full text-sm">
                 <tbody className="divide-y divide-white/15 border-t border-white/15">
                   {registros.slice(0, 5).map((r) => (
@@ -218,23 +222,18 @@ export default async function Inicio() {
       <section className="mx-auto w-full max-w-[82rem] px-6 py-24">
         <div className="grid gap-12 lg:grid-cols-[26rem_1fr] lg:gap-20">
           <div>
-            <h2 className="titulo-2">Tu cuenta, sin tener que escribirnos</h2>
+            <h2 className="titulo-2">{t.inicio.panelTitulo}</h2>
             <Link
               href="/entrar"
               className="mt-8 inline-block bg-tinta px-7 py-3.5 text-papel transition-colors hover:bg-morpho"
             >
-              Entrar al panel
+              {t.inicio.entrarAlPanel}
             </Link>
           </div>
           <dl className="grid gap-x-12 gap-y-8 sm:grid-cols-2">
-            {[
-              ["Cuántas llevás", "El acumulado por especie desde tu primer pedido."],
-              ["En qué anda cada envío", "Estado, transportista, número de guía y fecha estimada."],
-              ["El tracking completo", "Cada movimiento con hora, lugar y temperatura de la caja."],
-              ["Tu trabajo social", "Las semillas y los árboles que salieron de tus compras."],
-            ].map(([t, d]) => (
-              <div key={t} className="border-t border-linea pt-5">
-                <dt className="text-[1.05rem]">{t}</dt>
+            {t.inicio.panelPuntos.map(([titulo, d]) => (
+              <div key={titulo} className="border-t border-linea pt-5">
+                <dt className="text-[1.05rem]">{titulo}</dt>
                 <dd className="mt-2 text-sm leading-relaxed text-pizarra">{d}</dd>
               </div>
             ))}
@@ -246,7 +245,7 @@ export default async function Inicio() {
       <section className="border-t border-linea">
         <div className="mx-auto w-full max-w-[82rem] px-6 py-24">
           <h2 className="titulo-2 max-w-3xl">
-            Mandanos las especies y las cantidades. Te confirmamos disponibilidad en 24 horas.
+            {t.inicio.contactoTitulo}
           </h2>
           <div className="mt-10 flex flex-wrap gap-x-14 gap-y-4 text-[1.05rem]">
             <a

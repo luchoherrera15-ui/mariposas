@@ -1,42 +1,58 @@
+import { LOCALE, type Idioma } from "./i18n/idiomas";
 import type { EstadoEnvio, EstadoPedido } from "./tipos";
 
 const ZONA = "America/Costa_Rica";
 
-export function moneda(valor: number, codigo = "USD") {
-  return new Intl.NumberFormat("es-CR", {
-    style: "currency",
-    currency: codigo,
-    maximumFractionDigits: 2,
-  }).format(valor);
+/**
+ * Formateadores en el idioma de la visita. El sitio público y el panel usan
+ * `obtenerFormato()` (lib/i18n/servidor); las funciones sueltas de abajo son
+ * las de /admin, que va siempre en español.
+ */
+export function crearFormato(idioma: Idioma) {
+  const locale = LOCALE[idioma];
+  return {
+    moneda(valor: number, codigo = "USD") {
+      return new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: codigo,
+        maximumFractionDigits: 2,
+      }).format(valor);
+    },
+    numero(valor: number, decimales = 0) {
+      return new Intl.NumberFormat(locale, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: decimales,
+      }).format(valor);
+    },
+    fecha(valor: string | null) {
+      if (!valor) return "—";
+      return new Intl.DateTimeFormat(locale, {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        timeZone: ZONA,
+      }).format(new Date(valor));
+    },
+    fechaHora(valor: string | null) {
+      if (!valor) return "—";
+      return new Intl.DateTimeFormat(locale, {
+        day: "2-digit",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: ZONA,
+      }).format(new Date(valor));
+    },
+  };
 }
 
-export function numero(valor: number, decimales = 0) {
-  return new Intl.NumberFormat("es-CR", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: decimales,
-  }).format(valor);
-}
+export type Formato = ReturnType<typeof crearFormato>;
 
-export function fecha(valor: string | null) {
-  if (!valor) return "—";
-  return new Intl.DateTimeFormat("es-CR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    timeZone: ZONA,
-  }).format(new Date(valor));
-}
-
-export function fechaHora(valor: string | null) {
-  if (!valor) return "—";
-  return new Intl.DateTimeFormat("es-CR", {
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: ZONA,
-  }).format(new Date(valor));
-}
+const formatoAdmin = crearFormato("es");
+export const moneda = formatoAdmin.moneda;
+export const numero = formatoAdmin.numero;
+export const fecha = formatoAdmin.fecha;
+export const fechaHora = formatoAdmin.fechaHora;
 
 export const etiquetaPedido: Record<EstadoPedido, string> = {
   pendiente: "Pendiente de pago",

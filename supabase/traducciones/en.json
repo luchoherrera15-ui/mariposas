@@ -1,0 +1,117 @@
+{
+  "especies": {
+    "Morpho peleides": {
+      "nombre_comun": "Blue Morpho",
+      "region": "Costa Rica",
+      "descripcion": "The classic metallic blue. In high demand for exhibits and events."
+    },
+    "Caligo memnon": {
+      "nombre_comun": "Giant Owl",
+      "region": "Costa Rica",
+      "descripcion": "Huge eyespots that mimic an owl's eyes. Exceptionally hardy in transit."
+    },
+    "Danaus plexippus": {
+      "nombre_comun": "Monarch",
+      "region": "Mesoamerica",
+      "descripcion": "The icon of migration. Ideal for educational programs."
+    },
+    "Greta oto": {
+      "nombre_comun": "Glasswing",
+      "region": "Costa Rica",
+      "descripcion": "Transparent wings. A photographer's favorite."
+    },
+    "Heliconius charithonia": {
+      "nombre_comun": "Zebra Longwing",
+      "region": "Central America",
+      "descripcion": "Slow, eye-catching flight. Excellent for open butterfly houses."
+    },
+    "Papilio thoas": {
+      "nombre_comun": "King Swallowtail",
+      "region": "Costa Rica",
+      "descripcion": "Vivid yellow with pronounced tails."
+    },
+    "Siproeta stelenes": {
+      "nombre_comun": "Malachite",
+      "region": "Costa Rica",
+      "descripcion": "Translucent jade green. Remarkably long-lived in captivity."
+    },
+    "Diaethria astala": {
+      "nombre_comun": "Eighty-eight",
+      "region": "Costa Rica",
+      "descripcion": "A clear \"88\" drawn on the underside of its hindwings."
+    }
+  },
+  "proyectos": {
+    "semillas-manzano": {
+      "nombre": "Apple seeds planted",
+      "descripcion": "We buy and plant apple seeds with highland farming families to help diversify their crops.",
+      "unidad": "seeds",
+      "unidad_singular": "seed"
+    },
+    "arboles-nativos": {
+      "nombre": "Native trees planted",
+      "descripcion": "Reforestation with butterfly host plants: madero negro, guarumo and passionflower.",
+      "unidad": "trees",
+      "unidad_singular": "tree"
+    },
+    "metros-conservados": {
+      "nombre": "Forest under protection",
+      "descripcion": "Square meters of forest under no-logging agreements, funded by our sales.",
+      "unidad": "m²",
+      "unidad_singular": "m²"
+    },
+    "horas-empleo": {
+      "nombre": "Hours of rural employment",
+      "descripcion": "Paid hours for the breeding families who supply us, most of them led by women.",
+      "unidad": "hours",
+      "unidad_singular": "hour"
+    },
+    "talleres-escolares": {
+      "nombre": "School ecology workshops",
+      "descripcion": "Free workshops at rural schools on pollinators and the butterfly life cycle.",
+      "unidad": "workshops",
+      "unidad_singular": "workshop"
+    }
+  },
+  "registros": {
+    "Entrega a 14 familias de Cerro Alto": "Delivered to 14 families in Cerro Alto",
+    "Segunda entrega + capacitación de injerto": "Second delivery + grafting training",
+    "Vivero comunitario de La Cima": "La Cima community nursery",
+    "Jornada de reforestación Día del Agua": "World Water Day reforestation drive",
+    "Corredor biológico quebrada Los Ángeles": "Los Ángeles creek biological corridor",
+    "Acuerdo de conservación finca San Isidro": "Conservation agreement, San Isidro farm",
+    "Ampliación del acuerdo, sector norte": "Agreement expanded, northern sector",
+    "Primer cuatrimestre: 9 familias criadoras": "First four-month period: 9 breeding families",
+    "Segundo cuatrimestre: 11 familias criadoras": "Second four-month period: 11 breeding families",
+    "Escuelas de San Rafael y Río Segundo": "Schools in San Rafael and Río Segundo",
+    "Circuito escolar de Sarapiquí": "Sarapiquí school district"
+  },
+  "ajustes": {
+    "marca_descripcion": "Live tropical butterflies, sold and exported from Costa Rica with measurable social impact.",
+    "marca_ubicacion": "San Rafael de Alajuela, Costa Rica",
+    "marca_pie": "Traders and exporters of live tropical butterflies. San Rafael de Alajuela, Costa Rica.",
+    "inicio_titular": "They leave Costa Rica as pupae and emerge in your butterfly house.",
+    "inicio_entradilla": "We supply eight tropical species and export them live to butterfly houses, museums and science centers. We work with Costa Rican breeders, keep a recorded cold chain from end to end, and replace every pupa that doesn't emerge.",
+    "cifra1_valor": "38,420",
+    "cifra1_texto": "butterflies exported since 2019",
+    "cifra2_valor": "97.4%",
+    "cifra2_texto": "emerge healthy on arrival",
+    "cifra3_valor": "11",
+    "cifra3_texto": "countries with recurring shipments",
+    "ciclo_titulo": "Nine days from the moment you place your order",
+    "ciclo_texto": "A pupa holds for ten to fourteen days before it emerges. Every step is timed so it arrives with room to spare, not just in time.",
+    "ciclo_pasos": "0|Confirmation|We lock in species, quantities and flight date.\n3|Collection and selection|We receive pupae from our breeders and discard any that look doubtful.\n5|Cold packing|Cotton, cooling gel and a temperature logger.\n9|Delivery|Customs, phytosanitary inspection and on to your butterfly house door.",
+    "envio_condiciones": "Minimum per species|25 pupae\nTransit temperature|13 °C to 16 °C\nDocuments included|CITES permit and phytosanitary certificate\nNon-viable pupae|Replaced free of charge in your next shipment",
+    "envio_texto": "They're exported as pupae, the stage at which the insect best withstands travel. They ship in cotton-lined trays with cooling gel and a temperature logger that's read when the box is opened."
+  },
+  "fichas": {
+    "Morpho peleides": { "vuelo": "High and erratic, in clearings", "disponibilidad": "Year-round" },
+    "Caligo memnon": { "vuelo": "Low, at dusk", "disponibilidad": "Year-round" },
+    "Danaus plexippus": { "vuelo": "Gliding, sustained", "disponibilidad": "Year-round" },
+    "Greta oto": { "vuelo": "Low, through the understory", "disponibilidad": "Year-round" },
+    "Heliconius charithonia": { "vuelo": "Slow and floating", "disponibilidad": "Year-round" },
+    "Papilio thoas": { "vuelo": "Fast, with constant wingbeats", "disponibilidad": "Year-round" },
+    "Siproeta stelenes": { "vuelo": "Moderate, lands often", "disponibilidad": "Year-round" },
+    "Diaethria astala": { "vuelo": "Fast and low", "disponibilidad": "March to October" }
+  }
+}

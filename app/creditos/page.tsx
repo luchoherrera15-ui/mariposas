@@ -4,13 +4,15 @@ import AvisoDemo from "@/components/AvisoDemo";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { creditos } from "@/lib/fotos";
+import { obtenerTextos } from "@/lib/i18n/servidor";
 
-export const metadata: Metadata = {
-  title: "Créditos de las fotografías",
-  description: "Autoría y licencia de cada fotografía usada en el sitio.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await obtenerTextos();
+  return { title: t.creditos.metaTitulo, description: t.creditos.metaDescripcion };
+}
 
-export default function Creditos() {
+export default async function Creditos() {
+  const t = await obtenerTextos();
   const filas = Object.entries(creditos);
 
   return (
@@ -19,11 +21,9 @@ export default function Creditos() {
       <SiteHeader />
 
       <main className="mx-auto w-full max-w-[62rem] flex-1 px-6 py-16">
-        <h1 className="titulo-2 max-w-2xl">Créditos de las fotografías</h1>
+        <h1 className="titulo-2 max-w-2xl">{t.creditos.titulo}</h1>
         <p className="prosa mt-6 text-pizarra">
-          Las fotos de este sitio vienen de Wikimedia Commons y se usan bajo licencias Creative Commons y libres,
-          que exigen atribuir al autor. Cuando la empresa tenga fotos propias, se reemplazan y esta página deja de
-          hacer falta.
+          {t.creditos.texto}
         </p>
 
         <ul className="mt-14 divide-y divide-linea border-y border-linea">
@@ -50,7 +50,7 @@ export default function Creditos() {
                   rel="noopener noreferrer"
                   className="border-b border-linea pb-0.5 transition-colors hover:border-tinta"
                 >
-                  Origen
+                  {t.creditos.origen}
                 </a>
               </div>
             </li>

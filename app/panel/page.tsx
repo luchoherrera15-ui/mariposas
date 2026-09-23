@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CuentaEnRevision from "@/components/panel/CuentaEnRevision";
 import { BarraProgreso, Chip, Estadistica, Tarjeta, Vacio } from "@/components/ui";
 import {
   calcularResumen,
@@ -8,66 +9,73 @@ import {
   obtenerPedidos,
   obtenerUsuario,
 } from "@/lib/datos";
-import {
-  colorEnvio,
-  colorPedido,
-  etiquetaEnvio,
-  etiquetaPedido,
-  fecha,
-  moneda,
-  numero,
-  progresoEnvio,
-} from "@/lib/formato";
+import { colorEnvio, colorPedido, progresoEnvio } from "@/lib/formato";
+import { fmt } from "@/lib/i18n/idiomas";
+import { obtenerFormato, obtenerTextos } from "@/lib/i18n/servidor";
 import { calcularAportes } from "@/lib/impacto";
 
-export const metadata: Metadata = { title: "Resumen" };
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await obtenerTextos()).panel.resumen.metaTitulo };
+}
 
 export default async function PanelResumen() {
-  const [usuario, pedidos, proyectos] = await Promise.all([
+  const [usuario, pedidos, proyectos, t, { fecha, moneda, numero }] = await Promise.all([
     obtenerUsuario(),
     obtenerPedidos(),
     obtenerImpacto(),
+    obtenerTextos(),
+    obtenerFormato(),
   ]);
+  const r = t.panel.resumen;
+
+  const saludo = (
+    <div>
+      <h1 className="titulo-2">{fmt(r.hola, { nombre: usuario?.nombre?.split(" ")[0] ?? r.clienteGenerico })}</h1>
+      <p className="mt-1 text-pizarra">{r.subtitulo}</p>
+    </div>
+  );
+
+  if (!usuario?.aprobado) {
+    return (
+      <div className="space-y-8">
+        {saludo}
+        <CuentaEnRevision />
+      </div>
+    );
+  }
 
   const resumen = calcularResumen(pedidos);
-  const especies = mariposasPorEspecie(pedidos);
+  const especies = mariposasPorEspecie(pedidos, r.sinEspecie);
   const aportes = calcularAportes(resumen.mariposas, proyectos);
   const enCamino = pedidos.filter((p) => p.envio && p.envio.estado !== "entregado");
   const maximo = especies[0]?.cantidad ?? 1;
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="titulo-2">
-          Hola, {usuario?.nombre?.split(" ")[0] ?? "cliente"}
-        </h1>
-        <p className="mt-1 text-pizarra">Este es el estado de tu cuenta y del trabajo social que generaste.</p>
-      </div>
+      {saludo}
 
       {/* Métricas principales */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Estadistica etiqueta="Mariposas compradas" valor={numero(resumen.mariposas)} detalle="acumulado histórico" />
-        <Estadistica etiqueta="Pedidos" valor={numero(resumen.pedidos)} detalle="desde tu primer pedido" />
+        <Estadistica etiqueta={r.compradas} valor={numero(resumen.mariposas)} detalle={r.acumulado} />
+        <Estadistica etiqueta={r.pedidos} valor={numero(resumen.pedidos)} detalle={r.desdePrimero} />
         <Estadistica
-          etiqueta="Envíos en curso"
+          etiqueta={r.enviosCurso}
           valor={numero(resumen.enTransito)}
-          detalle="con tracking activo"
+          detalle={r.conTracking}
           acento="morpho"
         />
         <Estadistica
-          etiqueta="Total invertido"
+          etiqueta={r.invertido}
           valor={moneda(resumen.invertido, resumen.moneda)}
-          detalle="sin flete ni permisos"
+          detalle={r.sinFlete}
           acento="hoja"
         />
       </div>
 
       {/* Impacto generado por este cliente */}
       <Tarjeta fondo="bg-noche" className="text-white">
-        <p className="text-xs font-semibold text-morpho">Tu impacto</p>
-        <h2 className="mt-2 titulo-2">
-          Tus {numero(resumen.mariposas)} mariposas se convirtieron en:
-        </h2>
+        <p className="text-xs font-semibold text-morpho">{r.tuImpacto}</p>
+        <h2 className="mt-2 titulo-2">{fmt(r.seConvirtieron, { n: numero(resumen.mariposas) })}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {aportes.map(({ proyecto, aporte }) => (
             <div key={proyecto.id} className="border border-white/15 bg-lino/5 p-4">
@@ -81,7 +89,7 @@ export default async function PanelResumen() {
           href="/panel/impacto"
           className="mt-6 inline-flex text-sm font-semibold text-white/90 underline decoration-crema/30 underline-offset-4 hover:text-white"
         >
-          Ver el detalle de mi impacto
+          {r.verImpacto}
         </Link>
       </Tarjeta>
 
@@ -89,14 +97,14 @@ export default async function PanelResumen() {
         {/* Envíos en camino */}
         <Tarjeta>
           <div className="flex items-center justify-between">
-            <h2 className="titulo-3">Envíos en camino</h2>
+            <h2 className="titulo-3">{r.enCamino}</h2>
             <Link href="/panel/envios" className="text-sm font-medium text-morpho hover:text-tinta">
-              Ver todos
+              {r.verTodos}
             </Link>
           </div>
           <div className="mt-4 space-y-4">
             {enCamino.length === 0 ? (
-              <p className="text-sm text-pizarra">No tenés envíos en curso ahora mismo.</p>
+              <p className="text-sm text-pizarra">{r.sinEnvios}</p>
             ) : (
               enCamino.map((p) => (
                 <Link
@@ -106,7 +114,7 @@ export default async function PanelResumen() {
                 >
                   <div className="flex items-center justify-between gap-3">
                     <p className="datos font-semibold text-tinta">{p.codigo}</p>
-                    <Chip className={colorEnvio[p.envio!.estado]}>{etiquetaEnvio[p.envio!.estado]}</Chip>
+                    <Chip className={colorEnvio[p.envio!.estado]}>{t.estadosEnvio[p.envio!.estado]}</Chip>
                   </div>
                   <p className="mt-1 text-sm text-pizarra">
                     {p.envio!.origen} → {p.envio!.destino}
@@ -115,7 +123,7 @@ export default async function PanelResumen() {
                     <BarraProgreso porcentaje={progresoEnvio(p.envio!.estado)} className="bg-morpho" />
                   </div>
                   <p className="mt-2 text-xs text-pizarra">
-                    Entrega estimada: <span className="datos">{fecha(p.envio!.entrega_estimada)}</span>
+                    {r.entregaEstimada} <span className="datos">{fecha(p.envio!.entrega_estimada)}</span>
                   </p>
                 </Link>
               ))
@@ -125,17 +133,15 @@ export default async function PanelResumen() {
 
         {/* Mariposas por especie */}
         <Tarjeta>
-          <h2 className="titulo-3">Mariposas por especie</h2>
+          <h2 className="titulo-3">{r.porEspecie}</h2>
           {especies.length === 0 ? (
-            <p className="mt-4 text-sm text-pizarra">Todavía no hay compras registradas.</p>
+            <p className="mt-4 text-sm text-pizarra">{r.sinCompras}</p>
           ) : (
             <ul className="mt-4 space-y-3">
               {especies.map((e) => (
                 <li key={e.nombre}>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="font-medium text-tinta">
-                      {e.nombre}
-                    </span>
+                    <span className="font-medium text-tinta">{e.nombre}</span>
                     <span className="datos font-semibold text-pizarra">{numero(e.cantidad)}</span>
                   </div>
                   <div className="mt-1.5">
@@ -151,25 +157,25 @@ export default async function PanelResumen() {
       {/* Últimos pedidos */}
       <Tarjeta>
         <div className="flex items-center justify-between">
-          <h2 className="titulo-3">Últimos pedidos</h2>
+          <h2 className="titulo-3">{r.ultimosPedidos}</h2>
           <Link href="/panel/pedidos" className="text-sm font-medium text-morpho hover:text-tinta">
-            Ver todos
+            {r.verTodos}
           </Link>
         </div>
         {pedidos.length === 0 ? (
           <div className="mt-4">
-            <Vacio>Todavía no hay pedidos en tu cuenta.</Vacio>
+            <Vacio>{r.sinPedidos}</Vacio>
           </div>
         ) : (
           <div className="mt-4 -mx-5 overflow-x-auto">
             <table className="w-full min-w-[34rem] text-sm">
               <thead>
                 <tr className="border-y border-linea text-left text-xs text-pizarra">
-                  <th className="px-5 py-2.5 font-semibold">Pedido</th>
-                  <th className="px-5 py-2.5 font-semibold">Fecha</th>
-                  <th className="px-5 py-2.5 text-right font-semibold">Mariposas</th>
-                  <th className="px-5 py-2.5 text-right font-semibold">Total</th>
-                  <th className="px-5 py-2.5 font-semibold">Estado</th>
+                  <th className="px-5 py-2.5 font-semibold">{r.pedido}</th>
+                  <th className="px-5 py-2.5 font-semibold">{r.fecha}</th>
+                  <th className="px-5 py-2.5 text-right font-semibold">{r.mariposas}</th>
+                  <th className="px-5 py-2.5 text-right font-semibold">{r.total}</th>
+                  <th className="px-5 py-2.5 font-semibold">{r.estado}</th>
                 </tr>
               </thead>
               <tbody>
@@ -184,7 +190,7 @@ export default async function PanelResumen() {
                       {moneda(p.total, p.moneda)}
                     </td>
                     <td className="px-5 py-3">
-                      <Chip className={colorPedido[p.estado]}>{etiquetaPedido[p.estado]}</Chip>
+                      <Chip className={colorPedido[p.estado]}>{t.estadosPedido[p.estado]}</Chip>
                     </td>
                   </tr>
                 ))}

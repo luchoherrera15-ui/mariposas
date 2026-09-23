@@ -20,7 +20,8 @@ export type Especie = {
   nombre_cientifico: string;
   familia: string | null;
   region: string | null;
-  precio_unitario: number;
+  /** Solo en /admin: el sitio público no recibe precios. */
+  precio_unitario?: number;
   descripcion: string | null;
   emoji: string | null;
 };
@@ -78,6 +79,8 @@ export type ProyectoImpacto = {
   nombre: string;
   descripcion: string | null;
   unidad: string;
+  /** "árbol" frente a "árboles"; en chino suele ser igual a `unidad`. */
+  unidad_singular: string;
   emoji: string | null;
   meta_anual: number | null;
   orden: number;

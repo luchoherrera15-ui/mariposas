@@ -1,3 +1,5 @@
+import { fmt } from "./i18n/idiomas";
+import type { Textos } from "./i18n/textos";
 import type { ProyectoImpacto } from "./tipos";
 
 export type AporteCliente = {
@@ -30,25 +32,19 @@ export function calcularAportes(mariposas: number, proyectos: ProyectoImpacto[])
     });
 }
 
-const SINGULARES: Record<string, string> = {
-  semillas: "semilla",
-  árboles: "árbol",
-  horas: "hora",
-  talleres: "taller",
-};
-
 /** Concuerda la unidad con la cantidad: 1 árbol / 25 árboles. */
-export function unidadEn(cantidad: number, unidad: string) {
-  return cantidad === 1 ? (SINGULARES[unidad] ?? unidad) : unidad;
+export function unidadEn(cantidad: number, proyecto: Pick<ProyectoImpacto, "unidad" | "unidad_singular">) {
+  return cantidad === 1 ? proyecto.unidad_singular || proyecto.unidad : proyecto.unidad;
 }
 
-/** Texto legible de la regla: "cada 25 mariposas = 1 árbol". */
-export function textoRegla(proyecto: ProyectoImpacto) {
+/** Texto legible de la regla: "cada 25 mariposas = 1 árbol", en el idioma de la visita. */
+export function textoRegla(proyecto: ProyectoImpacto, t: Textos) {
   if (!proyecto.regla) return null;
   const { mariposas_por_bloque, unidades_por_bloque } = proyecto.regla;
-  const mariposas = mariposas_por_bloque === 1 ? "1 mariposa" : `${mariposas_por_bloque} mariposas`;
+  const mariposas =
+    mariposas_por_bloque === 1 ? t.comun.reglaUna : fmt(t.comun.reglaVarias, { n: mariposas_por_bloque });
   const unidades = redondear(unidades_por_bloque);
-  return `cada ${mariposas} = ${unidades} ${unidadEn(unidades, proyecto.unidad)}`;
+  return fmt(t.comun.regla, { mariposas, unidades: `${unidades} ${unidadEn(unidades, proyecto)}` });
 }
 
 /** Porcentaje de avance contra la meta anual, tope 100. */

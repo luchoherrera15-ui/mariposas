@@ -42,3 +42,7 @@ next-env.d.ts
 
 # pero si dejamos el ejemplo, que sirve de plantilla
 !.env.example
+
+# Capturas y registros de pruebas con Playwright / Claude
+.playwright-mcp/
+Claude outputs/
