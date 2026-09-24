@@ -14,7 +14,7 @@ const es = {
   },
   nav: {
     especies: "Especies",
-    trabajoSocial: "Trabajo social",
+    trabajoSocial: "Compromiso ambiental",
     miPanel: "Mi panel",
     panelClientes: "Panel de clientes",
   },
@@ -27,8 +27,8 @@ const es = {
   comun: {
     mariposa: "mariposa",
     mariposas: "mariposas",
-    reglaUna: "1 mariposa",
-    reglaVarias: "{n} mariposas",
+    reglaUna: "1 pupa",
+    reglaVarias: "{n} pupas",
     regla: "cada {mariposas} = {unidades}",
   },
   inicio: {
@@ -46,8 +46,9 @@ const es = {
     socialTituloDespues: "escrita.",
     socialTexto:
       "No donamos un porcentaje difuso a fin de año. Cada mariposa vendida está atada por regla fija a un proyecto concreto, la regla es pública, y tu panel calcula tu parte con esa misma regla.",
-    verBitacora: "Ver la bitácora completa",
-    ultimoEjecutado: "Lo último ejecutado",
+    verBitacora: "Ver nuestro compromiso",
+    ultimoEjecutado: "Registro de siembras",
+    sinRegistros: "Primeras siembras: próximamente. Cada una se publica acá con fecha y lugar.",
     panelTitulo: "Tu cuenta, sin tener que escribirnos",
     entrarAlPanel: "Entrar al panel",
     panelPuntos: [
@@ -83,18 +84,22 @@ const es = {
     yaCliente: "Si ya sos cliente, entrá al panel",
   },
   impacto: {
-    metaTitulo: "Trabajo social",
-    metaDescripcion:
-      "La regla que convierte cada mariposa vendida en semillas, árboles, bosque conservado y empleo rural.",
-    titulo: "Dónde termina la plata de cada mariposa.",
-    entradillaAntes:
-      "Publicamos tres cosas: la regla de conversión, cuánto se ejecutó y con quién. Si una cifra no tiene respaldo documentado, no aparece acá. La base de cálculo son",
-    entradillaDespues: "mariposas vendidas.",
-    ejecutado: "ejecutado y documentado",
+    metaTitulo: "Compromiso ambiental",
+    metaDescripcion: "Por cada 10 pupas que vendemos sembramos un árbol nativo. Así funciona nuestro compromiso con la naturaleza.",
+    titulo: "Cada venta deja árboles sembrados.",
+    entradilla: "Nos comprometemos a devolverle al bosque parte de lo que vendemos. La regla es fija y pública, y empieza a correr con las primeras ventas: acá vamos a publicar cada siembra, con fecha y lugar.",
+    proximamente: "Primeras siembras: próximamente",
+    comoTitulo: "Cómo lo hacemos",
+    pasos: [
+      "Compramos semillas de árboles nativos y de las plantas que alimentan a las mariposas.",
+      "Las germinamos en vivero hasta que están listas para el campo.",
+      "Las sembramos con productores y comunidades de la zona, y lo publicamos acá.",
+    ] as string[],
+    ejecutado: "sembrados y documentados",
     meta: "meta {n}",
-    bitacora: "Bitácora",
-    bitacoraTexto:
-      "Cada línea es una entrega hecha, con la fecha y la contraparte. Los comprobantes se piden por correo.",
+    bitacora: "Registro de siembras",
+    bitacoraTexto: "Cada línea es una siembra hecha, con su fecha y su lugar.",
+    sinRegistros: "Todavía no hay siembras registradas. La primera va a aparecer acá en cuanto la hagamos.",
     fecha: "Fecha",
     proyecto: "Proyecto",
     detalle: "Detalle",

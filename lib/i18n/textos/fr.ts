@@ -9,7 +9,7 @@ const fr: Textos = {
   },
   nav: {
     especies: "Espèces",
-    trabajoSocial: "Impact social",
+    trabajoSocial: "Engagement nature",
     miPanel: "Mon compte",
     panelClientes: "Espace clients",
   },
@@ -22,8 +22,8 @@ const fr: Textos = {
   comun: {
     mariposa: "papillon",
     mariposas: "papillons",
-    reglaUna: "1 papillon",
-    reglaVarias: "{n} papillons",
+    reglaUna: "1 chrysalide",
+    reglaVarias: "{n} chrysalides",
     regla: "chaque {mariposas} = {unidades}",
   },
   inicio: {
@@ -41,8 +41,9 @@ const fr: Textos = {
     socialTituloDespues: "et public.",
     socialTexto:
       "Nous ne reversons pas un vague pourcentage en fin d'année. Chaque papillon vendu est lié par une règle fixe à un projet précis ; cette règle est publique, et votre compte calcule votre part avec cette même règle.",
-    verBitacora: "Voir le journal complet",
-    ultimoEjecutado: "Dernières réalisations",
+    verBitacora: "Découvrir notre engagement",
+    ultimoEjecutado: "Journal des plantations",
+    sinRegistros: "Premières plantations : bientôt. Chacune sera publiée ici avec sa date et son lieu.",
     panelTitulo: "Votre compte, sans avoir à nous écrire",
     entrarAlPanel: "Accéder à votre compte",
     panelPuntos: [
@@ -78,18 +79,22 @@ const fr: Textos = {
     yaCliente: "Déjà client ? Accédez à votre compte",
   },
   impacto: {
-    metaTitulo: "Impact social",
-    metaDescripcion:
-      "La règle qui transforme chaque papillon vendu en graines, en arbres, en forêt protégée et en emplois ruraux.",
-    titulo: "Où va l'argent de chaque papillon.",
-    entradillaAntes:
-      "Nous publions trois choses : la règle de conversion, ce qui a été réalisé et avec qui. Si un chiffre n'est pas justifié par des documents, il n'apparaît pas ici. Le calcul porte sur",
-    entradillaDespues: "papillons vendus.",
-    ejecutado: "réalisé et documenté",
+    metaTitulo: "Engagement nature",
+    metaDescripcion: "Pour 10 chrysalides vendues, nous plantons un arbre indigène. Voici comment fonctionne notre engagement pour la nature.",
+    titulo: "Chaque vente laisse des arbres plantés.",
+    entradilla: "Nous nous engageons à rendre à la forêt une part de ce que nous vendons. La règle est fixe et publique, et elle démarre avec nos premières ventes : chaque plantation sera publiée ici, avec sa date et son lieu.",
+    proximamente: "Premières plantations : bientôt",
+    comoTitulo: "Comment nous procédons",
+    pasos: [
+      "Nous achetons des graines d'arbres indigènes et des plantes dont se nourrissent les papillons.",
+      "Nous les faisons germer en pépinière jusqu'à ce qu'elles soient prêtes à être plantées.",
+      "Nous les plantons avec des producteurs et des communautés locales, et nous le publions ici.",
+    ],
+    ejecutado: "plantés et documentés",
     meta: "objectif {n}",
-    bitacora: "Journal",
-    bitacoraTexto:
-      "Chaque ligne correspond à une réalisation achevée, avec sa date et son partenaire. Les justificatifs sont disponibles sur demande par e-mail.",
+    bitacora: "Journal des plantations",
+    bitacoraTexto: "Chaque ligne est une plantation réalisée, avec sa date et son lieu.",
+    sinRegistros: "Aucune plantation enregistrée pour l'instant. La première apparaîtra ici dès qu'elle sera faite.",
     fecha: "Date",
     proyecto: "Projet",
     detalle: "Détails",

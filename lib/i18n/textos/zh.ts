@@ -9,7 +9,7 @@ const zh: Textos = {
   },
   nav: {
     especies: "蝴蝶品种",
-    trabajoSocial: "社会影响",
+    trabajoSocial: "自然承诺",
     miPanel: "我的账户",
     panelClientes: "客户专区",
   },
@@ -22,8 +22,8 @@ const zh: Textos = {
   comun: {
     mariposa: "只蝴蝶",
     mariposas: "只蝴蝶",
-    reglaUna: "1 只蝴蝶",
-    reglaVarias: "{n} 只蝴蝶",
+    reglaUna: "1 只蛹",
+    reglaVarias: "{n} 只蛹",
     regla: "每 {mariposas} = {unidades}",
   },
   inicio: {
@@ -41,8 +41,9 @@ const zh: Textos = {
     socialTituloDespues: "承诺。",
     socialTexto:
       "我们不会在年底捐出一个含糊的百分比。每售出一只蝴蝶，都按固定规则对应到一个具体项目；规则完全公开，您的账户也按同一规则计算您的贡献。",
-    verBitacora: "查看完整记录",
-    ultimoEjecutado: "最新落实情况",
+    verBitacora: "了解我们的承诺",
+    ultimoEjecutado: "植树记录",
+    sinRegistros: "首批植树即将开始，每一次都会在这里公布日期和地点。",
     panelTitulo: "您的账户，无需再发邮件询问",
     entrarAlPanel: "进入您的账户",
     panelPuntos: [
@@ -78,16 +79,22 @@ const zh: Textos = {
     yaCliente: "已是客户？进入您的账户",
   },
   impacto: {
-    metaTitulo: "社会影响",
-    metaDescripcion: "将每一只售出的蝴蝶转化为种子、树木、受保护森林和农村就业的规则。",
-    titulo: "每只蝴蝶的收入去向何处。",
-    entradillaAntes:
-      "我们公开三件事：转化规则、已落实的数量，以及合作伙伴。没有凭证支持的数字，不会出现在这里。计算依据为",
-    entradillaDespues: "只已售出的蝴蝶。",
-    ejecutado: "已落实并有记录",
+    metaTitulo: "自然承诺",
+    metaDescripcion: "每售出 10 只蛹，我们就种下一棵本土树木。了解我们对自然的承诺如何运作。",
+    titulo: "每一笔销售，都留下新种的树。",
+    entradilla: "我们承诺把销售所得的一部分回馈森林。规则固定且公开，从首批销售开始执行：每一次植树都会在这里公布日期和地点。",
+    proximamente: "首批植树：即将开始",
+    comoTitulo: "我们的做法",
+    pasos: [
+      "我们购买本土树种以及蝴蝶食用植物的种子。",
+      "在苗圃中育苗，直到可以移栽到野外。",
+      "与当地种植者和社区一起种下，并在这里公布。",
+    ],
+    ejecutado: "已种植并记录",
     meta: "目标 {n}",
-    bitacora: "落实记录",
-    bitacoraTexto: "每一行都是一次已完成的交付，附有日期和合作方。如需凭证，欢迎发邮件索取。",
+    bitacora: "植树记录",
+    bitacoraTexto: "每一行都是一次已完成的植树，附有日期和地点。",
+    sinRegistros: "目前还没有植树记录。第一次植树完成后将在这里公布。",
     fecha: "日期",
     proyecto: "项目",
     detalle: "详情",

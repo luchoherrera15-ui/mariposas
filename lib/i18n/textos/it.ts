@@ -9,7 +9,7 @@ const it: Textos = {
   },
   nav: {
     especies: "Specie",
-    trabajoSocial: "Impatto sociale",
+    trabajoSocial: "Impegno per la natura",
     miPanel: "Il mio account",
     panelClientes: "Area clienti",
   },
@@ -22,8 +22,8 @@ const it: Textos = {
   comun: {
     mariposa: "farfalla",
     mariposas: "farfalle",
-    reglaUna: "1 farfalla",
-    reglaVarias: "{n} farfalle",
+    reglaUna: "1 pupa",
+    reglaVarias: "{n} pupe",
     regla: "ogni {mariposas} = {unidades}",
   },
   inicio: {
@@ -41,8 +41,9 @@ const it: Textos = {
     socialTituloDespues: "messo per iscritto.",
     socialTexto:
       "Non doniamo una vaga percentuale a fine anno. Ogni farfalla venduta è legata da una regola fissa a un progetto concreto, la regola è pubblica e il tuo account calcola la tua parte con quella stessa regola.",
-    verBitacora: "Vedi il registro completo",
-    ultimoEjecutado: "Ultime consegne",
+    verBitacora: "Scopri il nostro impegno",
+    ultimoEjecutado: "Registro delle piantagioni",
+    sinRegistros: "Prime piantagioni: in arrivo. Ognuna sarà pubblicata qui con data e luogo.",
     panelTitulo: "Il tuo account, senza doverci scrivere",
     entrarAlPanel: "Vai al tuo account",
     panelPuntos: [
@@ -78,18 +79,22 @@ const it: Textos = {
     yaCliente: "Sei già cliente? Vai al tuo account",
   },
   impacto: {
-    metaTitulo: "Impatto sociale",
-    metaDescripcion:
-      "La regola che trasforma ogni farfalla venduta in semi, alberi, foresta protetta e lavoro rurale.",
-    titulo: "Dove vanno i soldi di ogni farfalla.",
-    entradillaAntes:
-      "Pubblichiamo tre cose: la regola di conversione, quanto è stato consegnato e con chi. Se un dato non è supportato da documentazione, qui non compare. Il calcolo si basa su",
-    entradillaDespues: "farfalle vendute.",
-    ejecutado: "consegnati e documentati",
+    metaTitulo: "Impegno per la natura",
+    metaDescripcion: "Per ogni 10 pupe che vendiamo piantiamo un albero autoctono. Ecco come funziona il nostro impegno per la natura.",
+    titulo: "Ogni vendita lascia alberi piantati.",
+    entradilla: "Ci impegniamo a restituire alla foresta parte di ciò che vendiamo. La regola è fissa e pubblica, e parte con le prime vendite: qui pubblicheremo ogni piantagione, con data e luogo.",
+    proximamente: "Prime piantagioni: in arrivo",
+    comoTitulo: "Come lo facciamo",
+    pasos: [
+      "Acquistiamo semi di alberi autoctoni e delle piante di cui si nutrono le farfalle.",
+      "Li facciamo germinare in vivaio finché non sono pronti per il campo.",
+      "Li piantiamo insieme a coltivatori e comunità locali, e lo pubblichiamo qui.",
+    ],
+    ejecutado: "piantati e documentati",
     meta: "obiettivo {n}",
-    bitacora: "Registro",
-    bitacoraTexto:
-      "Ogni riga è una consegna completata, con data e partner. Le ricevute sono disponibili su richiesta via email.",
+    bitacora: "Registro delle piantagioni",
+    bitacoraTexto: "Ogni riga è una piantagione completata, con data e luogo.",
+    sinRegistros: "Non ci sono ancora piantagioni registrate. La prima apparirà qui appena la faremo.",
     fecha: "Data",
     proyecto: "Progetto",
     detalle: "Dettagli",

@@ -9,7 +9,7 @@ const en: Textos = {
   },
   nav: {
     especies: "Species",
-    trabajoSocial: "Social impact",
+    trabajoSocial: "Nature commitment",
     miPanel: "My account",
     panelClientes: "Client portal",
   },
@@ -22,8 +22,8 @@ const en: Textos = {
   comun: {
     mariposa: "butterfly",
     mariposas: "butterflies",
-    reglaUna: "1 butterfly",
-    reglaVarias: "{n} butterflies",
+    reglaUna: "1 pupa",
+    reglaVarias: "{n} pupae",
     regla: "every {mariposas} = {unidades}",
   },
   inicio: {
@@ -41,8 +41,9 @@ const en: Textos = {
     socialTituloDespues: "commitment.",
     socialTexto:
       "We don't donate a vague percentage at the end of the year. Every butterfly sold is tied by a fixed rule to a specific project, the rule is public, and your account calculates your share with that same rule.",
-    verBitacora: "See the full log",
-    ultimoEjecutado: "Latest deliveries",
+    verBitacora: "See our commitment",
+    ultimoEjecutado: "Planting log",
+    sinRegistros: "First plantings: coming soon. Each one will be published here with its date and place.",
     panelTitulo: "Your account, without having to email us",
     entrarAlPanel: "Go to your account",
     panelPuntos: [
@@ -78,18 +79,22 @@ const en: Textos = {
     yaCliente: "Already a client? Go to your account",
   },
   impacto: {
-    metaTitulo: "Social impact",
-    metaDescripcion:
-      "The rule that turns every butterfly sold into seeds, trees, protected forest and rural jobs.",
-    titulo: "Where the money from each butterfly goes.",
-    entradillaAntes:
-      "We publish three things: the conversion rule, how much has been delivered and with whom. If a figure isn't backed by documentation, it doesn't appear here. The calculation is based on",
-    entradillaDespues: "butterflies sold.",
-    ejecutado: "delivered and documented",
+    metaTitulo: "Nature commitment",
+    metaDescripcion: "For every 10 pupae we sell, we plant a native tree. Here's how our commitment to nature works.",
+    titulo: "Every sale leaves trees in the ground.",
+    entradilla: "We're committed to giving part of what we sell back to the forest. The rule is fixed and public, and it starts with our first sales: every planting will be published here, with its date and place.",
+    proximamente: "First plantings: coming soon",
+    comoTitulo: "How we do it",
+    pasos: [
+      "We buy seeds of native trees and of the plants butterflies feed on.",
+      "We germinate them in a nursery until they're ready for the field.",
+      "We plant them with local growers and communities, and publish it here.",
+    ],
+    ejecutado: "planted and documented",
     meta: "goal {n}",
-    bitacora: "Log",
-    bitacoraTexto:
-      "Each line is a completed delivery, with its date and partner. Receipts are available on request by email.",
+    bitacora: "Planting log",
+    bitacoraTexto: "Each line is a completed planting, with its date and place.",
+    sinRegistros: "No plantings recorded yet. The first one will appear here as soon as it happens.",
     fecha: "Date",
     proyecto: "Project",
     detalle: "Details",

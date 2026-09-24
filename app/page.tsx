@@ -203,19 +203,23 @@ export default async function Inicio() {
               </ul>
 
               <h3 className="titulo-3 mt-14">{t.inicio.ultimoEjecutado}</h3>
-              <table className="mt-5 w-full text-sm">
-                <tbody className="divide-y divide-white/15 border-t border-white/15">
-                  {registros.slice(0, 5).map((r) => (
-                    <tr key={r.id}>
-                      <td className="datos whitespace-nowrap py-3.5 pr-6 text-white/50">{fecha(r.fecha)}</td>
-                      <td className="py-3.5 pr-6 text-white/85">{r.detalle}</td>
-                      <td className="datos whitespace-nowrap py-3.5 text-right">
-                        {numero(r.cantidad)} {r.unidad}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              {registros.length === 0 ? (
+                <p className="mt-5 border border-dashed border-white/20 p-6 text-sm text-white/65">{t.inicio.sinRegistros}</p>
+              ) : (
+                <table className="mt-5 w-full text-sm">
+                  <tbody className="divide-y divide-white/15 border-t border-white/15">
+                    {registros.slice(0, 5).map((r) => (
+                      <tr key={r.id}>
+                        <td className="datos whitespace-nowrap py-3.5 pr-6 text-white/50">{fecha(r.fecha)}</td>
+                        <td className="py-3.5 pr-6 text-white/85">{r.detalle}</td>
+                        <td className="datos whitespace-nowrap py-3.5 text-right">
+                          {numero(r.cantidad)} {r.unidad}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
             </div>
           </div>
         </div>
