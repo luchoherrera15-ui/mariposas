@@ -1,5 +1,6 @@
 import "server-only";
 import PostalMime from "postal-mime";
+import { BUCKET_CORREO, LIMITE_ADJUNTOS_BYTES } from "./correo-compartido";
 import { supabaseAdmin } from "./supabase-servidor";
 
 /**
@@ -13,7 +14,44 @@ import { supabaseAdmin } from "./supabase-servidor";
  * In-Reply-To / References y, si no coinciden, por asunto + remitente.
  */
 
-export type Adjunto = { nombre: string; tipo: string; bytes: number };
+/** `ruta` es la ubicación en el bucket de Storage (si el archivo se guardó). */
+export type Adjunto = { nombre: string; tipo: string; bytes: number; ruta?: string };
+
+export { BUCKET_CORREO, LIMITE_ADJUNTOS_BYTES };
+
+/** Nombre de archivo apto para una ruta de Storage. */
+export function nombreSeguro(nombre: string) {
+  const limpio = nombre
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w.\-]+/g, "_")
+    .replace(/_+/g, "_")
+    .slice(-120);
+  return limpio || "archivo";
+}
+
+/** URL temporal (1 h) para descargar un adjunto guardado. */
+export async function urlAdjunto(ruta: string, descargarComo?: string) {
+  const { data } = await supabaseAdmin()
+    .storage.from(BUCKET_CORREO)
+    .createSignedUrl(ruta, 3600, descargarComo ? { download: descargarComo } : undefined);
+  return data?.signedUrl ?? null;
+}
+
+// ─── Firma ───────────────────────────────────────────────────────────────────
+
+export async function obtenerFirma(usuarioId: string) {
+  if (!usuarioId || usuarioId === "demo") return "";
+  const { data } = await supabaseAdmin().from("firmas").select("html").eq("usuario_id", usuarioId).maybeSingle();
+  return (data?.html as string) ?? "";
+}
+
+export async function guardarFirmaDe(usuarioId: string, html: string) {
+  const { error } = await supabaseAdmin()
+    .from("firmas")
+    .upsert({ usuario_id: usuarioId, html, actualizado_en: new Date().toISOString() });
+  if (error) throw new Error(`No se pudo guardar la firma: ${error.message}`);
+}
 
 export type Correo = {
   id: string;
@@ -64,7 +102,23 @@ export type ResumenHilo = {
   cantidad: number;
   sinLeer: number;
   contacto: string;
+  /** Alguno de los correos de la conversación trae archivos. */
+  conAdjuntos: boolean;
+  /** Primeras palabras del último correo, sin formato. */
+  extracto: string;
 };
+
+/** Texto de un correo sin etiquetas, para extractos y búsquedas. */
+export function textoPlano(c: Pick<Correo, "texto" | "html">) {
+  if (c.texto?.trim()) return c.texto;
+  return (c.html ?? "")
+    .replace(/<(style|script)[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
 
 /** Una fila por conversación, la más reciente arriba. */
 export async function listarHilos(carpeta: Carpeta, busqueda = ""): Promise<ResumenHilo[]> {
@@ -93,10 +147,19 @@ export async function listarHilos(carpeta: Carpeta, busqueda = ""): Promise<Resu
   for (const c of (data ?? []) as Correo[]) {
     let h = hilos.get(c.hilo_id);
     if (!h) {
-      h = { hilo_id: c.hilo_id, ultimo: c, cantidad: 0, sinLeer: 0, contacto: "" };
+      h = {
+        hilo_id: c.hilo_id,
+        ultimo: c,
+        cantidad: 0,
+        sinLeer: 0,
+        contacto: "",
+        conAdjuntos: false,
+        extracto: textoPlano(c).replace(/\s+/g, " ").trim().slice(0, 160),
+      };
       hilos.set(c.hilo_id, h);
     }
     h.cantidad += 1;
+    if (c.adjuntos?.length) h.conAdjuntos = true;
     if (c.direccion === "entrante" && !c.leido) h.sinLeer += 1;
     if (!h.contacto) h.contacto = c.direccion === "entrante" ? c.de_nombre || c.de_email : `Para: ${c.para.join(", ")}`;
   }
@@ -198,13 +261,18 @@ export async function guardarEntrante(crudo: ArrayBuffer, sobre: { de?: string |
       contacto: de_email,
     })) ?? null;
 
-  const adjuntos = (correo.attachments ?? []).map((a) => ({
-    nombre: a.filename || "adjunto",
-    tipo: a.mimeType || "application/octet-stream",
-    bytes: typeof a.content === "string" ? a.content.length : (a.content as ArrayBuffer).byteLength,
-  }));
-
   const id = crypto.randomUUID();
+  const adjuntos: Adjunto[] = [];
+  for (const [indice, a] of (correo.attachments ?? []).entries()) {
+    const nombre = a.filename || "adjunto";
+    const tipo = a.mimeType || "application/octet-stream";
+    const contenido = typeof a.content === "string" ? new TextEncoder().encode(a.content) : new Uint8Array(a.content as ArrayBuffer);
+    const ruta = `entrantes/${id}/${indice}-${nombreSeguro(nombre)}`;
+    const { error: errorSubida } = await admin.storage.from(BUCKET_CORREO).upload(ruta, contenido, { contentType: tipo });
+    if (errorSubida) console.error("guardarEntrante (adjunto):", errorSubida.message);
+    adjuntos.push({ nombre, tipo, bytes: contenido.byteLength, ruta: errorSubida ? undefined : ruta });
+  }
+
   const { error } = await admin.from("correos").insert({
     id,
     hilo_id: hilo ?? id,
@@ -231,14 +299,42 @@ function escapar(texto: string) {
   return texto.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 }
 
-/** Texto plano → HTML sencillo, con la cita del correo anterior si la hay. */
-function aHtml(cuerpo: string, cita?: Correo | null) {
-  const parrafos = escapar(cuerpo).replace(/\r?\n/g, "<br>");
-  let html = `<div style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;color:#1d1d1b;">${parrafos}</div>`;
+/**
+ * Los clientes de correo ignoran las hojas de estilo: los estilos van en línea.
+ * Recibe el HTML del editor (párrafos, listas, citas, enlaces, colores).
+ */
+function estilizar(html: string) {
+  return html
+    .replace(/<p(\s[^>]*)?>/g, (_, a = "") => `<p${a} style="margin:0 0 10px;${estiloAlineado(a)}">`)
+    .replace(/<h2(\s[^>]*)?>/g, (_, a = "") => `<h2${a} style="margin:18px 0 8px;font-size:20px;font-weight:600;${estiloAlineado(a)}">`)
+    .replace(/<h3(\s[^>]*)?>/g, (_, a = "") => `<h3${a} style="margin:14px 0 6px;font-size:16px;font-weight:600;${estiloAlineado(a)}">`)
+    .replace(/<blockquote>/g, '<blockquote style="margin:0 0 10px;padding:2px 0 2px 12px;border-left:3px solid #cfcac0;color:#5b6166;">')
+    .replace(/<ul>/g, '<ul style="margin:0 0 10px;padding-left:22px;">')
+    .replace(/<ol>/g, '<ol style="margin:0 0 10px;padding-left:22px;">')
+    .replace(/<a /g, '<a style="color:#1f4fd1;" ')
+    .replace(/<mark(\s[^>]*)?>/g, (_, a = "") => (/style=/.test(a) ? `<mark${a}>` : `<mark${a} style="background-color:#fdf2a3;">`));
+}
+
+function estiloAlineado(atributos: string) {
+  const m = atributos.match(/text-align:\s*(left|center|right|justify)/);
+  return m ? `text-align:${m[1]};` : "";
+}
+
+/** Texto plano → párrafos (para correos viejos o sin formato). */
+function textoAHtml(cuerpo: string) {
+  return escapar(cuerpo)
+    .split(/\r?\n\r?\n/)
+    .map((p) => `<p>${p.replace(/\r?\n/g, "<br>")}</p>`)
+    .join("");
+}
+
+/** HTML final del correo, con la cita del correo anterior si la hay. */
+function aHtml(cuerpoHtml: string, cita?: Correo | null) {
+  let html = `<div style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;color:#1d1d1b;">${estilizar(cuerpoHtml)}</div>`;
   if (cita) {
     const quien = cita.de_nombre ? `${cita.de_nombre} <${cita.de_email}>` : cita.de_email;
     const cuando = new Intl.DateTimeFormat("es-CR", { dateStyle: "medium", timeStyle: "short", timeZone: "America/Costa_Rica" }).format(new Date(cita.creado_en));
-    const anterior = escapar(cita.texto ?? "").replace(/\r?\n/g, "<br>");
+    const anterior = cita.texto ? escapar(cita.texto).replace(/\r?\n/g, "<br>") : "";
     html += `<br><div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#5b6166;">El ${escapar(cuando)}, ${escapar(quien)} escribió:</div><blockquote style="margin:6px 0 0;padding-left:12px;border-left:2px solid #dcd8cf;color:#5b6166;font-size:13px;">${anterior}</blockquote>`;
   }
   return html;
@@ -264,13 +360,20 @@ export async function enviarDesdeBuzon({
   cc,
   asunto,
   cuerpo,
+  cuerpoHtml,
+  adjuntos = [],
   responderA,
   usuarioId,
 }: {
   para: string;
   cc?: string;
   asunto: string;
+  /** Versión en texto plano (para clientes sin HTML y para buscar). */
   cuerpo: string;
+  /** HTML del editor. Si falta, se arma desde el texto. */
+  cuerpoHtml?: string;
+  /** Archivos ya subidos a Storage por el navegador (salientes/…). */
+  adjuntos?: Adjunto[];
   /** id del correo al que se responde (para el hilo y la cita). */
   responderA?: string | null;
   usuarioId?: string | null;
@@ -280,7 +383,12 @@ export async function enviarDesdeBuzon({
   const invalidos = [...destinatarios, ...copias].filter((d) => !emailValido(d));
   if (!destinatarios.length) throw new Error("Escribí al menos un destinatario.");
   if (invalidos.length) throw new Error(`Revisá estas direcciones: ${invalidos.join(", ")}`);
-  if (!cuerpo.trim()) throw new Error("El mensaje está vacío.");
+  if (!cuerpo.trim() && !adjuntos.length) throw new Error("El mensaje está vacío.");
+  if (adjuntos.some((a) => !a.ruta?.startsWith("salientes/"))) throw new Error("Adjunto inválido.");
+  if (adjuntos.reduce((t, a) => t + a.bytes, 0) > LIMITE_ADJUNTOS_BYTES) {
+    throw new Error("Los adjuntos pasan de 25 MB en total.");
+  }
+  const html = cuerpoHtml?.trim() ? cuerpoHtml : textoAHtml(cuerpo);
 
   const admin = supabaseAdmin();
   let original: Correo | null = null;
@@ -302,6 +410,16 @@ export async function enviarDesdeBuzon({
     headers["References"] = referencias.join(" ");
   }
 
+  // Resend descarga cada adjunto desde una URL temporal de Storage: así los
+  // archivos no pasan por la función de Vercel (que corta a los 4,5 MB).
+  const archivos = [];
+  for (const a of adjuntos) {
+    const url = await urlAdjunto(a.ruta!);
+    if (!url) throw new Error(`No encontré el adjunto "${a.nombre}". Volvé a subirlo.`);
+    archivos.push({ filename: a.nombre, path: url, content_type: a.tipo });
+  }
+
+  const htmlFinal = aHtml(html, original);
   const respuesta = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -314,9 +432,10 @@ export async function enviarDesdeBuzon({
       cc: copias.length ? copias : undefined,
       reply_to: emailDe(desde),
       subject: asunto || "(sin asunto)",
-      html: aHtml(cuerpo, original),
+      html: htmlFinal,
       text: aTextoCitado(cuerpo, original),
       headers,
+      attachments: archivos.length ? archivos : undefined,
     }),
   });
   if (!respuesta.ok) {
@@ -339,10 +458,12 @@ export async function enviarDesdeBuzon({
     cc: copias,
     asunto: asunto || "(sin asunto)",
     texto: cuerpo,
-    html: aHtml(cuerpo),
+    // Se guarda tal cual salió (con la cita), para verlo igual en el panel.
+    html: htmlFinal,
     message_id,
     en_respuesta_a: original?.message_id ?? null,
     referencias,
+    adjuntos,
     leido: true,
     resend_id: resend_id ?? null,
     enviado_por: usuarioId && usuarioId !== "demo" ? usuarioId : null,

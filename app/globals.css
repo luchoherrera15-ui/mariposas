@@ -185,3 +185,23 @@ a:focus-visible .marco-foto img {
   .marco-foto img { transition: none; }
   .marco-foto:hover img { transform: none; }
 }
+
+/* ── Editor de correo (/admin/correo) ─────────────────────────────────────
+   Parecido a como se ve el correo al llegar: mismos márgenes que los estilos
+   en línea que agrega lib/buzon.ts al enviar. */
+.contenido-correo {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1d1d1b;
+}
+.contenido-correo p { margin: 0 0 10px; }
+.contenido-correo h2 { margin: 18px 0 8px; font-size: 20px; font-weight: 600; }
+.contenido-correo h3 { margin: 14px 0 6px; font-size: 16px; font-weight: 600; }
+.contenido-correo ul { margin: 0 0 10px; padding-left: 22px; list-style: disc; }
+.contenido-correo ol { margin: 0 0 10px; padding-left: 22px; list-style: decimal; }
+.contenido-correo li p { margin: 0; }
+.contenido-correo blockquote { margin: 0 0 10px; padding: 2px 0 2px 12px; border-left: 3px solid #cfcac0; color: #5b6166; }
+.contenido-correo a { color: #1f4fd1; text-decoration: underline; }
+.contenido-correo mark { background-color: #fdf2a3; padding: 0 1px; }
+.contenido-correo > :last-child { margin-bottom: 0; }
