@@ -10,7 +10,7 @@ import {
 } from "./demo";
 import { traducir } from "./i18n/contenido";
 import { obtenerIdioma } from "./i18n/servidor";
-import { supabaseAdmin, supabaseServidor } from "./supabase-servidor";
+import { supabaseServidor } from "./supabase-servidor";
 import type {
   Envio,
   Especie,
@@ -56,26 +56,42 @@ export async function obtenerUsuario(): Promise<UsuarioActual> {
 
 // ─── Catálogo ────────────────────────────────────────────────────────────────
 
+const CAMPOS_ESPECIE =
+  "id, slug, nombre_comun, nombre_cientifico, familia, region, descripcion, emoji, envergadura, vuelo, disponibilidad, destacada, traducciones";
+const TRADUCIBLES_ESPECIE = ["nombre_comun", "region", "descripcion", "vuelo", "disponibilidad"];
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+function especieLocal(fila: any, idioma: Idioma): Especie {
+  const { traducciones, ...especie } = traducir(fila, idioma, TRADUCIBLES_ESPECIE);
+  void traducciones;
+  return especie as Especie;
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+/** Catálogo activo, agrupado por familia y en orden alfabético científico. */
 export async function obtenerEspecies(): Promise<Especie[]> {
   if (modoDemo) return especiesDemo;
   const idioma = await obtenerIdioma();
-  // Los precios no son públicos (la API anónima ya no los expone), pero el
-  // catálogo sigue ordenado de la más cara a la más barata: por eso se
-  // consulta con service_role, y el precio no sale de esta función.
-  const { data, error } = await supabaseAdmin()
+  const supabase = await supabaseServidor();
+  const { data, error } = await supabase
     .from("especies")
-    .select("id, nombre_comun, nombre_cientifico, familia, region, descripcion, emoji, traducciones")
+    .select(CAMPOS_ESPECIE)
     .eq("activo", true)
-    .order("precio_unitario", { ascending: false });
+    .order("familia")
+    .order("nombre_cientifico");
   if (error) {
     console.error("obtenerEspecies:", error.message);
     return especiesDemo;
   }
-  return data.map((fila) => {
-    const { traducciones, ...especie } = traducir(fila, idioma, ["nombre_comun", "region", "descripcion"]);
-    void traducciones;
-    return especie;
-  }) as Especie[];
+  return data.map((fila) => especieLocal(fila, idioma));
+}
+
+export async function obtenerEspecie(slug: string): Promise<Especie | null> {
+  if (modoDemo) return especiesDemo.find((e) => e.slug === slug) ?? null;
+  const idioma = await obtenerIdioma();
+  const supabase = await supabaseServidor();
+  const { data } = await supabase.from("especies").select(CAMPOS_ESPECIE).eq("slug", slug).eq("activo", true).maybeSingle();
+  return data ? especieLocal(data, idioma) : null;
 }
 
 export async function obtenerTotalMariposasVendidas(): Promise<number> {

@@ -168,6 +168,10 @@ export type EspecieAdmin = {
   region: string | null;
   precio_unitario: number;
   descripcion: string | null;
+  envergadura: string | null;
+  vuelo: string | null;
+  disponibilidad: string | null;
+  destacada: boolean;
   activo: boolean;
 };
 
@@ -178,8 +182,9 @@ export async function listarEspecies(): Promise<EspecieAdmin[]> {
   }
   const { data } = await supabaseAdmin()
     .from("especies")
-    .select("id, nombre_comun, nombre_cientifico, familia, region, precio_unitario, descripcion, activo")
-    .order("nombre_comun");
+    .select("id, nombre_comun, nombre_cientifico, familia, region, precio_unitario, descripcion, envergadura, vuelo, disponibilidad, destacada, activo")
+    .order("familia")
+    .order("nombre_cientifico");
   return (data ?? []).map((e) => ({ ...e, precio_unitario: Number(e.precio_unitario) })) as EspecieAdmin[];
 }
 

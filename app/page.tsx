@@ -11,26 +11,26 @@ import {
   obtenerRegistrosImpacto,
 } from "@/lib/datos";
 import { slugDeEspecie } from "@/lib/especies-foto";
-import { ficha } from "@/lib/fichas";
 import { fmt } from "@/lib/i18n/idiomas";
-import { obtenerFormato, obtenerIdioma, obtenerTextos } from "@/lib/i18n/servidor";
+import { obtenerFormato, obtenerTextos } from "@/lib/i18n/servidor";
 import { textoRegla } from "@/lib/impacto";
 
 export default async function Inicio() {
-  const [especies, proyectos, registros, ajustes, marca, idioma, t, { fecha, numero }] = await Promise.all([
+  const [especies, proyectos, registros, ajustes, marca, t, { fecha, numero }] = await Promise.all([
     obtenerEspecies(),
     obtenerImpacto(),
     obtenerRegistrosImpacto(),
     obtenerAjustes(),
     obtenerMarca(),
-    obtenerIdioma(),
     obtenerTextos(),
     obtenerFormato(),
   ]);
 
   const ciclo = leerPasos(ajustes.ciclo_pasos);
 
-  const destacadas = especies.slice(0, 4);
+  // Las marcadas como destacadas en /admin/especies; si no hay, las primeras.
+  const marcadas = especies.filter((e) => e.destacada);
+  const destacadas = (marcadas.length ? marcadas : especies).slice(0, 4);
   const conReglas = proyectos.filter((p) => p.regla);
 
   return (
@@ -107,17 +107,16 @@ export default async function Inicio() {
               href="/especies"
               className="border-b border-linea pb-0.5 text-sm transition-colors hover:border-tinta"
             >
-              {t.inicio.verTodas}
+              {fmt(t.inicio.verTodas, { n: especies.length })}
             </Link>
           </div>
         </div>
 
         <ul className="mt-14 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {destacadas.map((e) => {
-            const f = ficha(e.nombre_cientifico, idioma);
             return (
               <li key={e.id}>
-                <Link href="/especies" className="group block">
+                <Link href={`/especies/${e.slug}`} className="group block">
                   <div className="relative">
                     <Foto
                       slug={slugDeEspecie(e.nombre_cientifico)}
@@ -131,16 +130,20 @@ export default async function Inicio() {
                       <p className="cientifico mt-0.5 text-sm text-white/75">{e.nombre_cientifico}</p>
                     </div>
                   </div>
-                  {f ? (
+                  {e.envergadura || e.disponibilidad ? (
                     <dl className="mt-4 space-y-2 text-sm">
-                      <div className="flex justify-between gap-3 border-t border-linea pt-3">
-                        <dt className="text-pizarra">{t.inicio.envergadura}</dt>
-                        <dd className="datos">{f.envergadura}</dd>
-                      </div>
-                      <div className="flex justify-between gap-3">
-                        <dt className="text-pizarra">{t.inicio.disponibilidad}</dt>
-                        <dd>{f.disponibilidad}</dd>
-                      </div>
+                      {e.envergadura ? (
+                        <div className="flex justify-between gap-3 border-t border-linea pt-3">
+                          <dt className="text-pizarra">{t.inicio.envergadura}</dt>
+                          <dd className="datos">{e.envergadura}</dd>
+                        </div>
+                      ) : null}
+                      {e.disponibilidad ? (
+                        <div className="flex justify-between gap-3">
+                          <dt className="text-pizarra">{t.inicio.disponibilidad}</dt>
+                          <dd>{e.disponibilidad}</dd>
+                        </div>
+                      ) : null}
                     </dl>
                   ) : null}
                 </Link>

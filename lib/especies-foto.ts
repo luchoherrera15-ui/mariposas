@@ -14,6 +14,7 @@ export const FOTO_POR_ESPECIE: Record<string, string> = {
   "Diaethria astala": "ochenta-y-ocho",
 };
 
+/** Las 8 originales tienen slug en español; las demás, el nombre científico en kebab-case. */
 export function slugDeEspecie(nombreCientifico: string) {
-  return FOTO_POR_ESPECIE[nombreCientifico] ?? null;
+  return FOTO_POR_ESPECIE[nombreCientifico] ?? nombreCientifico.trim().toLowerCase().replace(/\s+/g, "-");
 }

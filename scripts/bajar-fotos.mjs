@@ -2,12 +2,17 @@
  * Descarga fotos de las especies del catálogo desde Wikimedia Commons y
  * escribe public/fotos/*.jpg más lib/fotos.ts con el crédito de cada una.
  *
- *   node scripts/bajar-fotos.mjs
+ *   node scripts/bajar-fotos.mjs            (solo las que faltan)
+ *   node scripts/bajar-fotos.mjs --todas    (vuelve a bajar todas)
+ *
+ * Las especies del catálogo usan como slug el nombre científico en kebab-case
+ * ("heliconius-cydno"); las 8 originales conservan sus slugs en español.
  *
  * Todas las imágenes de Commons exigen atribución (CC BY o CC BY-SA). El
  * crédito que genera este script se muestra en /creditos y bajo cada foto.
  */
 
+import { existsSync, readFileSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -26,7 +31,35 @@ const OBJETIVOS = [
   { slug: "cola-de-golondrina", busqueda: "Papilio thoas butterfly" },
   { slug: "malaquita", busqueda: "Siproeta stelenes", preferir: ["Sharp"] },
   { slug: "ochenta-y-ocho", busqueda: "Diaethria", preferir: ["Sharp"] },
+  ...[
+    "Heliconius cydno", "Heliconius doris", "Heliconius erato", "Heliconius hecale", "Heliconius hewitsoni",
+    "Heliconius melpomene", "Heliconius sapho", "Heliconius sara", "Hypna clytemnestra", "Mechanitis polymnia",
+    "Myscelia cyaniris", "Opsiphanes tamarindi", "Papilio anchisiades", "Parides arcas", "Parides iphidamas",
+    "Phoebis argante", "Phoebis philea", "Phoebis sennae", "Rothschildia lebeau", "Siproeta epaphus",
+    "Caligo eurilochus", "Caligo atreus", "Brassolis isthmia", "Ascia limona", "Adelpha fessonia",
+    "Agraulis vanillae", "Anartia fatima", "Anteos clorinde", "Archaeoprepona demophon", "Catonephele numilia",
+    "Consul fabius", "Dryas iulia", "Dryadula phaetusa", "Eryphanis polyxena", "Eueides isabella",
+    "Hamadryas laodamia", "Hamadryas amphinome", "Hamadryas arinome", "Hamadryas februa", "Hamadryas feronia",
+    "Hamadryas guatemalena", "Tithorea tarricina",
+  ].map((cientifico) => ({
+    slug: cientifico.toLowerCase().replace(/\s+/g, "-"),
+    busqueda: cientifico,
+    preferir: ["Sharp"],
+    ancho: 1200,
+    minimo: 800,
+  })),
 ];
+
+const TODAS = process.argv.includes("--todas");
+
+/** Créditos ya guardados en lib/fotos.ts: se conservan y no se vuelven a bajar. */
+function creditosGuardados() {
+  const ruta = resolve(RAIZ, "lib/fotos.ts");
+  if (!existsSync(ruta)) return {};
+  const fuente = readFileSync(ruta, "utf8");
+  const m = fuente.match(/creditos: Record<string, CreditoFoto> = (\{[\s\S]*?\n\});/);
+  return m ? JSON.parse(m[1]) : {};
+}
 
 /** Titulos ya usados, para no repetir la misma foto en dos lugares. */
 const usados = new Set();
@@ -46,7 +79,7 @@ function limpiar(html) {
   return (html ?? "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
 }
 
-async function buscar({ busqueda, archivo, preferir = [], ancho = 1800 }) {
+async function buscar({ busqueda, archivo, preferir = [], ancho = 1800, minimo = 1600 }) {
   // Un archivo fijado a mano gana sobre la búsqueda: para cuando el ranking
   // de Commons no devuelve una foto usable.
   if (archivo) {
@@ -99,7 +132,7 @@ async function buscar({ busqueda, archivo, preferir = [], ancho = 1800 }) {
     .filter((c) => /jpeg|jpg/i.test(c.mime ?? ""))
     .filter((c) => !DESCARTAR.test(c.titulo))
     // Horizontales primero: encajan mejor en tarjetas y en el encabezado.
-    .filter((c) => c.ancho >= 1600)
+    .filter((c) => c.ancho >= minimo)
     .filter((c) => !usados.has(c.titulo));
 
   candidatos.sort((a, b) => {
@@ -124,10 +157,12 @@ async function bajar(url, destino) {
   return datos.length;
 }
 
-const creditos = {};
+const creditos = TODAS ? {} : creditosGuardados();
+for (const c of Object.values(creditos)) usados.add(c.titulo);
 await mkdir(resolve(RAIZ, "public/fotos"), { recursive: true });
 
 for (const objetivo of OBJETIVOS) {
+  if (creditos[objetivo.slug] && existsSync(resolve(RAIZ, "public/fotos", `${objetivo.slug}.jpg`))) continue;
   try {
     const elegida = await buscar(objetivo);
     if (!elegida) {

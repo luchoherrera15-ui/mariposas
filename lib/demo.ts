@@ -9,7 +9,7 @@ import type { Especie, Pedido, ProyectoImpacto, RegistroImpacto } from "./tipos"
 const hace = (dias: number) => new Date(Date.now() - dias * 86_400_000).toISOString();
 const enDias = (dias: number) => new Date(Date.now() + dias * 86_400_000).toISOString().slice(0, 10);
 
-export const especiesDemo: Especie[] = [
+const especiesBase = [
   { id: "e1", nombre_comun: "Morpho azul", nombre_cientifico: "Morpho peleides", familia: "Nymphalidae", region: "Costa Rica", precio_unitario: 8.5, descripcion: "El clásico azul metálico. Alta demanda en exhibiciones y eventos.", emoji: "🦋" },
   { id: "e2", nombre_comun: "Búho gigante", nombre_cientifico: "Caligo memnon", familia: "Nymphalidae", region: "Costa Rica", precio_unitario: 6.75, descripcion: "Enormes ocelos que imitan ojos de búho. Muy resistente al transporte.", emoji: "🦉" },
   { id: "e3", nombre_comun: "Monarca", nombre_cientifico: "Danaus plexippus", familia: "Nymphalidae", region: "Mesoamérica", precio_unitario: 4.2, descripcion: "Icono de la migración. Ideal para programas educativos.", emoji: "🧡" },
@@ -19,6 +19,15 @@ export const especiesDemo: Especie[] = [
   { id: "e7", nombre_comun: "Malaquita", nombre_cientifico: "Siproeta stelenes", familia: "Nymphalidae", region: "Costa Rica", precio_unitario: 5.6, descripcion: "Verde jade translúcido. Muy longeva en cautiverio.", emoji: "💚" },
   { id: "e8", nombre_comun: "Ochenta y ocho", nombre_cientifico: "Diaethria astala", familia: "Nymphalidae", region: "Costa Rica", precio_unitario: 6.1, descripcion: 'El "88" dibujado en las alas inferiores.', emoji: "🔢" },
 ];
+
+export const especiesDemo: Especie[] = especiesBase.map((e, i) => ({
+  ...e,
+  slug: e.nombre_cientifico.toLowerCase().replace(/s+/g, "-"),
+  envergadura: null,
+  vuelo: null,
+  disponibilidad: null,
+  destacada: i < 4,
+}));
 
 export const proyectosDemo: ProyectoImpacto[] = [
   {

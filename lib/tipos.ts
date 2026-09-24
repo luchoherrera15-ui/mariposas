@@ -16,6 +16,8 @@ export type EstadoEnvio =
 
 export type Especie = {
   id: string;
+  /** Para la URL de su página: el nombre científico en kebab-case. */
+  slug: string;
   nombre_comun: string;
   nombre_cientifico: string;
   familia: string | null;
@@ -24,6 +26,12 @@ export type Especie = {
   precio_unitario?: number;
   descripcion: string | null;
   emoji: string | null;
+  /** Ficha: envergadura ("95–120 mm"), estilo de vuelo y disponibilidad. */
+  envergadura: string | null;
+  vuelo: string | null;
+  disponibilidad: string | null;
+  /** Las destacadas abren la portada. */
+  destacada: boolean;
 };
 
 export type ItemPedido = {

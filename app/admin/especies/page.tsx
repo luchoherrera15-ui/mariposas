@@ -28,8 +28,12 @@ export default async function EspeciesAdmin() {
             <Campo etiqueta="Familia" name="familia" placeholder="Nymphalidae" />
             <Campo etiqueta="Origen" name="region" placeholder="Costa Rica" />
             <Campo etiqueta="Precio por pupa" name="precio_unitario" type="number" min={0} step="0.01" />
-            <div className="flex items-end pb-2">
+            <Campo etiqueta="Envergadura" name="envergadura" placeholder="95–120 mm" />
+            <Campo etiqueta="Vuelo" name="vuelo" placeholder="Lento y planeado" />
+            <Campo etiqueta="Disponibilidad" name="disponibilidad" placeholder="Todo el año" />
+            <div className="flex flex-wrap items-end gap-5 pb-2">
               <Casilla etiqueta="Activa en el sitio" name="activo" defaultChecked />
+              <Casilla etiqueta="Destacada en la portada" name="destacada" />
             </div>
             <Area etiqueta="Descripción" name="descripcion" className="sm:col-span-2 lg:col-span-3" />
           </div>
@@ -42,13 +46,21 @@ export default async function EspeciesAdmin() {
         </h2>
 
         {especies.map((e) => (
-          <div key={e.id} className="border border-linea bg-papel p-6">
-            <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
-              <p className="titulo-3">
-                {e.nombre_comun} <span className="cientifico text-base text-pizarra">{e.nombre_cientifico}</span>
-              </p>
-              <p className="datos text-sm text-pizarra">{moneda(e.precio_unitario)} por pupa</p>
-            </div>
+          <details key={e.id} className="group border border-linea bg-papel">
+            <summary className="flex cursor-pointer list-none flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-3.5 hover:bg-nube/60">
+              <span className="text-pizarra transition-transform group-open:rotate-90">›</span>
+              <span className="font-medium">{e.nombre_comun}</span>
+              <span className="cientifico text-sm text-pizarra">{e.nombre_cientifico}</span>
+              <span className="datos text-xs text-pizarra">{e.familia}</span>
+              <span className="ml-auto flex items-baseline gap-3 text-xs">
+                {e.destacada ? <span className="text-morpho">destacada</span> : null}
+                {!e.activo ? <span className="text-red-800">inactiva</span> : null}
+                <span className={`datos ${e.precio_unitario ? "text-pizarra" : "text-red-800"}`}>
+                  {e.precio_unitario ? `${moneda(e.precio_unitario)} por pupa` : "sin precio"}
+                </span>
+              </span>
+            </summary>
+            <div className="border-t border-linea p-6">
 
             <FormularioAccion accion={guardarEspecie} boton="Guardar cambios">
               <input type="hidden" name="especie_id" value={e.id} />
@@ -59,7 +71,7 @@ export default async function EspeciesAdmin() {
                   name="nombre_cientifico"
                   defaultValue={e.nombre_cientifico}
                   required
-                  ayuda="Es la llave que enlaza la foto y la ficha técnica."
+                  ayuda="Enlaza la foto y define la dirección de su página (/especies/…)."
                 />
                 <Campo etiqueta="Familia" name="familia" defaultValue={e.familia ?? ""} />
                 <Campo etiqueta="Origen" name="region" defaultValue={e.region ?? ""} />
@@ -71,8 +83,17 @@ export default async function EspeciesAdmin() {
                   step="0.01"
                   defaultValue={e.precio_unitario}
                 />
-                <div className="flex items-end pb-2">
+                <Campo etiqueta="Envergadura" name="envergadura" defaultValue={e.envergadura ?? ""} />
+                <Campo etiqueta="Vuelo" name="vuelo" defaultValue={e.vuelo ?? ""} />
+                <Campo
+                  etiqueta="Disponibilidad"
+                  name="disponibilidad"
+                  defaultValue={e.disponibilidad ?? ""}
+                  ayuda="Ej.: Todo el año · Bajo pedido · Marzo a octubre"
+                />
+                <div className="flex flex-wrap items-end gap-5 pb-2">
                   <Casilla etiqueta="Activa en el sitio" name="activo" defaultChecked={e.activo} />
+                  <Casilla etiqueta="Destacada en la portada" name="destacada" defaultChecked={e.destacada} />
                 </div>
                 <Area
                   etiqueta="Descripción"
@@ -89,7 +110,8 @@ export default async function EspeciesAdmin() {
                 Eliminar esta especie (si tiene pedidos, solo se desactiva)
               </button>
             </form>
-          </div>
+            </div>
+          </details>
         ))}
       </div>
     </div>

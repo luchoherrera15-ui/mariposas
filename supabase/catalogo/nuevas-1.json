@@ -1,0 +1,534 @@
+[
+  {
+    "nombre_cientifico": "Heliconius cydno",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-cydno",
+    "envergadura": "70–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Heliconia azul y blanca",
+        "region": "México a Sudamérica noroccidental",
+        "descripcion": "Alas negras con reflejos azul metálico y una amplia banda blanca en las alas anteriores. Vuela con calma entre las flores, se alimenta de néctar y polen, y los adultos pueden vivir varias semanas. Su contraste de colores y su longevidad la convierten en una especie muy vistosa y rentable para cualquier mariposario.",
+        "vuelo": "Lento y planeado"
+      },
+      "en": {
+        "nombre_comun": "Blue-and-white Longwing",
+        "region": "Mexico to northwestern South America",
+        "descripcion": "Black wings washed with metallic blue and crossed by a broad white forewing band. It drifts calmly from flower to flower, feeding on both nectar and pollen, and adults can live for several weeks. Striking contrast and a long display life make it a dependable showpiece for any butterfly house.",
+        "vuelo": "Slow and gliding"
+      },
+      "it": {
+        "nombre_comun": "Heliconius blu e bianco",
+        "region": "Dal Messico al Sudamerica nord-occidentale",
+        "descripcion": "Ali nere con riflessi blu metallico e un'ampia fascia bianca sulle ali anteriori. Vola con calma tra i fiori, si nutre di nettare e polline e gli adulti possono vivere diverse settimane. Il forte contrasto cromatico e la lunga durata in esposizione la rendono una specie affidabile e di grande effetto.",
+        "vuelo": "Lento e planato"
+      },
+      "fr": {
+        "nombre_comun": "Héliconius bleu et blanc",
+        "region": "Du Mexique au nord-ouest de l'Amérique du Sud",
+        "descripcion": "Ailes noires aux reflets bleu métallique, traversées d'une large bande blanche sur l'aile antérieure. Il passe calmement de fleur en fleur, se nourrit de nectar et de pollen, et les adultes vivent plusieurs semaines. Son contraste saisissant et sa longévité en font une valeur sûre pour toute serre à papillons.",
+        "vuelo": "Lent et plané"
+      },
+      "zh": {
+        "nombre_comun": "蓝白袖蝶",
+        "region": "墨西哥至南美洲西北部",
+        "descripcion": "翅膀黑色，带金属蓝光泽，前翅有一条宽阔的白色横带。飞行从容，在花间穿梭，同时取食花蜜和花粉，成虫可存活数周。色彩对比鲜明、展示寿命长，是蝴蝶馆中稳定而醒目的展示物种。",
+        "vuelo": "缓慢滑翔"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius doris",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-doris",
+    "envergadura": "65–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Heliconia doris",
+        "region": "México a la Amazonía",
+        "descripcion": "Alas negras con manchas amarillas en las anteriores y rayos en las posteriores que pueden ser rojos, azules o verdes según el individuo. Planea despacio y visita flores con constancia, con adultos de vida larga. Su variedad de formas de color permite mostrar el polimorfismo en vivo y despierta la curiosidad del público.",
+        "vuelo": "Lento, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Doris Longwing",
+        "region": "Mexico to the Amazon Basin",
+        "descripcion": "Black wings with yellow forewing spots and hindwing rays that may be red, blue or green depending on the individual. It glides unhurriedly and visits flowers steadily, and adults are long-lived. Its range of colour forms lets visitors see polymorphism in action, making it an engaging educational species.",
+        "vuelo": "Slow, mid-level"
+      },
+      "it": {
+        "nombre_comun": "Heliconius doris",
+        "region": "Dal Messico all'Amazzonia",
+        "descripcion": "Ali nere con macchie gialle sulle anteriori e raggi sulle posteriori che possono essere rossi, blu o verdi a seconda dell'individuo. Plana senza fretta e visita i fiori con costanza; gli adulti sono longevi. Le sue diverse forme cromatiche mostrano dal vivo il polimorfismo, rendendola una specie didattica molto apprezzata.",
+        "vuelo": "Lento, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Héliconius doris",
+        "region": "Du Mexique à l'Amazonie",
+        "descripcion": "Ailes noires ornées de taches jaunes à l'avant et de rayons à l'arrière, rouges, bleus ou verts selon l'individu. Il plane sans hâte, butine régulièrement et les adultes vivent longtemps. Ses différentes formes colorées illustrent le polymorphisme en direct, ce qui en fait une espèce pédagogique très appréciée.",
+        "vuelo": "Lent, à mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "多丽袖蝶",
+        "region": "墨西哥至亚马孙流域",
+        "descripcion": "翅膀黑色，前翅有黄色斑，后翅的放射状条纹因个体不同而呈红色、蓝色或绿色。飞行舒缓，经常访花，成虫寿命较长。多种色型可让游客直观了解多态现象，是很有教育意义的展示物种。",
+        "vuelo": "缓慢，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius erato",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-erato",
+    "envergadura": "55–75 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Cartero pequeño",
+        "region": "Sur de EE. UU. a Sudamérica",
+        "descripcion": "Alas negras con una franja roja en las anteriores y, en las formas centroamericanas, una línea amarilla en las posteriores. Revolotea con suavidad entre las flores, recolecta polen y duerme en grupo sobre ramas o bejucos. Es resistente, longeva y muy activa durante el día, ideal para mantener un mariposario siempre animado.",
+        "vuelo": "Lento y ondulante"
+      },
+      "en": {
+        "nombre_comun": "Small Postman",
+        "region": "Southern USA to South America",
+        "descripcion": "Black wings with a red forewing band and, in Central American forms, a thin yellow hindwing line. It flutters gently among flowers, gathers pollen and roosts communally on twigs and vines at night. Hardy, long-lived and active all day, it keeps a flight house lively from morning to closing time.",
+        "vuelo": "Slow and fluttering"
+      },
+      "it": {
+        "nombre_comun": "Piccolo postino",
+        "region": "Dal sud degli Stati Uniti al Sudamerica",
+        "descripcion": "Ali nere con una fascia rossa sulle anteriori e, nelle forme centroamericane, una sottile linea gialla sulle posteriori. Svolazza dolcemente tra i fiori, raccoglie polline e di notte riposa in gruppo su rametti e liane. Robusta, longeva e attiva tutto il giorno, mantiene vivace qualsiasi serra delle farfalle.",
+        "vuelo": "Lento e svolazzante"
+      },
+      "fr": {
+        "nombre_comun": "Petit facteur",
+        "region": "Du sud des États-Unis à l'Amérique du Sud",
+        "descripcion": "Ailes noires marquées d'une bande rouge à l'avant et, chez les formes d'Amérique centrale, d'un fin trait jaune à l'arrière. Il voltige doucement entre les fleurs, récolte du pollen et dort en groupe sur des rameaux ou des lianes. Robuste, longévif et actif toute la journée, il anime durablement une serre.",
+        "vuelo": "Lent et voletant"
+      },
+      "zh": {
+        "nombre_comun": "艺神袖蝶",
+        "region": "美国南部至南美洲",
+        "descripcion": "翅膀黑色，前翅有红色宽带，中美洲类型的后翅还有一条细黄线。在花间轻柔飞舞，会采集花粉，夜间成群栖息在细枝或藤蔓上。体质强健、寿命长、白天活跃，能让蝴蝶馆全天充满生气。",
+        "vuelo": "缓慢，轻盈拍翅"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius hecale",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-hecale",
+    "envergadura": "70–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Heliconia tigre",
+        "region": "México a Perú",
+        "descripcion": "Diseño atigrado de negro, naranja y amarillo, con manchas claras en la punta de las alas anteriores. Es una de las heliconias más grandes; vuela pausadamente, frecuenta las flores y los adultos viven varias semanas. Su tamaño y colorido cálido la hacen muy fotogénica y una de las favoritas del público.",
+        "vuelo": "Lento y planeado"
+      },
+      "en": {
+        "nombre_comun": "Tiger Longwing",
+        "region": "Mexico to Peru",
+        "descripcion": "A tiger pattern of black, orange and yellow, with pale spots near the forewing tips. One of the larger longwings, it flies at a leisurely pace, visits flowers often and adults live for several weeks. Its size and warm colours make it highly photogenic and a consistent visitor favourite.",
+        "vuelo": "Slow and gliding"
+      },
+      "it": {
+        "nombre_comun": "Heliconius tigrato",
+        "region": "Dal Messico al Perù",
+        "descripcion": "Disegno tigrato nero, arancione e giallo, con macchie chiare verso l'apice delle ali anteriori. È uno degli Heliconius più grandi: vola con calma, visita spesso i fiori e gli adulti vivono diverse settimane. Dimensioni e colori caldi lo rendono molto fotogenico e tra i preferiti dei visitatori.",
+        "vuelo": "Lento e planato"
+      },
+      "fr": {
+        "nombre_comun": "Héliconius tigré",
+        "region": "Du Mexique au Pérou",
+        "descripcion": "Motif tigré noir, orange et jaune, avec des taches claires vers l'apex des ailes antérieures. C'est l'un des plus grands héliconius : il vole posément, butine souvent et les adultes vivent plusieurs semaines. Sa taille et ses couleurs chaudes le rendent très photogénique et apprécié du public.",
+        "vuelo": "Lent et plané"
+      },
+      "zh": {
+        "nombre_comun": "虎纹袖蝶",
+        "region": "墨西哥至秘鲁",
+        "descripcion": "翅面为黑、橙、黄三色组成的虎纹图案，前翅端部有浅色斑点。属于体型较大的袖蝶，飞行悠闲，频繁访花，成虫可存活数周。体型大、色彩温暖，非常上镜，深受游客喜爱。",
+        "vuelo": "缓慢滑翔"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius hewitsoni",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-hewitsoni",
+    "envergadura": "70–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Heliconia de Hewitson",
+        "region": "Costa Rica y Panamá",
+        "descripcion": "Alas negras cruzadas por bandas blancas bien definidas, un diseño elegante y sobrio. Es una especie de distribución restringida al sur de Centroamérica, de vuelo tranquilo y adultos longevos que visitan flores con regularidad. Su rareza en colecciones vivas la convierte en una pieza destacada para exhibiciones especializadas.",
+        "vuelo": "Lento, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Hewitson's Longwing",
+        "region": "Costa Rica and Panama",
+        "descripcion": "Black wings crossed by crisp white bands give this longwing a clean, elegant look. Restricted to southern Central America, it flies calmly and its long-lived adults visit flowers regularly. Seldom seen in live collections, it is a distinctive highlight for specialised or regional exhibits.",
+        "vuelo": "Slow, mid-level"
+      },
+      "it": {
+        "nombre_comun": "Heliconius di Hewitson",
+        "region": "Costa Rica e Panamá",
+        "descripcion": "Ali nere attraversate da nitide fasce bianche, per un aspetto sobrio ed elegante. Diffusa solo nel sud dell'America centrale, vola con calma e gli adulti, longevi, visitano regolarmente i fiori. Raramente presente nelle collezioni vive, è un pezzo di pregio per esposizioni specializzate.",
+        "vuelo": "Lento, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Héliconius de Hewitson",
+        "region": "Costa Rica et Panama",
+        "descripcion": "Ailes noires traversées de bandes blanches nettes, pour une allure sobre et élégante. Limité au sud de l'Amérique centrale, il vole calmement et ses adultes longévifs butinent régulièrement. Rarement présenté dans les collections vivantes, il constitue un atout remarquable pour les expositions spécialisées.",
+        "vuelo": "Lent, à mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "休氏袖蝶",
+        "region": "哥斯达黎加和巴拿马",
+        "descripcion": "黑色翅面上横贯清晰的白色条带，外观简洁优雅。仅分布于中美洲南部，飞行平稳，成虫寿命长并经常访花。在活体展示中较为少见，是专题展览中的亮点物种。",
+        "vuelo": "缓慢，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius melpomene",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-melpomene",
+    "envergadura": "60–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Cartero",
+        "region": "México a Sudamérica",
+        "descripcion": "Alas negras con una llamativa banda roja en las anteriores, casi idéntica a la de Heliconius erato por mimetismo. Vuela despacio, se alimenta de néctar y polen y sus adultos viven varias semanas. Es un clásico de los mariposarios y un excelente ejemplo para explicar el mimetismo mülleriano.",
+        "vuelo": "Lento y ondulante"
+      },
+      "en": {
+        "nombre_comun": "Postman",
+        "region": "Mexico to South America",
+        "descripcion": "Black wings with a bold red forewing band, almost identical to Heliconius erato through mimicry. It flies slowly, feeds on nectar and pollen, and adults live for several weeks. A butterfly-house classic and an ideal species for explaining Müllerian mimicry to visitors.",
+        "vuelo": "Slow and fluttering"
+      },
+      "it": {
+        "nombre_comun": "Postino",
+        "region": "Dal Messico al Sudamerica",
+        "descripcion": "Ali nere con una vistosa fascia rossa sulle anteriori, quasi identica a quella di Heliconius erato per mimetismo. Vola lentamente, si nutre di nettare e polline e gli adulti vivono diverse settimane. Un classico delle case delle farfalle, perfetto per spiegare il mimetismo mülleriano.",
+        "vuelo": "Lento e svolazzante"
+      },
+      "fr": {
+        "nombre_comun": "Facteur",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Ailes noires barrées d'une bande rouge vif à l'avant, presque identique à celle d'Heliconius erato par mimétisme. Il vole lentement, se nourrit de nectar et de pollen et les adultes vivent plusieurs semaines. Un classique des serres à papillons, idéal pour présenter le mimétisme müllérien.",
+        "vuelo": "Lent et voletant"
+      },
+      "zh": {
+        "nombre_comun": "红带袖蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅膀黑色，前翅有醒目的红色宽带，因拟态而与艺神袖蝶几乎一模一样。飞行缓慢，取食花蜜和花粉，成虫可存活数周。是蝴蝶馆的经典物种，也是讲解缪勒拟态的理想范例。",
+        "vuelo": "缓慢，轻盈拍翅"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius sapho",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-sapho",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Heliconia safo",
+        "region": "México a Ecuador",
+        "descripcion": "Alas negras con brillo azul acerado, una banda blanca en las anteriores y un borde blanco en las posteriores. Vuela con calma, suele mantenerse a media altura y visita flores con frecuencia. Su iridiscencia luce especialmente bien bajo luz natural y complementa a otras heliconias de patrón blanco y negro.",
+        "vuelo": "Lento, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Sapho Longwing",
+        "region": "Mexico to Ecuador",
+        "descripcion": "Black wings with a steely blue sheen, a white forewing band and a white hindwing margin. It flies calmly, usually at mid-height, and visits flowers frequently. Its iridescence shows beautifully in natural light, and it pairs well with other black-and-white longwings in a mixed display.",
+        "vuelo": "Slow, mid-level"
+      },
+      "it": {
+        "nombre_comun": "Heliconius saffo",
+        "region": "Dal Messico all'Ecuador",
+        "descripcion": "Ali nere con riflessi blu acciaio, una fascia bianca sulle anteriori e un margine bianco sulle posteriori. Vola con calma, di solito a media altezza, e visita spesso i fiori. La sua iridescenza risalta alla luce naturale e si abbina bene ad altri Heliconius bianconeri.",
+        "vuelo": "Lento, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Héliconius sapho",
+        "region": "Du Mexique à l'Équateur",
+        "descripcion": "Ailes noires aux reflets bleu acier, avec une bande blanche à l'avant et une bordure blanche à l'arrière. Il vole calmement, généralement à mi-hauteur, et butine souvent. Son irisation ressort magnifiquement à la lumière naturelle et s'accorde bien avec d'autres héliconius noir et blanc.",
+        "vuelo": "Lent, à mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "萨福袖蝶",
+        "region": "墨西哥至厄瓜多尔",
+        "descripcion": "翅膀黑色，带钢蓝色光泽，前翅有白色横带，后翅边缘为白色。飞行平稳，多在中等高度活动，经常访花。其虹彩在自然光下格外动人，适合与其他黑白色袖蝶一同展示。",
+        "vuelo": "缓慢，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Heliconius sara",
+    "familia": "Nymphalidae",
+    "slug": "heliconius-sara",
+    "envergadura": "50–65 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Heliconia sara",
+        "region": "México a la Amazonía",
+        "descripcion": "Heliconia pequeña de alas negras con intenso brillo azul y bandas amarillentas o blancas en las anteriores. Es muy sociable: los adultos duermen en grupos sobre la misma rama y regresan a ella noche tras noche. Su tamaño compacto, su iridiscencia y sus dormideros comunales resultan muy atractivos para los visitantes.",
+        "vuelo": "Lento y ondulante"
+      },
+      "en": {
+        "nombre_comun": "Sara Longwing",
+        "region": "Mexico to the Amazon Basin",
+        "descripcion": "A small longwing with deep iridescent blue wings and pale yellow to white forewing bands. It is highly sociable, with adults roosting together on the same branch night after night. Its compact size, vivid sheen and communal roosts are a real draw for visitors.",
+        "vuelo": "Slow and fluttering"
+      },
+      "it": {
+        "nombre_comun": "Heliconius sara",
+        "region": "Dal Messico all'Amazzonia",
+        "descripcion": "Piccolo Heliconius dalle ali nere con intensi riflessi blu e fasce giallo pallido o bianche sulle anteriori. È molto socievole: gli adulti dormono in gruppo sullo stesso ramo, notte dopo notte. Dimensioni compatte, iridescenza e dormitori comuni attirano molto l'attenzione dei visitatori.",
+        "vuelo": "Lento e svolazzante"
+      },
+      "fr": {
+        "nombre_comun": "Héliconius sara",
+        "region": "Du Mexique à l'Amazonie",
+        "descripcion": "Petit héliconius aux ailes d'un bleu irisé profond, avec des bandes jaune pâle à blanches à l'avant. Très sociable, il dort en groupe sur la même branche nuit après nuit. Sa petite taille, son éclat et ses dortoirs collectifs captivent les visiteurs.",
+        "vuelo": "Lent et voletant"
+      },
+      "zh": {
+        "nombre_comun": "萨拉袖蝶",
+        "region": "墨西哥至亚马孙流域",
+        "descripcion": "体型较小的袖蝶，翅面呈浓郁的虹彩蓝色，前翅有淡黄至白色条带。群居性强，成虫夜晚会聚集在同一根枝条上栖息，且每晚回到原处。小巧的体型、闪亮的光泽和集体栖息行为都很吸引游客。",
+        "vuelo": "缓慢，轻盈拍翅"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hypna clytemnestra",
+    "familia": "Nymphalidae",
+    "slug": "hypna-clytemnestra",
+    "envergadura": "70–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Hoja plateada",
+        "region": "México a Sudamérica",
+        "descripcion": "Por encima es oscura con una ancha banda color crema; por debajo imita una hoja seca con pequeñas manchas plateadas. Tiene un vuelo rápido y potente, pero en el mariposario suele posarse con las alas cerradas y acudir a frutas fermentadas. El contraste entre ambas caras la hace ideal para hablar de camuflaje.",
+        "vuelo": "Rápido y potente"
+      },
+      "en": {
+        "nombre_comun": "Silver-studded Leafwing",
+        "region": "Mexico to South America",
+        "descripcion": "Dark above with a broad cream band, while the underside mimics a dead leaf dotted with small silver marks. Its flight is fast and powerful, but in a flight house it often rests with wings closed and comes readily to fermenting fruit. The contrast between its two sides makes it perfect for explaining camouflage.",
+        "vuelo": "Fast and powerful"
+      },
+      "it": {
+        "nombre_comun": "Foglia argentata",
+        "region": "Dal Messico al Sudamerica",
+        "descripcion": "Scura sopra con un'ampia fascia color crema, mentre il rovescio imita una foglia secca punteggiata di piccole macchie argentee. Il volo è rapido e potente, ma in serra si posa spesso ad ali chiuse e si nutre volentieri di frutta fermentata. Il contrasto tra le due facce è ideale per spiegare il mimetismo criptico.",
+        "vuelo": "Rapido e potente"
+      },
+      "fr": {
+        "nombre_comun": "Feuille argentée",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Sombre au-dessus avec une large bande crème, son revers imite une feuille morte parsemée de petites taches argentées. Son vol est rapide et puissant, mais en serre il se pose souvent ailes fermées et vient volontiers sur les fruits fermentés. Le contraste entre ses deux faces illustre parfaitement le camouflage.",
+        "vuelo": "Rapide et puissant"
+      },
+      "zh": {
+        "nombre_comun": "银星叶蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅正面深色，有一条宽阔的奶油色带；反面酷似枯叶，并点缀着细小的银色斑点。飞行迅速有力，但在蝴蝶馆中常合翅停歇，并喜欢取食发酵水果。正反两面的强烈对比非常适合用来讲解伪装。",
+        "vuelo": "快速有力"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Mechanitis polymnia",
+    "familia": "Nymphalidae",
+    "slug": "mechanitis-polymnia",
+    "envergadura": "55–70 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tigre polimnia",
+        "region": "México a la Amazonía",
+        "descripcion": "Alas alargadas con patrón atigrado de naranja, negro y amarillo, típico de los complejos miméticos neotropicales. Vuela bajo y despacio, casi flotando entre la vegetación sombreada, y visita flores con frecuencia. Su vuelo pausado permite observarla de cerca, y es una buena especie para ilustrar los anillos de mimetismo.",
+        "vuelo": "Lento y bajo"
+      },
+      "en": {
+        "nombre_comun": "Disturbed Tigerwing",
+        "region": "Mexico to the Amazon Basin",
+        "descripcion": "Elongated wings in a tiger pattern of orange, black and yellow, typical of Neotropical mimicry rings. It flies low and slowly, almost floating through shaded vegetation, and visits flowers often. Its unhurried flight allows close viewing, and it is a good species for illustrating mimicry complexes.",
+        "vuelo": "Slow and low"
+      },
+      "it": {
+        "nombre_comun": "Ala tigrata polimnia",
+        "region": "Dal Messico all'Amazzonia",
+        "descripcion": "Ali allungate con disegno tigrato arancione, nero e giallo, tipico degli anelli mimetici neotropicali. Vola bassa e lenta, quasi fluttuando nella vegetazione ombreggiata, e visita spesso i fiori. Il volo tranquillo consente di osservarla da vicino ed è ideale per illustrare i complessi mimetici.",
+        "vuelo": "Lento e basso"
+      },
+      "fr": {
+        "nombre_comun": "Aile-tigrée polymnia",
+        "region": "Du Mexique à l'Amazonie",
+        "descripcion": "Ailes allongées au motif tigré orange, noir et jaune, typique des cercles mimétiques néotropicaux. Il vole bas et lentement, semblant flotter dans la végétation ombragée, et butine fréquemment. Son vol posé permet une observation rapprochée et illustre bien les complexes mimétiques.",
+        "vuelo": "Lent et bas"
+      },
+      "zh": {
+        "nombre_comun": "多形虎纹绡蝶",
+        "region": "墨西哥至亚马孙流域",
+        "descripcion": "翅形狭长，呈橙、黑、黄三色虎纹，是新热带拟态环中的典型图案。在阴凉植被间低飞缓行，仿佛漂浮一般，经常访花。飞行从容，便于近距离观察，适合用来讲解拟态复合群。",
+        "vuelo": "缓慢低飞"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Myscelia cyaniris",
+    "familia": "Nymphalidae",
+    "slug": "myscelia-cyaniris",
+    "envergadura": "50–65 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Ola azul",
+        "region": "México a Sudamérica noroccidental",
+        "descripcion": "Por encima muestra bandas azul violeta iridiscentes sobre fondo oscuro con puntos blancos; por debajo es gris parda y críptica. Vuela rápido y en tramos cortos, se posa en troncos y se alimenta de frutas fermentadas. El destello azul al abrir las alas sorprende a los visitantes y aporta variedad a las estaciones de fruta.",
+        "vuelo": "Rápido, en tramos cortos"
+      },
+      "en": {
+        "nombre_comun": "Blue Wave",
+        "region": "Mexico to northwestern South America",
+        "descripcion": "The upperside shows iridescent violet-blue bands on a dark ground with white dots, while the underside is cryptic grey-brown. It flies fast in short bursts, perches on trunks and feeds at fermenting fruit. The flash of blue when it opens its wings surprises visitors and adds variety to fruit-feeding stations.",
+        "vuelo": "Fast, short bursts"
+      },
+      "it": {
+        "nombre_comun": "Onda blu",
+        "region": "Dal Messico al Sudamerica nord-occidentale",
+        "descripcion": "Il dritto mostra bande blu violaceo iridescenti su fondo scuro con puntini bianchi, mentre il rovescio è grigio-bruno e mimetico. Vola veloce a brevi scatti, si posa sui tronchi e si nutre di frutta fermentata. Il lampo blu quando apre le ali sorprende i visitatori e arricchisce le postazioni di frutta.",
+        "vuelo": "Rapido, a brevi scatti"
+      },
+      "fr": {
+        "nombre_comun": "Vague bleue",
+        "region": "Du Mexique au nord-ouest de l'Amérique du Sud",
+        "descripcion": "Le dessus présente des bandes bleu violacé irisées sur fond sombre ponctué de blanc, tandis que le revers est gris-brun et cryptique. Il vole vite par courtes saccades, se pose sur les troncs et se nourrit de fruits fermentés. L'éclair bleu à l'ouverture des ailes surprend les visiteurs et diversifie les postes à fruits.",
+        "vuelo": "Rapide, par saccades"
+      },
+      "zh": {
+        "nombre_comun": "蓝波蛱蝶",
+        "region": "墨西哥至南美洲西北部",
+        "descripcion": "翅正面深色，带有虹彩蓝紫色条纹和白色小点；反面为灰褐色，具保护色。飞行迅速，常短距离冲刺，喜停在树干上并取食发酵水果。展翅时闪现的蓝光令游客惊喜，也让水果喂食区更加丰富。",
+        "vuelo": "快速，短距冲刺"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Opsiphanes tamarindi",
+    "familia": "Nymphalidae",
+    "slug": "opsiphanes-tamarindi",
+    "envergadura": "75–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Búho de banda naranja",
+        "region": "México a Sudamérica",
+        "descripcion": "Mariposa robusta de alas pardas con una banda anaranjada en las anteriores y ocelos en la cara inferior de las posteriores. Es activa al amanecer y al atardecer; durante el día descansa con las alas cerradas y acude a frutas fermentadas. Complementa bien a los búhos Caligo y muestra una faceta crepuscular del mariposario.",
+        "vuelo": "Crepuscular, rápido"
+      },
+      "en": {
+        "nombre_comun": "Tamarindi Owlet",
+        "region": "Mexico to South America",
+        "descripcion": "A stout butterfly with brown wings, an orange forewing band and eyespots on the hindwing underside. It is most active at dawn and dusk, resting with wings closed by day and coming to fermenting fruit. It pairs well with Caligo owl butterflies and showcases the crepuscular side of a butterfly house.",
+        "vuelo": "Crepuscular, fast"
+      },
+      "it": {
+        "nombre_comun": "Piccola civetta tamarindi",
+        "region": "Dal Messico al Sudamerica",
+        "descripcion": "Farfalla robusta dalle ali brune, con una fascia arancione sulle anteriori e ocelli sul rovescio delle posteriori. È attiva soprattutto all'alba e al tramonto; di giorno riposa ad ali chiuse e si nutre di frutta fermentata. Si abbina bene alle farfalle civetta Caligo e mostra il lato crepuscolare della serra.",
+        "vuelo": "Crepuscolare, rapido"
+      },
+      "fr": {
+        "nombre_comun": "Petit hibou tamarindi",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Papillon trapu aux ailes brunes, orné d'une bande orange à l'avant et d'ocelles au revers des ailes postérieures. Surtout actif à l'aube et au crépuscule, il se repose ailes fermées le jour et vient sur les fruits fermentés. Il complète bien les papillons hiboux Caligo et révèle la facette crépusculaire d'une serre.",
+        "vuelo": "Crépusculaire, rapide"
+      },
+      "zh": {
+        "nombre_comun": "橙带鸮环蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "体型粗壮，翅膀褐色，前翅有橙色带，后翅反面具眼斑。主要在黎明和黄昏活动，白天合翅停歇，喜食发酵水果。与猫头鹰蝶搭配展示效果很好，能呈现蝴蝶馆中晨昏活动的一面。",
+        "vuelo": "晨昏活动，快速"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Papilio anchisiades",
+    "familia": "Papilionidae",
+    "slug": "papilio-anchisiades",
+    "envergadura": "80–100 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Cola de golondrina de manchas rojas",
+        "region": "Sur de EE. UU. a Argentina",
+        "descripcion": "Papiliónido negro sin colas, con una mancha rosada o rojo carmín en las alas posteriores. Vuela a media altura y visita flores agitando las alas sin cesar mientras se alimenta. Su gran tamaño y su movimiento constante aportan dinamismo a la exhibición, y la oruga que imita excremento de ave es un excelente recurso educativo.",
+        "vuelo": "Aleteo continuo, media altura"
+      },
+      "en": {
+        "nombre_comun": "Ruby-spotted Swallowtail",
+        "region": "Southern USA to Argentina",
+        "descripcion": "A tailless black swallowtail with a pink to ruby patch on the hindwings. It flies at mid-height and keeps its wings fluttering while feeding at flowers. Its size and constant motion bring energy to a display, and its bird-dropping-mimic caterpillar makes an excellent teaching subject.",
+        "vuelo": "Fluttering, mid-level"
+      },
+      "it": {
+        "nombre_comun": "Papilio dalle macchie rubino",
+        "region": "Dal sud degli Stati Uniti all'Argentina",
+        "descripcion": "Papilionide nero privo di code, con una macchia da rosa a rosso rubino sulle ali posteriori. Vola a media altezza e continua a battere le ali mentre si nutre sui fiori. Le dimensioni e il movimento costante animano l'esposizione, e il bruco che imita un escremento d'uccello è un ottimo spunto didattico.",
+        "vuelo": "Battito continuo, media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Porte-queue à taches rubis",
+        "region": "Du sud des États-Unis à l'Argentine",
+        "descripcion": "Papilionidé noir dépourvu de queues, avec une tache rose à rouge rubis sur les ailes postérieures. Il vole à mi-hauteur et continue de battre des ailes en butinant. Sa taille et son mouvement constant dynamisent l'exposition, et sa chenille imitant une fiente d'oiseau offre un excellent support pédagogique.",
+        "vuelo": "Battements continus, mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "红斑黑凤蝶",
+        "region": "美国南部至阿根廷",
+        "descripcion": "无尾突的黑色凤蝶，后翅有粉红至宝石红色斑块。多在中等高度飞行，访花取食时翅膀不停扇动。体型大、动感强，能为展区增添活力；其幼虫拟态鸟粪，也是很好的科普素材。",
+        "vuelo": "持续扇翅，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Parides arcas",
+    "familia": "Papilionidae",
+    "slug": "parides-arcas",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Corazón de ganado",
+        "region": "México a Sudamérica noroccidental",
+        "descripcion": "Alas negras con manchas rojo carmín en las posteriores; el macho luce además un parche verdoso en las anteriores. Vuela despacio y bajo, y aletea continuamente mientras liba en las flores. Es tóxica para los depredadores gracias a su planta hospedera, Aristolochia, y resulta una especie elegante y fácil de observar.",
+        "vuelo": "Lento, aleteo continuo"
+      },
+      "en": {
+        "nombre_comun": "Arcas Cattleheart",
+        "region": "Mexico to northwestern South America",
+        "descripcion": "Black wings with crimson hindwing spots, and males also bear a greenish patch on the forewing. It flies slowly and low, fluttering continuously as it sips nectar. Chemically protected by its Aristolochia host plant, it is an elegant, easy-to-watch species that rewards close observation.",
+        "vuelo": "Slow, constant fluttering"
+      },
+      "it": {
+        "nombre_comun": "Cuore di bue arcas",
+        "region": "Dal Messico al Sudamerica nord-occidentale",
+        "descripcion": "Ali nere con macchie cremisi sulle posteriori; il maschio presenta anche una chiazza verdastra sulle anteriori. Vola lento e basso, battendo le ali senza sosta mentre sugge il nettare. Protetta chimicamente dalla pianta ospite Aristolochia, è una specie elegante e facile da osservare da vicino.",
+        "vuelo": "Lento, battito continuo"
+      },
+      "fr": {
+        "nombre_comun": "Cœur-de-bœuf arcas",
+        "region": "Du Mexique au nord-ouest de l'Amérique du Sud",
+        "descripcion": "Ailes noires ornées de taches cramoisies à l'arrière ; le mâle porte en plus une plage verdâtre à l'avant. Il vole lentement et bas, battant des ailes sans arrêt en butinant. Protégé chimiquement par sa plante hôte, l'aristoloche, c'est une espèce élégante et facile à observer de près.",
+        "vuelo": "Lent, battements continus"
+      },
+      "zh": {
+        "nombre_comun": "阿卡斯番凤蝶",
+        "region": "墨西哥至南美洲西北部",
+        "descripcion": "翅膀黑色，后翅有深红色斑点，雄蝶前翅还有一块绿色斑。低空缓慢飞行，吸食花蜜时翅膀不停扇动。幼虫取食马兜铃，因而成虫体内带有毒素、少受天敌捕食，是一种优雅且便于近距离观察的物种。",
+        "vuelo": "缓慢，持续扇翅"
+      }
+    }
+  }
+]

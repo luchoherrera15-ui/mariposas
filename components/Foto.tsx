@@ -11,15 +11,22 @@ export default function Foto({
   className = "",
   sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
   priority = false,
+  textoVacio,
 }: {
   slug: string | null;
   alt: string;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** Se muestra en el marco cuando la especie todavía no tiene foto. */
+  textoVacio?: string;
 }) {
   if (!slug || !creditos[slug]) {
-    return <div className={`marco-foto ${className}`} aria-hidden />;
+    return (
+      <div className={`marco-foto grid place-items-center ${className}`} aria-hidden={!textoVacio}>
+        {textoVacio ? <span className="datos text-xs text-pizarra">{textoVacio}</span> : null}
+      </div>
+    );
   }
   return (
     <div className={`marco-foto relative ${className}`}>

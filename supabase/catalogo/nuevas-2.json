@@ -1,0 +1,534 @@
+[
+  {
+    "nombre_cientifico": "Parides iphidamas",
+    "familia": "Papilionidae",
+    "slug": "parides-iphidamas",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Corazón de ganado",
+        "region": "México a Sudamérica",
+        "descripcion": "Mariposa negra aterciopelada con manchas rosado-rojizas en las alas posteriores y, en los machos, un parche verde metálico en las anteriores. Vuela bajo y pausado entre la vegetación y aletea sin parar mientras se alimenta en las flores. Su contraste de colores y su actividad constante la hacen muy vistosa en exhibición.",
+        "vuelo": "Lento, bajo y aleteado"
+      },
+      "en": {
+        "nombre_comun": "Iphidamas Cattleheart",
+        "region": "Mexico to South America",
+        "descripcion": "A velvety black swallowtail with rose-red hindwing spots, the males adding a metallic green patch on the forewings. It flies low and unhurried through the plantings and keeps fluttering while it nectars at flowers. Its bold colors and steady activity make it a standout display species.",
+        "vuelo": "Slow, low, fluttering"
+      },
+      "it": {
+        "nombre_comun": "Cuore di bue di Iphidamas",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Farfalla nero vellutato con macchie rosso-rosate sulle ali posteriori; i maschi mostrano anche una macchia verde metallico sulle anteriori. Vola bassa e senza fretta tra la vegetazione e continua a battere le ali mentre si nutre sui fiori. I colori netti e l'attività costante la rendono molto spettacolare in esposizione.",
+        "vuelo": "Lento, basso, frullante"
+      },
+      "fr": {
+        "nombre_comun": "Cœur-de-bœuf d'Iphidamas",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Papillon noir velouté aux taches rose-rouge sur les ailes postérieures, les mâles portant en plus une plage vert métallique sur les antérieures. Il vole bas et sans hâte parmi les plantes et bat des ailes en continu en butinant. Ses couleurs contrastées et son activité constante en font une espèce très remarquée en volière.",
+        "vuelo": "Lent, bas et battu"
+      },
+      "zh": {
+        "nombre_comun": "红斑番凤蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅面呈天鹅绒般的黑色，后翅有玫红色斑，雄蝶前翅另有金属绿色斑块。它在植物间低空缓慢飞行，访花吸蜜时翅膀仍不停扇动。鲜明的色彩对比和持续的活跃表现，使其成为展馆中非常醒目的品种。",
+        "vuelo": "低空缓飞，频繁振翅"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Phoebis argante",
+    "familia": "Pieridae",
+    "slug": "phoebis-argante",
+    "envergadura": "55–70 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Azufre anaranjado",
+        "region": "México a Sudamérica",
+        "descripcion": "Los machos son de un naranja albaricoque intenso y uniforme; las hembras, amarillo anaranjado con marcas oscuras más marcadas. Vuela rápido y directo, se detiene con frecuencia en flores y a veces en suelos húmedos. Aporta destellos de color cálido y mucho movimiento a cualquier mariposario.",
+        "vuelo": "Rápido y directo"
+      },
+      "en": {
+        "nombre_comun": "Apricot Sulphur",
+        "region": "Mexico to South America",
+        "descripcion": "Males are a rich, even apricot orange, while females are yellow-orange with bolder dark markings. It flies fast and direct, stopping often at flowers and sometimes at damp ground. A reliable source of warm color and constant movement in any flight house.",
+        "vuelo": "Fast and direct"
+      },
+      "it": {
+        "nombre_comun": "Zolfo albicocca",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "I maschi sono di un arancio albicocca intenso e uniforme; le femmine sono giallo-arancio con disegni scuri più marcati. Vola veloce e diritta, fermandosi spesso sui fiori e talvolta sul terreno umido. Porta lampi di colore caldo e movimento continuo in qualsiasi serra.",
+        "vuelo": "Veloce e diretto"
+      },
+      "fr": {
+        "nombre_comun": "Soufré abricot",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Les mâles sont d'un orange abricot vif et uniforme ; les femelles, jaune orangé, portent des marques sombres plus nettes. Son vol est rapide et direct, avec de fréquentes haltes sur les fleurs et parfois sur le sol humide. Elle apporte des touches de couleur chaude et beaucoup de mouvement en volière.",
+        "vuelo": "Rapide et direct"
+      },
+      "zh": {
+        "nombre_comun": "杏黄粉蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "雄蝶通体呈浓郁均匀的杏橙色，雌蝶为黄橙色，暗色斑纹更明显。飞行迅速而直接，经常停在花上吸蜜，有时也会停在潮湿地面。能为蝴蝶馆带来温暖的色彩和持续的动感。",
+        "vuelo": "快速直线飞行"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Phoebis philea",
+    "familia": "Pieridae",
+    "slug": "phoebis-philea",
+    "envergadura": "70–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Azufre de barra naranja",
+        "region": "México a Sudamérica",
+        "descripcion": "Una de las pieridas más grandes de América: el macho es amarillo intenso con una barra naranja en el ala anterior y el borde de la posterior anaranjado; la hembra varía entre amarillo y tonos más oscuros. Vuela con fuerza y visita con avidez flores rojas y anaranjadas. Muy llamativa y activa en exhibición.",
+        "vuelo": "Rápido y enérgico"
+      },
+      "en": {
+        "nombre_comun": "Orange-barred Sulphur",
+        "region": "Mexico to South America",
+        "descripcion": "One of the largest sulphurs in the Americas: males are bright yellow with an orange bar across the forewing and orange-edged hindwings, while females range from yellow to deeper, more patterned forms. A strong flier that eagerly works red and orange flowers, it is showy and highly active on display.",
+        "vuelo": "Fast and powerful"
+      },
+      "it": {
+        "nombre_comun": "Zolfo a barra arancione",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Una delle pieridi più grandi delle Americhe: il maschio è giallo acceso con una barra arancione sull'ala anteriore e il margine delle posteriori aranciato, mentre la femmina varia dal giallo a forme più scure. Volatrice potente, visita con avidità fiori rossi e arancioni. Vistosa e molto attiva in esposizione.",
+        "vuelo": "Veloce e potente"
+      },
+      "fr": {
+        "nombre_comun": "Soufré à barre orange",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "L'un des plus grands soufrés des Amériques : le mâle, jaune vif, porte une barre orange sur l'aile antérieure et une bordure orangée aux postérieures, tandis que la femelle va du jaune à des formes plus sombres. Voilier puissant, il butine avidement les fleurs rouges et orange. Spectaculaire et très actif en volière.",
+        "vuelo": "Rapide et puissant"
+      },
+      "zh": {
+        "nombre_comun": "橙斑黄粉蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "美洲体型最大的黄粉蝶之一：雄蝶亮黄色，前翅有一道橙色横斑，后翅边缘带橙色；雌蝶从黄色到斑纹更深的类型均有。飞行有力，喜欢造访红色和橙色花朵。外观醒目，在展馆中非常活跃。",
+        "vuelo": "快速有力"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Phoebis sennae",
+    "familia": "Pieridae",
+    "slug": "phoebis-sennae",
+    "envergadura": "55–70 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Azufre sin nubes",
+        "region": "América",
+        "descripcion": "Mariposa de un amarillo limón limpio, casi sin marcas en los machos y con pequeños puntos oscuros en las hembras. Vuela rápido y alto, pero baja constantemente a libar en flores tubulares. Resistente y fácil de manejar, llena el mariposario de destellos amarillos.",
+        "vuelo": "Rápido, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Cloudless Sulphur",
+        "region": "The Americas",
+        "descripcion": "A clean lemon-yellow butterfly, nearly unmarked in males and lightly dotted in females. It flies fast and fairly high but keeps dropping down to nectar at tubular flowers. Hardy and easy to handle, it fills a flight house with flashes of bright yellow.",
+        "vuelo": "Fast, mid-level"
+      },
+      "it": {
+        "nombre_comun": "Zolfo senza nuvole",
+        "region": "Americhe",
+        "descripcion": "Farfalla giallo limone brillante, quasi priva di disegni nei maschi e con piccoli punti scuri nelle femmine. Vola veloce e piuttosto in alto, ma scende di continuo a nutrirsi sui fiori tubulari. Robusta e facile da gestire, riempie la serra di lampi gialli.",
+        "vuelo": "Veloce, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Soufré sans nuage",
+        "region": "Amériques",
+        "descripcion": "Papillon jaune citron éclatant, presque sans marques chez le mâle et légèrement ponctué chez la femelle. Son vol est rapide et assez haut, mais il redescend sans cesse butiner les fleurs tubulaires. Robuste et facile à manipuler, il remplit la volière d'éclairs jaunes.",
+        "vuelo": "Rapide, mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "无云黄粉蝶",
+        "region": "美洲",
+        "descripcion": "通体柠檬黄色，雄蝶几乎无斑纹，雌蝶带有细小暗点。飞行迅速且较高，但会频繁下降到管状花上吸蜜。体质强健、易于管理，能让蝴蝶馆处处闪现明黄色彩。",
+        "vuelo": "快速，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Rothschildia lebeau",
+    "familia": "Saturniidae",
+    "slug": "rothschildia-lebeau",
+    "envergadura": "100–140 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Polilla cuatro espejos",
+        "region": "México a Sudamérica",
+        "descripcion": "Gran polilla de la seda en tonos canela y rojizos, con una ventana translúcida en cada ala que parece un pequeño espejo. Los adultos no se alimentan y viven solo unos días, activos de noche y quietos durante el día, lo que permite observarlos de cerca. El capullo sedoso y la emergencia son un gran atractivo educativo.",
+        "vuelo": "Nocturno"
+      },
+      "en": {
+        "nombre_comun": "Four-mirror Silk Moth",
+        "region": "Mexico to South America",
+        "descripcion": "A large silk moth in cinnamon and rusty tones, each wing set with a translucent window like a small mirror. Adults do not feed and live only a few days; they fly at night and rest motionless by day, so visitors can study them up close. The silken cocoon and emergence make a strong educational display.",
+        "vuelo": "Nocturnal"
+      },
+      "it": {
+        "nombre_comun": "Falena dai quattro specchi",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Grande falena della seta dai toni cannella e ruggine, con una finestra trasparente su ogni ala simile a un piccolo specchio. Gli adulti non si nutrono e vivono solo pochi giorni; volano di notte e di giorno restano immobili, così il pubblico può osservarli da vicino. Il bozzolo di seta e lo sfarfallamento sono di grande valore didattico.",
+        "vuelo": "Notturno"
+      },
+      "fr": {
+        "nombre_comun": "Bombyx à quatre miroirs",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Grand papillon de nuit séricigène aux tons cannelle et rouille, chaque aile portant une fenêtre translucide semblable à un petit miroir. Les adultes ne se nourrissent pas et ne vivent que quelques jours ; actifs la nuit, ils restent immobiles le jour et s'observent de près. Le cocon soyeux et l'émergence ont une forte valeur pédagogique.",
+        "vuelo": "Nocturne"
+      },
+      "zh": {
+        "nombre_comun": "四镜大蚕蛾",
+        "region": "墨西哥至南美洲",
+        "descripcion": "大型天蚕蛾，体色为肉桂色与锈红色，每片翅上都有一块半透明的窗斑，犹如小镜子。成虫不进食，寿命仅数天，夜间活动、白天静止不动，便于游客近距离观察。丝质茧和羽化过程极具科普展示价值。",
+        "vuelo": "夜行性"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Siproeta epaphus",
+    "familia": "Nymphalidae",
+    "slug": "siproeta-epaphus",
+    "envergadura": "70–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Página de puntas rojizas",
+        "region": "México a Sudamérica",
+        "descripcion": "Alas marrón oscuro atravesadas por una amplia banda blanca y con las puntas de un cálido tono óxido. Planea con elegancia a media altura y se posa a menudo con las alas abiertas sobre flores y hojas. Tranquila y fácil de fotografiar, es una favorita del público.",
+        "vuelo": "Planeado, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Rusty-tipped Page",
+        "region": "Mexico to South America",
+        "descripcion": "Dark chocolate wings are crossed by a broad white band and finished with warm rust-orange tips. It glides gracefully at mid-level and often settles with wings spread on flowers and foliage. Calm and easy to photograph, it quickly becomes a visitor favorite.",
+        "vuelo": "Gliding, mid-level"
+      },
+      "it": {
+        "nombre_comun": "Paggio dalle punte ruggine",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Ali marrone scuro attraversate da un'ampia fascia bianca e con gli apici di un caldo color ruggine. Plana con eleganza a media altezza e si posa spesso ad ali aperte su fiori e foglie. Tranquilla e facile da fotografare, conquista subito i visitatori.",
+        "vuelo": "Planato, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Page à pointes rouille",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Ailes brun foncé traversées d'une large bande blanche et terminées par des pointes d'un chaud orange rouille. Il plane avec élégance à mi-hauteur et se pose souvent ailes ouvertes sur les fleurs et le feuillage. Calme et facile à photographier, il devient vite un favori du public.",
+        "vuelo": "Plané, mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "锈尖帘蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "深褐色翅面横贯一条宽阔的白色带，翅尖呈温暖的锈橙色。它在中等高度优雅滑翔，常张开双翅停在花朵和叶片上。性情安静、易于拍摄，很快就能成为游客的最爱。",
+        "vuelo": "中等高度滑翔"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Caligo eurilochus",
+    "familia": "Nymphalidae",
+    "slug": "caligo-eurilochus",
+    "envergadura": "120–150 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Mariposa búho",
+        "region": "México a Sudamérica",
+        "descripcion": "Mariposa enorme cuyo reverso, finamente veteado en pardos y grises, luce un gran ocelo que recuerda el ojo de un búho. Pasa el día posada en troncos y se activa al amanecer y al atardecer, cuando acude a frutas fermentadas. Su tamaño y su aspecto la convierten en una pieza central del mariposario.",
+        "vuelo": "Crepuscular, bajo"
+      },
+      "en": {
+        "nombre_comun": "Forest Giant Owl",
+        "region": "Mexico to South America",
+        "descripcion": "A huge butterfly whose finely patterned brown-and-grey underside carries a large eyespot resembling an owl's eye. It spends the day resting on trunks and becomes active at dawn and dusk, when it comes to fermenting fruit. Its size and striking look make it a centerpiece of any flight house.",
+        "vuelo": "Crepuscular, low"
+      },
+      "it": {
+        "nombre_comun": "Farfalla civetta",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Farfalla enorme il cui rovescio, finemente venato di bruni e grigi, porta un grande ocello simile all'occhio di una civetta. Trascorre il giorno posata sui tronchi e si attiva all'alba e al tramonto, quando si nutre di frutta fermentata. Dimensioni e aspetto la rendono un punto focale della serra.",
+        "vuelo": "Crepuscolare, basso"
+      },
+      "fr": {
+        "nombre_comun": "Papillon hibou",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Papillon géant dont le revers, finement marbré de bruns et de gris, porte un grand ocelle rappelant l'œil d'un hibou. Il passe la journée posé sur les troncs et s'active à l'aube et au crépuscule pour se nourrir de fruits fermentés. Sa taille et son allure en font une pièce maîtresse de la volière.",
+        "vuelo": "Crépusculaire, bas"
+      },
+      "zh": {
+        "nombre_comun": "森林猫头鹰环蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "体型巨大，翅反面布满细密的褐灰色纹理，并有一枚酷似猫头鹰眼睛的大眼斑。白天静栖于树干上，清晨和黄昏时分活跃，常到发酵水果上取食。硕大的体型和独特外观使其成为蝴蝶馆的焦点展品。",
+        "vuelo": "晨昏活动，低飞"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Caligo atreus",
+    "familia": "Nymphalidae",
+    "slug": "caligo-atreus",
+    "envergadura": "120–160 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Búho de banda amarilla",
+        "region": "México a Sudamérica",
+        "descripcion": "Una de las mariposas búho más grandes: por encima es azul violáceo oscuro con una ancha banda amarilla en el ala posterior, y por debajo muestra los típicos ocelos de búho. Descansa en troncos durante el día y vuela al atardecer hacia frutas maduras. Espectacular al abrir las alas.",
+        "vuelo": "Crepuscular, pesado"
+      },
+      "en": {
+        "nombre_comun": "Yellow-edged Giant Owl",
+        "region": "Mexico to South America",
+        "descripcion": "One of the largest owl butterflies: the upperside is deep violet-blue with a broad yellow band on the hindwing, while the underside shows the classic owl eyespots. It rests on trunks by day and flies toward ripe fruit at dusk. Truly spectacular when it opens its wings.",
+        "vuelo": "Crepuscular, heavy"
+      },
+      "it": {
+        "nombre_comun": "Civetta gigante bordata di giallo",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Una delle farfalle civetta più grandi: il dritto è blu violaceo scuro con un'ampia fascia gialla sull'ala posteriore, mentre il rovescio mostra i classici ocelli da civetta. Di giorno riposa sui tronchi e al tramonto vola verso la frutta matura. Spettacolare quando apre le ali.",
+        "vuelo": "Crepuscolare, pesante"
+      },
+      "fr": {
+        "nombre_comun": "Hibou géant à bande jaune",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "L'un des plus grands papillons hiboux : le dessus est bleu violacé sombre avec une large bande jaune sur l'aile postérieure, et le revers porte les ocelles typiques du genre. Il se repose sur les troncs le jour et vole vers les fruits mûrs au crépuscule. Spectaculaire lorsqu'il ouvre les ailes.",
+        "vuelo": "Crépusculaire, lourd"
+      },
+      "zh": {
+        "nombre_comun": "黄带猫头鹰环蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "最大型的猫头鹰蝶之一：翅正面为深紫蓝色，后翅有一条宽阔的黄色带，反面则是典型的猫头鹰眼斑。白天停栖在树干上，黄昏时飞向成熟水果取食。展翅时极为壮观。",
+        "vuelo": "晨昏活动，飞行沉稳"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Brassolis isthmia",
+    "familia": "Nymphalidae",
+    "slug": "brassolis-isthmia",
+    "envergadura": "70–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Brassolis del istmo",
+        "region": "Costa Rica a Colombia",
+        "descripcion": "Pariente robusta de las mariposas búho, de color pardo oscuro con una banda anaranjada en el ala anterior. Permanece quieta durante el día y se activa al atardecer con un vuelo rápido y algo errático. Ofrece a los visitantes una mirada distinta a las mariposas crepusculares del trópico.",
+        "vuelo": "Crepuscular, rápido"
+      },
+      "en": {
+        "nombre_comun": "Isthmian Brassolis",
+        "region": "Costa Rica to Colombia",
+        "descripcion": "A stout relative of the owl butterflies, dark brown with an orange band across the forewing. It stays still through the day and comes alive at dusk with a quick, somewhat erratic flight. It gives visitors a different window into the tropics' twilight-flying butterflies.",
+        "vuelo": "Crepuscular, fast"
+      },
+      "it": {
+        "nombre_comun": "Brassolis dell'istmo",
+        "region": "Dalla Costa Rica alla Colombia",
+        "descripcion": "Robusta parente delle farfalle civetta, bruno scuro con una fascia arancione sull'ala anteriore. Resta immobile durante il giorno e si anima al tramonto con un volo rapido e un po' irregolare. Offre ai visitatori uno sguardo diverso sulle farfalle crepuscolari dei tropici.",
+        "vuelo": "Crepuscolare, rapido"
+      },
+      "fr": {
+        "nombre_comun": "Brassolis de l'isthme",
+        "region": "Du Costa Rica à la Colombie",
+        "descripcion": "Proche parent trapu des papillons hiboux, brun foncé avec une bande orange sur l'aile antérieure. Immobile pendant la journée, il s'anime au crépuscule d'un vol rapide et un peu erratique. Il offre aux visiteurs un autre regard sur les papillons crépusculaires des tropiques.",
+        "vuelo": "Crépusculaire, rapide"
+      },
+      "zh": {
+        "nombre_comun": "地峡棕榈环蝶",
+        "region": "哥斯达黎加至哥伦比亚",
+        "descripcion": "猫头鹰蝶的近亲，身体粗壮，翅为深褐色，前翅有一条橙色带。白天静止不动，黄昏时开始活跃，飞行迅速而略显无规律。能让游客认识热带地区晨昏活动的蝴蝶。",
+        "vuelo": "晨昏活动，飞行迅速"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Ascia limona",
+    "familia": "Pieridae",
+    "slug": "ascia-limona",
+    "envergadura": "45–60 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Blanca limona",
+        "region": "Centroamérica",
+        "descripcion": "Mariposa blanca de tamaño mediano con finas marcas oscuras cerca de los bordes de las alas. Vuela de forma ágil y constante a baja altura, visitando flores con frecuencia. Aporta luminosidad y movimiento al mariposario y combina bien con especies de colores intensos.",
+        "vuelo": "Ágil, a baja altura"
+      },
+      "en": {
+        "nombre_comun": "Limona White",
+        "region": "Central America",
+        "descripcion": "A medium-sized white butterfly with fine dark markings near the wing edges. It flies nimbly and steadily close to the ground, visiting flowers often. It brings brightness and movement to a flight house and pairs well with more vividly colored species.",
+        "vuelo": "Nimble, low"
+      },
+      "it": {
+        "nombre_comun": "Bianca limona",
+        "region": "America Centrale",
+        "descripcion": "Farfalla bianca di taglia media con sottili disegni scuri vicino ai margini delle ali. Vola agile e costante a bassa quota, visitando spesso i fiori. Porta luminosità e movimento nella serra e si abbina bene alle specie dai colori più intensi.",
+        "vuelo": "Agile, basso"
+      },
+      "fr": {
+        "nombre_comun": "Piéride limona",
+        "region": "Amérique centrale",
+        "descripcion": "Papillon blanc de taille moyenne aux fines marques sombres près du bord des ailes. Son vol est agile et régulier, près du sol, avec de fréquentes visites aux fleurs. Il apporte lumière et mouvement à la volière et s'associe bien aux espèces aux couleurs vives.",
+        "vuelo": "Agile, bas"
+      },
+      "zh": {
+        "nombre_comun": "利蒙白粉蝶",
+        "region": "中美洲",
+        "descripcion": "中等体型的白色蝴蝶，翅缘附近有细小的暗色斑纹。飞行灵活持续，贴近地面，常常访花。能为蝴蝶馆增添明亮感与动感，并与色彩浓烈的品种相得益彰。",
+        "vuelo": "灵活低飞"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Adelpha fessonia",
+    "familia": "Nymphalidae",
+    "slug": "adelpha-fessonia",
+    "envergadura": "50–60 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Hermana de celda bandeada",
+        "region": "México a Panamá",
+        "descripcion": "Alas pardo oscuro con una banda blanca continua y un parche anaranjado cerca de la punta del ala anterior. Alterna aleteos rápidos con planeos cortos y suele posarse con las alas abiertas. Se alimenta en flores y frutas maduras, lo que facilita su observación en exhibición.",
+        "vuelo": "Rápido, con planeos"
+      },
+      "en": {
+        "nombre_comun": "Band-celled Sister",
+        "region": "Mexico to Panama",
+        "descripcion": "Dark brown wings carry a continuous white band and an orange patch near the forewing tip. It alternates quick wingbeats with short glides and usually perches with wings open. It feeds at flowers and ripe fruit, making it easy to observe on display.",
+        "vuelo": "Quick, with glides"
+      },
+      "it": {
+        "nombre_comun": "Sorella a cella fasciata",
+        "region": "Dal Messico a Panama",
+        "descripcion": "Ali bruno scuro con una fascia bianca continua e una macchia arancione vicino all'apice dell'ala anteriore. Alterna battiti rapidi a brevi planate e si posa di solito ad ali aperte. Si nutre su fiori e frutta matura, il che la rende facile da osservare in esposizione.",
+        "vuelo": "Rapido, con planate"
+      },
+      "fr": {
+        "nombre_comun": "Sœur à cellule barrée",
+        "region": "Du Mexique au Panama",
+        "descripcion": "Ailes brun foncé ornées d'une bande blanche continue et d'une tache orange près de l'apex de l'aile antérieure. Elle alterne battements rapides et courts vols planés, et se pose généralement ailes ouvertes. Elle se nourrit sur les fleurs et les fruits mûrs, ce qui la rend facile à observer.",
+        "vuelo": "Rapide, avec planés"
+      },
+      "zh": {
+        "nombre_comun": "带室姊妹蛱蝶",
+        "region": "墨西哥至巴拿马",
+        "descripcion": "深褐色翅面上有一条连贯的白色带，前翅近顶角处有橙色斑块。飞行时快速振翅与短距离滑翔交替，停栖时通常张开双翅。会在花朵和成熟水果上取食，展出时便于观察。",
+        "vuelo": "快速振翅，间有滑翔"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Agraulis vanillae",
+    "familia": "Nymphalidae",
+    "slug": "agraulis-vanillae",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Mariposa espejitos",
+        "region": "América",
+        "descripcion": "Alas alargadas de un naranja brillante por encima y, por debajo, adornadas con manchas plateadas que destellan como pequeños espejos. Vuela rápido y bajo, visita flores sin descanso y se reproduce en pasifloras. Muy resistente y activa, llena de color cualquier mariposario.",
+        "vuelo": "Rápido y bajo"
+      },
+      "en": {
+        "nombre_comun": "Gulf Fritillary",
+        "region": "The Americas",
+        "descripcion": "Long, bright orange wings above and, below, silver spots that flash like tiny mirrors when it lands. It flies fast and low, visits flowers tirelessly and breeds on passionvines. Hardy and very active, it brings vivid color to any flight house.",
+        "vuelo": "Fast and low"
+      },
+      "it": {
+        "nombre_comun": "Fritillaria del Golfo",
+        "region": "Americhe",
+        "descripcion": "Ali allungate arancione brillante sul dritto e, sul rovescio, macchie argentate che brillano come piccoli specchi quando si posa. Vola veloce e bassa, visita i fiori senza sosta e si riproduce sulle passiflore. Robusta e molto attiva, porta colori vivaci in qualsiasi serra.",
+        "vuelo": "Veloce e basso"
+      },
+      "fr": {
+        "nombre_comun": "Fritillaire du Golfe",
+        "region": "Amériques",
+        "descripcion": "Ailes allongées d'un orange vif au-dessus et, au revers, des taches argentées qui scintillent comme de petits miroirs lorsqu'il se pose. Il vole vite et bas, butine sans relâche et se reproduit sur les passiflores. Robuste et très actif, il apporte des couleurs éclatantes à toute volière.",
+        "vuelo": "Rapide et bas"
+      },
+      "zh": {
+        "nombre_comun": "银纹红袖蝶",
+        "region": "美洲",
+        "descripcion": "翅形狭长，正面为亮橙色，反面缀有银色斑点，停落时如小镜子般闪烁。飞行快速且贴近地面，不停访花，以西番莲为寄主植物繁殖。体质强健、非常活跃，能为任何蝴蝶馆带来鲜艳色彩。",
+        "vuelo": "快速低飞"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Anartia fatima",
+    "familia": "Nymphalidae",
+    "slug": "anartia-fatima",
+    "envergadura": "50–60 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Pavorreal bandeado",
+        "region": "México a Panamá",
+        "descripcion": "Mariposa pardo oscuro con una banda clara, blanca o amarillenta, que cruza ambas alas y una barra roja en el ala posterior. Vuela bajo, con aleteos cortos entre flores pequeñas, y se posa a menudo con las alas abiertas. Muy fácil de ver y de mantener, ideal para exhibiciones abiertas al público.",
+        "vuelo": "Bajo, entre flores"
+      },
+      "en": {
+        "nombre_comun": "Banded Peacock",
+        "region": "Mexico to Panama",
+        "descripcion": "A dark brown butterfly with a pale white-to-cream band across both wings and a red bar on the hindwing. It flies low in short hops between small flowers and often basks with wings spread. Easy to spot and easy to keep, it suits busy public exhibits well.",
+        "vuelo": "Low, flower to flower"
+      },
+      "it": {
+        "nombre_comun": "Pavone fasciato",
+        "region": "Dal Messico a Panama",
+        "descripcion": "Farfalla bruno scuro con una fascia chiara, bianca o crema, che attraversa entrambe le ali e una barra rossa sull'ala posteriore. Vola bassa con brevi spostamenti tra fiori piccoli e si posa spesso ad ali aperte. Facile da vedere e da allevare, è ideale per esposizioni molto frequentate.",
+        "vuelo": "Basso, tra i fiori"
+      },
+      "fr": {
+        "nombre_comun": "Paon rayé",
+        "region": "Du Mexique au Panama",
+        "descripcion": "Papillon brun foncé traversé d'une bande claire, blanche à crème, sur les deux ailes, avec une barre rouge sur l'aile postérieure. Il vole bas par petits bonds entre les petites fleurs et se pose souvent ailes ouvertes. Facile à observer et à maintenir, il convient parfaitement aux expositions très fréquentées.",
+        "vuelo": "Bas, de fleur en fleur"
+      },
+      "zh": {
+        "nombre_comun": "带纹孔雀蛱蝶",
+        "region": "墨西哥至巴拿马",
+        "descripcion": "深褐色蝴蝶，一条白色至乳黄色的浅色带横贯前后翅，后翅还有一道红色横斑。它在小花之间低空短距离穿梭，常张开双翅晒太阳。容易观察、易于饲养，非常适合游客众多的展出场所。",
+        "vuelo": "低飞，穿梭花间"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Anteos clorinde",
+    "familia": "Pieridae",
+    "slug": "anteos-clorinde",
+    "envergadura": "75–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Azufre blanco de ala angulosa",
+        "region": "México a Sudamérica",
+        "descripcion": "Gran pierida de color blanco verdoso con una mancha amarilla anaranjada en el ala anterior y alas de puntas anguladas. Cuando se posa con las alas cerradas se confunde con una hoja pálida. Su vuelo es potente y alto, y baja a libar en flores grandes, dando dinamismo al mariposario.",
+        "vuelo": "Potente y alto"
+      },
+      "en": {
+        "nombre_comun": "White Angled-Sulphur",
+        "region": "Mexico to South America",
+        "descripcion": "A large, pale greenish-white sulphur with a yellow-orange bar on the forewing and distinctly angled wingtips. Perched with wings closed, it passes for a pale leaf. Its flight is powerful and high, dropping down to nectar at large blooms and adding energy to a flight house.",
+        "vuelo": "Powerful and high"
+      },
+      "it": {
+        "nombre_comun": "Zolfo bianco ad ali angolate",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Grande pieride bianco verdastra con una macchia giallo-arancio sull'ala anteriore e apici alari nettamente angolati. Posata ad ali chiuse, sembra una foglia pallida. Il volo è potente e alto, e scende a nutrirsi sui fiori grandi, dando dinamismo alla serra.",
+        "vuelo": "Potente e alto"
+      },
+      "fr": {
+        "nombre_comun": "Soufré blanc à ailes anguleuses",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Grande piéride blanc verdâtre marquée d'une tache jaune orangé sur l'aile antérieure, aux apex nettement anguleux. Posée ailes fermées, elle ressemble à une feuille pâle. Son vol est puissant et haut, et elle descend butiner les grandes fleurs, donnant du dynamisme à la volière.",
+        "vuelo": "Puissant et haut"
+      },
+      "zh": {
+        "nombre_comun": "白角翅黄粉蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "大型粉蝶，翅为淡绿白色，前翅有黄橙色斑，翅尖明显呈角状。合翅停栖时宛如一片淡色叶子。飞行强劲且较高，会下降到大型花朵上吸蜜，为蝴蝶馆增添活力。",
+        "vuelo": "强劲高飞"
+      }
+    }
+  }
+]

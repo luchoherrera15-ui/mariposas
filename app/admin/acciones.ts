@@ -208,7 +208,13 @@ export async function guardarEspecie(_previo: Resultado, formulario: FormData): 
     region: oNulo(formulario, "region"),
     precio_unitario: numero(formulario, "precio_unitario") ?? 0,
     descripcion: oNulo(formulario, "descripcion"),
+    envergadura: oNulo(formulario, "envergadura"),
+    vuelo: oNulo(formulario, "vuelo"),
+    disponibilidad: oNulo(formulario, "disponibilidad"),
+    destacada: formulario.get("destacada") === "on",
     activo: formulario.get("activo") === "on",
+    // La página de la especie vive en /especies/<slug>.
+    slug: texto(formulario, "nombre_cientifico").toLowerCase().replace(/\s+/g, "-"),
   };
   if (!fila.nombre_comun || !fila.nombre_cientifico) {
     return { error: "El nombre común y el científico son obligatorios." };

@@ -1,0 +1,534 @@
+[
+  {
+    "nombre_cientifico": "Archaeoprepona demophon",
+    "familia": "Nymphalidae",
+    "slug": "archaeoprepona-demophon",
+    "envergadura": "90–110 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Prepona de banda azul",
+        "region": "México a Sudamérica",
+        "descripcion": "Mariposa robusta de alas negras cruzadas por una ancha banda azul verdosa, con el reverso pardo y críptico que la camufla al posarse. Vuela con gran potencia y acude con avidez a la fruta fermentada, donde se deja observar de cerca. Aporta tamaño, velocidad y un destello metálico muy llamativo a cualquier mariposario.",
+        "vuelo": "Muy rápido y potente"
+      },
+      "en": {
+        "nombre_comun": "One-spotted Prepona",
+        "region": "Mexico to South America",
+        "descripcion": "A powerfully built butterfly with black wings crossed by a broad blue-green band, while the brown, cryptic underside hides it the moment it lands. It flies fast and strong but comes readily to fermenting fruit, where visitors can watch it at close range. It brings size, speed and a flash of metallic color to any flight house.",
+        "vuelo": "Very fast and powerful"
+      },
+      "it": {
+        "nombre_comun": "Prepona a banda azzurra",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Farfalla robusta dalle ali nere attraversate da un'ampia fascia blu-verde, mentre il rovescio bruno e mimetico la rende invisibile quando si posa. Ha un volo rapido e potente, ma si avvicina volentieri alla frutta fermentata, dove si lascia osservare da vicino. Porta dimensioni, velocità e riflessi metallici in qualsiasi serra.",
+        "vuelo": "Molto rapido e potente"
+      },
+      "fr": {
+        "nombre_comun": "Prépona à bande bleue",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Papillon robuste aux ailes noires traversées d'une large bande bleu-vert, tandis que le revers brun et cryptique le fait disparaître dès qu'il se pose. Son vol est rapide et puissant, mais il vient volontiers sur les fruits fermentés, où l'on peut l'observer de près. Il apporte taille, vitesse et reflets métalliques à toute serre à papillons.",
+        "vuelo": "Très rapide et puissant"
+      },
+      "zh": {
+        "nombre_comun": "蓝带宝蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "体型健壮，黑色翅面横贯一条宽阔的蓝绿色带纹，翅背面为褐色保护色，停栖时几乎隐身。飞行迅速有力，但很喜欢取食发酵水果，游客可在喂食台近距离观赏。它能为蝴蝶馆带来大体型、速度感和耀眼的金属光泽。",
+        "vuelo": "极快而有力"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Catonephele numilia",
+    "familia": "Nymphalidae",
+    "slug": "catonephele-numilia",
+    "envergadura": "60–75 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Catonephele de manchas naranjas",
+        "region": "México a Sudamérica",
+        "descripcion": "Especie con marcado dimorfismo: el macho es negro con seis grandes manchas anaranjadas y la hembra, negra con una banda clara amarillenta en el ala anterior. Se alimenta de fruta madura y suele posarse con las alas abiertas en el follaje. Mostrar ambos sexos juntos es una excelente lección visual sobre dimorfismo sexual.",
+        "vuelo": "Rápido, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Grecian Shoemaker",
+        "region": "Mexico to South America",
+        "descripcion": "A strikingly dimorphic species: males are black with six bold orange patches, while females are black with a pale yellowish band across the forewing. It feeds on ripe fruit and often perches on foliage with its wings spread. Displaying both sexes side by side makes a vivid, easy-to-grasp lesson in sexual dimorphism.",
+        "vuelo": "Fast, at mid-height"
+      },
+      "it": {
+        "nombre_comun": "Catonephele a macchie arancioni",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Specie dal forte dimorfismo: il maschio è nero con sei grandi macchie arancioni, la femmina è nera con una fascia chiara giallastra sull'ala anteriore. Si nutre di frutta matura e spesso si posa sul fogliame ad ali aperte. Esporre insieme i due sessi offre una lezione immediata sul dimorfismo sessuale.",
+        "vuelo": "Rapido, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Catonéphèle à taches orange",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Espèce au dimorphisme spectaculaire : le mâle est noir avec six grandes taches orange, la femelle noire avec une bande claire jaunâtre sur l'aile antérieure. Elle se nourrit de fruits mûrs et se pose souvent sur le feuillage, ailes ouvertes. Présenter les deux sexes ensemble offre une leçon très parlante sur le dimorphisme sexuel.",
+        "vuelo": "Rapide, à mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "橙斑黑蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "雌雄差异极为明显：雄蝶黑色，带六块醒目的橙色大斑；雌蝶黑色，前翅有一条浅黄色斜带。喜食成熟水果，常张开双翅停在叶面上。雌雄同时展出，是讲解性二型现象的生动范例。",
+        "vuelo": "迅速，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Consul fabius",
+    "familia": "Nymphalidae",
+    "slug": "consul-fabius",
+    "envergadura": "70–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Hoja tigre",
+        "region": "México a Sudamérica",
+        "descripcion": "Por encima luce un patrón atigrado negro, naranja y amarillo que imita a mariposas tóxicas; por debajo, sus alas parecen una hoja seca con nervadura. Acude a la fruta fermentada y, al posarse con las alas cerradas, desaparece entre la vegetación. Ideal para explicar mimetismo y camuflaje en una misma especie.",
+        "vuelo": "Rápido y nervioso"
+      },
+      "en": {
+        "nombre_comun": "Tiger-striped Leafwing",
+        "region": "Mexico to South America",
+        "descripcion": "Its upperside wears a black, orange and yellow tiger pattern that mimics distasteful butterflies, while the underside looks just like a dead leaf, complete with a midrib. It comes to fermenting fruit and vanishes into the foliage when it lands with wings closed. A perfect species for explaining both mimicry and camouflage.",
+        "vuelo": "Fast and darting"
+      },
+      "it": {
+        "nombre_comun": "Foglia tigrata",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Sopra sfoggia un disegno tigrato nero, arancio e giallo che imita farfalle tossiche; sotto, le ali sembrano una foglia secca con tanto di nervatura. Si nutre di frutta fermentata e, posata ad ali chiuse, scompare tra la vegetazione. Perfetta per spiegare mimetismo e camuffamento in un'unica specie.",
+        "vuelo": "Rapido e scattante"
+      },
+      "fr": {
+        "nombre_comun": "Feuille tigrée",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Le dessus arbore un motif tigré noir, orange et jaune imitant des papillons toxiques, tandis que le revers ressemble à une feuille morte avec sa nervure. Il vient sur les fruits fermentés et disparaît dans le feuillage dès qu'il se pose ailes fermées. Idéal pour illustrer à la fois le mimétisme et le camouflage.",
+        "vuelo": "Rapide et vif"
+      },
+      "zh": {
+        "nombre_comun": "虎纹枯叶蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅正面为黑、橙、黄相间的虎纹，模拟有毒蝴蝶；翅背面则酷似带叶脉的枯叶。喜食发酵水果，合翅停栖时便融入植被之中。一个物种同时展示拟态与伪装，极具教学价值。",
+        "vuelo": "迅速而灵活"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Dryas iulia",
+    "familia": "Nymphalidae",
+    "slug": "dryas-iulia",
+    "envergadura": "80–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Julia",
+        "region": "Sur de EE. UU. a Sudamérica",
+        "descripcion": "Sus alas alargadas de color naranja intenso, más vivo en los machos, la hacen visible desde cualquier punto del recinto. Es muy activa, recorre las flores de néctar durante todo el día y se adapta con facilidad a la vida en cautiverio. Una especie resistente y colorida, base de casi cualquier exhibición tropical.",
+        "vuelo": "Rápido y ágil"
+      },
+      "en": {
+        "nombre_comun": "Julia",
+        "region": "Southern USA to South America",
+        "descripcion": "Its long, vivid orange wings, brightest in males, stand out from anywhere in the flight house. Highly active, it patrols nectar flowers all day long and settles into captivity with ease. A hardy, colorful species that forms the backbone of almost any tropical butterfly display.",
+        "vuelo": "Fast and agile"
+      },
+      "it": {
+        "nombre_comun": "Giulia",
+        "region": "Dal sud degli USA al Sud America",
+        "descripcion": "Le ali allungate di un arancione intenso, più acceso nei maschi, la rendono visibile da ogni punto della serra. È molto attiva, visita i fiori nettariferi per tutto il giorno e si adatta facilmente alla cattività. Specie resistente e colorata, pilastro di quasi ogni esposizione tropicale.",
+        "vuelo": "Rapido e agile"
+      },
+      "fr": {
+        "nombre_comun": "Julia",
+        "region": "Du sud des États-Unis à l'Amérique du Sud",
+        "descripcion": "Ses ailes allongées d'un orange intense, plus vif chez le mâle, se remarquent de partout dans la serre. Très active, elle butine les fleurs nectarifères toute la journée et s'adapte sans peine à la captivité. Une espèce robuste et colorée, pilier de presque toute exposition tropicale.",
+        "vuelo": "Rapide et agile"
+      },
+      "zh": {
+        "nombre_comun": "珠袖蝶",
+        "region": "美国南部至南美洲",
+        "descripcion": "狭长的翅膀呈鲜艳的橙色，雄蝶尤为明亮，在馆内任何角落都十分醒目。它非常活跃，整天在蜜源花丛间穿梭，且容易适应人工饲养环境。这种强健多彩的蝴蝶几乎是每个热带蝴蝶展的基础物种。",
+        "vuelo": "迅速灵巧"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Dryadula phaetusa",
+    "familia": "Nymphalidae",
+    "slug": "dryadula-phaetusa",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Naranja bandeada",
+        "region": "México a Sudamérica",
+        "descripcion": "Alas anaranjadas cruzadas por franjas negras bien definidas, un diseño limpio y fácil de reconocer. Prefiere volar bajo, cerca de las flores, y se posa con frecuencia a libar néctar a la vista del público. Es una especie tranquila y fotogénica que añade variedad a los tonos naranjas del mariposario.",
+        "vuelo": "Bajo y pausado"
+      },
+      "en": {
+        "nombre_comun": "Banded Orange",
+        "region": "Mexico to South America",
+        "descripcion": "Orange wings crossed by crisp black stripes give it a clean, instantly recognizable pattern. It prefers to fly low near flowers and settles often to sip nectar in full view of visitors. A calm, photogenic species that adds variety to the orange tones of a flight house.",
+        "vuelo": "Low and unhurried"
+      },
+      "it": {
+        "nombre_comun": "Arancione fasciata",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Ali arancioni attraversate da nette strisce nere, un disegno pulito e facile da riconoscere. Preferisce volare basso vicino ai fiori e si posa spesso a bere nettare sotto gli occhi dei visitatori. Specie tranquilla e fotogenica, arricchisce le tonalità arancioni della serra.",
+        "vuelo": "Basso e tranquillo"
+      },
+      "fr": {
+        "nombre_comun": "Orange rayé",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Des ailes orange barrées de bandes noires bien nettes lui donnent un motif sobre et facile à reconnaître. Elle vole de préférence bas, près des fleurs, et se pose souvent pour butiner sous les yeux du public. Une espèce calme et photogénique qui diversifie les tons orangés de la serre.",
+        "vuelo": "Bas et posé"
+      },
+      "zh": {
+        "nombre_comun": "带纹橙蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "橙色翅面上横贯清晰的黑色条纹，图案简洁易认。它喜欢在花丛附近低飞，常停下来吸食花蜜，游客可以清楚观赏。性情温和、上镜，为蝴蝶馆的橙色系增添变化。",
+        "vuelo": "低飞，从容"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Eryphanis polyxena",
+    "familia": "Nymphalidae",
+    "slug": "eryphanis-polyxena",
+    "envergadura": "90–120 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Mariposa búho púrpura",
+        "region": "México a Sudamérica",
+        "descripcion": "El macho muestra por encima un intenso violeta iridiscente, mientras que el reverso es pardo, jaspeado y con ocelos, como en las mariposas búho. Es activa al amanecer y al atardecer, y pasa el día posada en la sombra o sobre fruta fermentada. Sorprende al público cuando abre las alas y revela su brillo metálico.",
+        "vuelo": "Crepuscular, bajo"
+      },
+      "en": {
+        "nombre_comun": "Purple Mort Bleu",
+        "region": "Mexico to South America",
+        "descripcion": "Males flash a deep iridescent violet above, while the underside is mottled brown with eyespots, much like an owl butterfly. It is active at dawn and dusk and spends the day resting in shade or feeding on fermenting fruit. Visitors are always surprised when it opens its wings to reveal the metallic sheen.",
+        "vuelo": "Crepuscular, low"
+      },
+      "it": {
+        "nombre_comun": "Civetta viola",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Il maschio mostra sopra un intenso viola iridescente, mentre il rovescio è bruno marmorizzato con ocelli, come nelle farfalle civetta. È attiva all'alba e al tramonto e trascorre il giorno all'ombra o sulla frutta fermentata. Stupisce i visitatori quando apre le ali rivelando i riflessi metallici.",
+        "vuelo": "Crepuscolare, basso"
+      },
+      "fr": {
+        "nombre_comun": "Hibou violet",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Le mâle affiche un violet irisé profond sur le dessus, tandis que le revers est brun marbré orné d'ocelles, à la manière des papillons hiboux. Actif à l'aube et au crépuscule, il passe la journée à l'ombre ou sur les fruits fermentés. Le public est toujours surpris lorsqu'il ouvre les ailes et révèle son éclat métallique.",
+        "vuelo": "Crépusculaire, bas"
+      },
+      "zh": {
+        "nombre_comun": "紫闪猫头鹰蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "雄蝶翅正面呈深邃的紫色金属光泽，翅背面为褐色斑驳并带眼斑，与猫头鹰蝶相似。它在黎明和黄昏时最活跃，白天多在阴凉处或发酵水果上停栖。当它展开翅膀露出金属光泽时，总能让游客惊喜。",
+        "vuelo": "晨昏活动，低飞"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Eueides isabella",
+    "familia": "Nymphalidae",
+    "slug": "eueides-isabella",
+    "envergadura": "65–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Isabela",
+        "region": "México a Sudamérica",
+        "descripcion": "Presenta un diseño atigrado de naranja, negro y amarillo que forma parte de un complejo de mimetismo con otras mariposas de sabor desagradable. Vuela entre las flores de néctar con un aleteo ligero y se posa a menudo, lo que facilita su observación. Aporta color y un buen ejemplo de mimetismo a la exhibición.",
+        "vuelo": "Ligero, a media altura"
+      },
+      "en": {
+        "nombre_comun": "Isabella's Longwing",
+        "region": "Mexico to South America",
+        "descripcion": "Its orange, black and yellow tiger pattern places it in a mimicry ring shared with other distasteful butterflies. It drifts between nectar flowers with a light wingbeat and perches often, making it easy to observe. It adds warm color to the display and a clear example of mimicry for interpretation.",
+        "vuelo": "Light, at mid-height"
+      },
+      "it": {
+        "nombre_comun": "Isabella",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Il disegno tigrato arancio, nero e giallo la inserisce in un anello mimetico con altre farfalle sgradite ai predatori. Si sposta tra i fiori nettariferi con un battito leggero e si posa spesso, facilitando l'osservazione. Porta colori caldi e un chiaro esempio di mimetismo all'esposizione.",
+        "vuelo": "Leggero, a media altezza"
+      },
+      "fr": {
+        "nombre_comun": "Isabelle",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Son motif tigré orange, noir et jaune la rattache à un cercle mimétique partagé avec d'autres papillons au goût désagréable. Elle passe de fleur en fleur d'un battement léger et se pose souvent, ce qui la rend facile à observer. Elle apporte des couleurs chaudes et un bel exemple de mimétisme à l'exposition.",
+        "vuelo": "Léger, à mi-hauteur"
+      },
+      "zh": {
+        "nombre_comun": "伊莎贝拉长翅蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "橙、黑、黄相间的虎纹使它与其他难吃的蝴蝶组成拟态环。它以轻盈的振翅在蜜源花间穿行，并经常停栖，便于观察。它为展区带来温暖的色彩，也是讲解拟态的绝佳实例。",
+        "vuelo": "轻盈，中等高度"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hamadryas laodamia",
+    "familia": "Nymphalidae",
+    "slug": "hamadryas-laodamia",
+    "envergadura": "65–75 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tronadora noche estrellada",
+        "region": "México a Sudamérica",
+        "descripcion": "La más oscura de las tronadoras: alas casi negras salpicadas de puntos azul brillante, como un cielo nocturno; la hembra añade una banda blanca en el ala anterior. Se posa cabeza abajo en los troncos con las alas abiertas y los machos producen un chasquido audible al volar. Una joya para exhibiciones de ambiente sombreado.",
+        "vuelo": "Rápido, con chasquidos"
+      },
+      "en": {
+        "nombre_comun": "Starry Night Cracker",
+        "region": "Mexico to South America",
+        "descripcion": "The darkest of the crackers: nearly black wings sprinkled with bright blue dots like a night sky, with females adding a white band across the forewing. It rests head-down on trunks with wings spread, and males make an audible clicking sound in flight. A jewel for shaded, forest-style exhibits.",
+        "vuelo": "Fast, with clicks"
+      },
+      "it": {
+        "nombre_comun": "Cracker notte stellata",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "La più scura delle cracker: ali quasi nere punteggiate di azzurro brillante come un cielo notturno; la femmina aggiunge una fascia bianca sull'ala anteriore. Si posa a testa in giù sui tronchi ad ali aperte e i maschi producono in volo un clic udibile. Un gioiello per ambientazioni ombreggiate.",
+        "vuelo": "Rapido, con scatti sonori"
+      },
+      "fr": {
+        "nombre_comun": "Hamadryas nuit étoilée",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "La plus sombre des « crackers » : des ailes presque noires parsemées de points bleu vif, comme un ciel nocturne, la femelle ajoutant une bande blanche sur l'aile antérieure. Elle se pose tête en bas sur les troncs, ailes ouvertes, et les mâles émettent un claquement audible en vol. Un joyau pour les décors ombragés.",
+        "vuelo": "Rapide, avec claquements"
+      },
+      "zh": {
+        "nombre_comun": "星夜蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "袖蛱蝶属中最深色的一种：近乎全黑的翅面点缀着亮蓝色斑点，宛如星空；雌蝶前翅另有一条白色带纹。它常头朝下张翅停在树干上，雄蝶飞行时会发出清晰的咔嗒声。是阴凉林荫展区的一颗明珠。",
+        "vuelo": "迅速，伴咔嗒声"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hamadryas amphinome",
+    "familia": "Nymphalidae",
+    "slug": "hamadryas-amphinome",
+    "envergadura": "70–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tronadora roja",
+        "region": "México a Sudamérica",
+        "descripcion": "Por encima es azul oscuro con manchas celestes y una banda blanca en el ala anterior, pero el reverso del ala posterior es de un rojo intenso inconfundible. Descansa cabeza abajo en troncos con las alas abiertas y el macho chasquea en vuelo. El contraste entre su diseño estrellado y el rojo escondido la convierte en favorita del público.",
+        "vuelo": "Rápido, con chasquidos"
+      },
+      "en": {
+        "nombre_comun": "Red Cracker",
+        "region": "Mexico to South America",
+        "descripcion": "Above it is dark blue with pale blue spots and a white band across the forewing, while the hindwing underside is an unmistakable bold red. It rests head-down on trunks with wings open, and males click audibly in flight. The contrast between its starry pattern and the hidden red makes it a visitor favorite.",
+        "vuelo": "Fast, with clicks"
+      },
+      "it": {
+        "nombre_comun": "Cracker rossa",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Sopra è blu scuro con macchie azzurre e una banda bianca sull'ala anteriore, mentre il rovescio dell'ala posteriore è di un rosso intenso inconfondibile. Riposa a testa in giù sui tronchi con le ali aperte e i maschi producono schiocchi udibili in volo. Il contrasto tra il disegno stellato e il rosso nascosto la rende una delle preferite dal pubblico.",
+        "vuelo": "Rapido, con scatti sonori"
+      },
+      "fr": {
+        "nombre_comun": "Hamadryas rouge",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Le dessus est bleu foncé, ponctué de taches bleu clair et barré d'une bande blanche sur l'aile antérieure, tandis que le revers de l'aile postérieure est d'un rouge vif caractéristique. Il se repose tête en bas sur les troncs, ailes ouvertes, et les mâles émettent des claquements audibles en vol. Le contraste entre son motif étoilé et ce rouge caché en fait un favori du public.",
+        "vuelo": "Rapide, avec claquements"
+      },
+      "zh": {
+        "nombre_comun": "红腹袖蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅膀正面为深蓝色，点缀浅蓝色斑点，前翅有一条白色横带；后翅反面则是醒目的鲜红色。它常头朝下停在树干上并张开翅膀，雄蝶飞行时会发出清晰的咔嗒声。星点花纹与隐藏红色的反差使它深受游客喜爱。",
+        "vuelo": "迅速，伴咔嗒声"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hamadryas arinome",
+    "familia": "Nymphalidae",
+    "slug": "hamadryas-arinome",
+    "envergadura": "70–85 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tronadora arinome",
+        "region": "México a Sudamérica",
+        "descripcion": "Tronadora de fondo oscuro con reflejos y manchas azul iridiscente que cambian de intensidad según la luz. Como sus parientes, se posa cabeza abajo en los troncos con las alas extendidas y el macho emite chasquidos al volar. Su tono azul profundo complementa muy bien a las tronadoras grises en una misma exhibición.",
+        "vuelo": "Rápido, con chasquidos"
+      },
+      "en": {
+        "nombre_comun": "Arinome Cracker",
+        "region": "Mexico to South America",
+        "descripcion": "A dark cracker washed with iridescent blue patches that shift in intensity with the light. Like its relatives, it perches head-down on tree trunks with wings spread, and males click as they fly. Its deep blue tones pair beautifully with the gray crackers in a mixed display.",
+        "vuelo": "Fast, with clicks"
+      },
+      "it": {
+        "nombre_comun": "Cracker arinome",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Una cracker dal fondo scuro con macchie azzurre iridescenti che cambiano intensità con la luce. Come le specie affini, si posa a testa in giù sui tronchi ad ali distese e il maschio schiocca in volo. Le sue tonalità blu profonde si abbinano magnificamente alle cracker grigie.",
+        "vuelo": "Rapido, con scatti sonori"
+      },
+      "fr": {
+        "nombre_comun": "Hamadryas arinome",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Une « cracker » au fond sombre parsemé de taches bleu irisé dont l'intensité varie avec la lumière. Comme ses proches parentes, elle se pose tête en bas sur les troncs, ailes étalées, et le mâle claque en vol. Ses tons bleu profond s'accordent à merveille avec les espèces grises.",
+        "vuelo": "Rapide, avec claquements"
+      },
+      "zh": {
+        "nombre_comun": "蓝暗袖蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅面底色深暗，带有随光线变化的虹彩蓝斑。与近亲一样，它头朝下展翅停在树干上，雄蝶飞行时会发出咔嗒声。深蓝色调与灰色系的同属种类搭配展示，效果尤佳。",
+        "vuelo": "迅速，伴咔嗒声"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hamadryas februa",
+    "familia": "Nymphalidae",
+    "slug": "hamadryas-februa",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tronadora gris",
+        "region": "México a Sudamérica",
+        "descripcion": "Gris claro con un intrincado jaspeado blanco, negro y azulado, y el reverso pálido; sobre la corteza resulta casi invisible. Pasa largos ratos cabeza abajo en los troncos con las alas abiertas y acude a la fruta fermentada. Los chasquidos de los machos en vuelo son siempre una sorpresa para los visitantes.",
+        "vuelo": "Rápido, con chasquidos"
+      },
+      "en": {
+        "nombre_comun": "Gray Cracker",
+        "region": "Mexico to South America",
+        "descripcion": "Pale gray with intricate white, black and bluish marbling and a light underside, it becomes nearly invisible against bark. It spends long stretches head-down on trunks with wings open and comes to fermenting fruit. The clicking of males in flight never fails to surprise visitors.",
+        "vuelo": "Fast, with clicks"
+      },
+      "it": {
+        "nombre_comun": "Cracker grigia",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Grigio chiaro con un intricato marmorizzato bianco, nero e azzurrino e il rovescio pallido: sulla corteccia diventa quasi invisibile. Trascorre a lungo a testa in giù sui tronchi ad ali aperte e visita la frutta fermentata. Gli schiocchi dei maschi in volo sorprendono sempre i visitatori.",
+        "vuelo": "Rapido, con scatti sonori"
+      },
+      "fr": {
+        "nombre_comun": "Hamadryas grise",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Gris pâle au marbrage complexe blanc, noir et bleuté, avec un revers clair, elle devient presque invisible sur l'écorce. Elle reste longtemps tête en bas sur les troncs, ailes ouvertes, et vient sur les fruits fermentés. Les claquements des mâles en vol surprennent toujours les visiteurs.",
+        "vuelo": "Rapide, avec claquements"
+      },
+      "zh": {
+        "nombre_comun": "灰袖蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "浅灰色翅面布满白、黑及淡蓝色交织的细纹，翅背面色浅，贴在树皮上几乎无法察觉。它常长时间头朝下张翅停在树干上，也会取食发酵水果。雄蝶飞行时的咔嗒声总让游客感到惊奇。",
+        "vuelo": "迅速，伴咔嗒声"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hamadryas feronia",
+    "familia": "Nymphalidae",
+    "slug": "hamadryas-feronia",
+    "envergadura": "65–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tronadora variable",
+        "region": "México a Sudamérica",
+        "descripcion": "Mosaico de grises y azules con pequeños ocelos en el ala posterior; su coloración varía bastante entre individuos, de ahí su nombre. Se posa cabeza abajo en los troncos, bien camuflada, y los machos defienden su percha con vuelos cortos y chasquidos audibles. Muy interesante para mostrar variación individual dentro de una especie.",
+        "vuelo": "Rápido, con chasquidos"
+      },
+      "en": {
+        "nombre_comun": "Variable Cracker",
+        "region": "Mexico to South America",
+        "descripcion": "A mosaic of grays and blues with small eyespots on the hindwing, its coloring varies noticeably between individuals, hence the name. It perches head-down on trunks, well camouflaged, and males defend their perch with short sallies and audible clicks. Great for showing individual variation within a single species.",
+        "vuelo": "Fast, with clicks"
+      },
+      "it": {
+        "nombre_comun": "Cracker variabile",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Un mosaico di grigi e azzurri con piccoli ocelli sull'ala posteriore; la colorazione varia parecchio da un individuo all'altro, da cui il nome. Si posa a testa in giù sui tronchi ben mimetizzata e i maschi difendono il posatoio con brevi voli e schiocchi udibili. Ideale per mostrare la variabilità individuale.",
+        "vuelo": "Rapido, con scatti sonori"
+      },
+      "fr": {
+        "nombre_comun": "Hamadryas variable",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Mosaïque de gris et de bleus ornée de petits ocelles sur l'aile postérieure, sa coloration varie nettement d'un individu à l'autre, d'où son nom. Elle se pose tête en bas sur les troncs, bien camouflée, et les mâles défendent leur perchoir par de courts vols et des claquements audibles. Parfaite pour illustrer la variation individuelle.",
+        "vuelo": "Rapide, avec claquements"
+      },
+      "zh": {
+        "nombre_comun": "多变袖蛱蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "翅面由灰色和蓝色交织成马赛克般的图案，后翅有小眼斑，个体间色彩差异明显，因此得名。它头朝下停在树干上，伪装极佳，雄蝶会以短距离飞行和清晰的咔嗒声守卫栖位。非常适合展示同一物种内的个体差异。",
+        "vuelo": "迅速，伴咔嗒声"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Hamadryas guatemalena",
+    "familia": "Nymphalidae",
+    "slug": "hamadryas-guatemalena",
+    "envergadura": "75–90 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tronadora guatemalteca",
+        "region": "México a Costa Rica",
+        "descripcion": "Una de las tronadoras más grandes, con alas gris azuladas finamente jaspeadas y una hilera de ocelos en el ala posterior. Típica de bosques secos y abiertos, se asolea cabeza abajo en troncos y postes, y los machos chasquean al perseguir a otros. Su tamaño la hace muy visible en el recinto.",
+        "vuelo": "Rápido, con chasquidos"
+      },
+      "en": {
+        "nombre_comun": "Guatemalan Cracker",
+        "region": "Mexico to Costa Rica",
+        "descripcion": "One of the larger crackers, with finely mottled blue-gray wings and a row of eyespots on the hindwing. Typical of dry and open forest, it basks head-down on trunks and posts, and males click loudly while chasing rivals. Its size makes it especially easy to spot in a flight house.",
+        "vuelo": "Fast, with clicks"
+      },
+      "it": {
+        "nombre_comun": "Cracker guatemalteca",
+        "region": "Dal Messico alla Costa Rica",
+        "descripcion": "Una delle cracker più grandi, con ali grigio-azzurre finemente marmorizzate e una fila di ocelli sull'ala posteriore. Tipica delle foreste secche e aperte, si scalda a testa in giù su tronchi e pali, e i maschi schioccano inseguendo i rivali. Le dimensioni la rendono molto visibile in serra.",
+        "vuelo": "Rapido, con scatti sonori"
+      },
+      "fr": {
+        "nombre_comun": "Hamadryas du Guatemala",
+        "region": "Du Mexique au Costa Rica",
+        "descripcion": "L'une des plus grandes « crackers », aux ailes gris bleuté finement marbrées et ornées d'une rangée d'ocelles sur l'aile postérieure. Typique des forêts sèches et ouvertes, elle se chauffe tête en bas sur les troncs et les poteaux, et les mâles claquent en poursuivant leurs rivaux. Sa taille la rend très visible en serre.",
+        "vuelo": "Rapide, avec claquements"
+      },
+      "zh": {
+        "nombre_comun": "危地马拉袖蛱蝶",
+        "region": "墨西哥至哥斯达黎加",
+        "descripcion": "袖蛱蝶中体型较大的一种，蓝灰色翅面布满细密斑纹，后翅有一列眼斑。常见于干燥开阔的森林，喜欢头朝下在树干或木桩上晒太阳，雄蝶追逐对手时会发出响亮的咔嗒声。较大的体型使它在馆内十分醒目。",
+        "vuelo": "迅速，伴咔嗒声"
+      }
+    }
+  },
+  {
+    "nombre_cientifico": "Tithorea tarricina",
+    "familia": "Nymphalidae",
+    "slug": "tithorea-tarricina",
+    "envergadura": "70–80 mm",
+    "i18n": {
+      "es": {
+        "nombre_comun": "Tigre de manchas crema",
+        "region": "México a Sudamérica",
+        "descripcion": "Alas alargadas con un patrón de franjas negras, naranja y manchas amarillo crema, típico de las mariposas tóxicas que otras especies imitan. Vuela despacio y con confianza entre las flores, sin temor a los depredadores, lo que permite observarla con calma. Excelente para exhibiciones sobre mimetismo y defensas químicas.",
+        "vuelo": "Lento y planeado"
+      },
+      "en": {
+        "nombre_comun": "Cream-spotted Tigerwing",
+        "region": "Mexico to South America",
+        "descripcion": "Long wings patterned in black and orange stripes with creamy yellow spots, the classic warning livery of distasteful butterflies that other species copy. It flies slowly and confidently among flowers, unbothered by predators, so visitors can watch it at leisure. Excellent for exhibits on mimicry and chemical defense.",
+        "vuelo": "Slow and gliding"
+      },
+      "it": {
+        "nombre_comun": "Tigre a macchie crema",
+        "region": "Dal Messico al Sud America",
+        "descripcion": "Ali allungate con strisce nere e arancioni e macchie giallo crema, la classica livrea d'avvertimento delle farfalle tossiche imitate da altre specie. Vola lentamente e con sicurezza tra i fiori, incurante dei predatori, e si lascia osservare con calma. Ottima per esposizioni su mimetismo e difese chimiche.",
+        "vuelo": "Lento e planato"
+      },
+      "fr": {
+        "nombre_comun": "Tigre à taches crème",
+        "region": "Du Mexique à l'Amérique du Sud",
+        "descripcion": "Des ailes allongées rayées de noir et d'orange et ponctuées de taches jaune crème : la livrée d'avertissement classique des papillons toxiques que d'autres espèces imitent. Elle vole lentement et avec assurance parmi les fleurs, sans craindre les prédateurs, ce qui permet de l'observer tranquillement. Excellente pour les expositions sur le mimétisme et les défenses chimiques.",
+        "vuelo": "Lent et plané"
+      },
+      "zh": {
+        "nombre_comun": "奶斑虎纹绡蝶",
+        "region": "墨西哥至南美洲",
+        "descripcion": "狭长的翅膀上有黑橙相间的条纹和奶黄色斑点，这是有毒蝴蝶典型的警戒色，常被其他物种模仿。它在花间缓慢而从容地飞行，不惧天敌，游客可以悠闲观赏。非常适合拟态与化学防御主题的展览。",
+        "vuelo": "缓慢滑翔"
+      }
+    }
+  }
+]
