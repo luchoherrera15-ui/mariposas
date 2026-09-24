@@ -15,6 +15,17 @@ export default async function ResumenAdmin() {
         <p className="mt-2 text-pizarra">
           Todo lo que cargues acá es lo que ve cada cliente en su panel.
         </p>
+        {resumen.solicitudes > 0 ? (
+          <Link
+            href="/admin/pedidos?estado=solicitado"
+            className="mt-4 inline-flex items-center gap-3 border-l-2 border-morpho bg-nube px-4 py-2.5 text-sm hover:bg-nube/70"
+          >
+            {resumen.solicitudes === 1
+              ? "Hay 1 solicitud de cotización esperando precio."
+              : `Hay ${resumen.solicitudes} solicitudes de cotización esperando precio.`}
+            <span className="font-medium text-morpho">Ver →</span>
+          </Link>
+        ) : null}
       </div>
 
       <dl className="grid gap-px border border-linea bg-linea sm:grid-cols-2 lg:grid-cols-5">

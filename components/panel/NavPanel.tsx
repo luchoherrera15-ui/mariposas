@@ -9,6 +9,7 @@ export default function NavPanel({ textos, completo }: { textos: Textos["panel"]
   const ruta = usePathname();
   const enlaces = [
     { href: "/panel", texto: textos.resumen },
+    { href: "/panel/cotizaciones", texto: textos.cotizaciones },
     ...(completo
       ? [
           { href: "/panel/pedidos", texto: textos.pedidos },

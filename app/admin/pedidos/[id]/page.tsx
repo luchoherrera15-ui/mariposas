@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  Area,
   Bloque,
   Campo,
   ESTADOS_ENVIO,
@@ -25,7 +26,9 @@ import {
   actualizarPedido,
   agregarEvento,
   agregarItem,
+  confirmarPedido,
   eliminarEvento,
+  enviarCotizacion,
   eliminarItem,
   eliminarPedido,
   guardarEnvio,
@@ -35,6 +38,8 @@ export const metadata: Metadata = { title: "Editar pedido" };
 
 /** "2026-09-04" para inputs date. */
 const soloFecha = (v: string | null) => (v ? v.slice(0, 10) : "");
+/** Fecha de dentro de n días, para la vigencia por defecto de una cotización. */
+const enDias = (n: number) => new Date(Date.now() + n * 86_400_000).toISOString().slice(0, 10);
 /** "2026-09-04T13:20" para inputs datetime-local. */
 const fechaHoraLocal = (v: string | null) => {
   if (!v) return "";
@@ -55,6 +60,7 @@ export default async function EditarPedido({ params }: { params: Promise<{ id: s
   const cliente = clientes.find((c) => c.id === pedido.cliente_id);
   const mariposas = pedido.items.reduce((s, i) => s + i.cantidad, 0);
   const envio = pedido.envio;
+  const esCotizacion = ["solicitado", "cotizado", "rechazado"].includes(pedido.estado);
 
   return (
     <div className="space-y-8">
@@ -75,6 +81,104 @@ export default async function EditarPedido({ params }: { params: Promise<{ id: s
           {numero(mariposas)} mariposas · {moneda(pedido.total, pedido.moneda)} · creado {fecha(pedido.creado_en)}
         </p>
       </div>
+
+      {/* ── Cotización ─────────────────────────────────────────────────── */}
+      {esCotizacion ? (
+        <Bloque titulo={pedido.estado === "solicitado" ? "Preparar la cotización" : "Cotización"}>
+          <dl className="mb-6 grid gap-4 border-b border-linea pb-6 text-sm sm:grid-cols-3">
+            <div>
+              <dt className="text-xs text-pizarra">Destino</dt>
+              <dd className="mt-0.5">{pedido.destino_pais ?? "—"}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-pizarra">Fecha deseada</dt>
+              <dd className="datos mt-0.5">{fecha(pedido.fecha_deseada)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-pizarra">Idioma del cliente</dt>
+              <dd className="datos mt-0.5 uppercase">{pedido.idioma}</dd>
+            </div>
+            <div className="sm:col-span-3">
+              <dt className="text-xs text-pizarra">Comentarios del cliente</dt>
+              <dd className="mt-0.5 whitespace-pre-line">{pedido.mensaje_cliente ?? "—"}</dd>
+            </div>
+          </dl>
+
+          <FormularioAccion
+            accion={enviarCotizacion}
+            boton={pedido.estado === "solicitado" ? "Enviar cotización al cliente" : "Actualizar y reenviar cotización"}
+          >
+            <input type="hidden" name="pedido_id" value={pedido.id} />
+            <div className="overflow-x-auto border border-linea">
+              <table className="w-full min-w-[36rem] text-sm">
+                <thead>
+                  <tr className="border-b border-linea bg-lino text-left text-pizarra">
+                    <th className="px-4 py-2.5 font-normal">Especie</th>
+                    <th className="px-4 py-2.5 text-right font-normal">Pupas</th>
+                    <th className="px-4 py-2.5 text-right font-normal">Precio por pupa</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-linea">
+                  {pedido.items.map((i) => {
+                    const lista = especies.find((e) => e.id === i.especie?.id)?.precio_unitario ?? 0;
+                    return (
+                      <tr key={i.id}>
+                        <td className="px-4 py-2.5">
+                          {i.especie?.nombre_comun}
+                          <span className="cientifico ml-2 text-xs text-pizarra">{i.especie?.nombre_cientifico}</span>
+                        </td>
+                        <td className="datos px-4 py-2.5 text-right">{numero(i.cantidad)}</td>
+                        <td className="px-4 py-2 text-right">
+                          <input
+                            name={`precio_${i.id}`}
+                            type="number"
+                            min={0.01}
+                            step="0.01"
+                            required
+                            defaultValue={i.precio_unitario || lista || ""}
+                            placeholder={lista ? String(lista) : "0.00"}
+                            className="datos w-28 border border-linea bg-papel px-2 py-1.5 text-right outline-none focus:border-tinta"
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-2 text-xs text-pizarra">
+              Se completa con el precio de lista de cada especie (si tiene); ajustalo para este cliente.
+            </p>
+            <div className="mt-5 grid gap-5 sm:grid-cols-3">
+              <Campo etiqueta="Flete (opcional)" name="flete" type="number" min={0} step="0.01" defaultValue={pedido.flete || ""} />
+              <Campo etiqueta="Moneda" name="moneda" defaultValue={pedido.moneda} maxLength={3} />
+              <Campo etiqueta="Válida hasta" name="valida_hasta" type="date" defaultValue={soloFecha(pedido.valida_hasta) || enDias(14)} />
+              <Area
+                etiqueta="Nota para el cliente (opcional)"
+                name="respuesta"
+                defaultValue={pedido.respuesta ?? ""}
+                placeholder="Fecha de vuelo propuesta, condiciones de pago, especies sustitutas…"
+                className="sm:col-span-3"
+              />
+            </div>
+          </FormularioAccion>
+        </Bloque>
+      ) : null}
+
+      {pedido.estado === "pendiente" ? (
+        <div className="flex flex-wrap items-center gap-4 border border-hoja bg-nube px-5 py-4">
+          <p className="text-sm">
+            <span className="font-semibold">El cliente aceptó la cotización.</span> Revisala y confirmá el pedido: le llega
+            un correo de confirmación.
+          </p>
+          <form action={confirmarPedido} className="ml-auto">
+            <input type="hidden" name="pedido_id" value={pedido.id} />
+            <button className="bg-tinta px-5 py-2.5 text-sm text-papel transition-colors hover:bg-morpho">
+              Confirmar pedido
+            </button>
+          </form>
+        </div>
+      ) : null}
 
       {/* ── Datos del pedido ───────────────────────────────────────────── */}
       <Bloque titulo="Datos del pedido">
@@ -164,6 +268,9 @@ export default async function EditarPedido({ params }: { params: Promise<{ id: s
         </div>
       </Bloque>
 
+      {/* Envío y tracking: recién cuando la cotización es un pedido. */}
+      {esCotizacion ? null : (
+      <>
       {/* ── Envío ──────────────────────────────────────────────────────── */}
       <Bloque titulo={envio ? "Envío" : "Crear el envío"}>
         <FormularioAccion accion={guardarEnvio} boton={envio ? "Guardar envío" : "Crear envío"}>
@@ -273,6 +380,8 @@ export default async function EditarPedido({ params }: { params: Promise<{ id: s
           </>
         )}
       </Bloque>
+      </>
+      )}
 
       {/* ── Borrar ─────────────────────────────────────────────────────── */}
       <form action={eliminarPedido} className="border border-linea bg-papel p-6">

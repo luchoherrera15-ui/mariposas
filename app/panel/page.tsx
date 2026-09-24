@@ -13,13 +13,14 @@ import { colorEnvio, colorPedido, progresoEnvio } from "@/lib/formato";
 import { fmt } from "@/lib/i18n/idiomas";
 import { obtenerFormato, obtenerTextos } from "@/lib/i18n/servidor";
 import { calcularAportes } from "@/lib/impacto";
+import { ESTADOS_COTIZACION } from "@/lib/tipos";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: (await obtenerTextos()).panel.resumen.metaTitulo };
 }
 
 export default async function PanelResumen() {
-  const [usuario, pedidos, proyectos, t, { fecha, moneda, numero }] = await Promise.all([
+  const [usuario, todos, proyectos, t, { fecha, moneda, numero }] = await Promise.all([
     obtenerUsuario(),
     obtenerPedidos(),
     obtenerImpacto(),
@@ -27,11 +28,24 @@ export default async function PanelResumen() {
     obtenerFormato(),
   ]);
   const r = t.panel.resumen;
+  const pedidos = todos.filter((p) => !ESTADOS_COTIZACION.includes(p.estado));
+  const porResponder = todos.filter((p) => p.estado === "cotizado");
 
   const saludo = (
     <div>
       <h1 className="titulo-2">{fmt(r.hola, { nombre: usuario?.nombre?.split(" ")[0] ?? r.clienteGenerico })}</h1>
       <p className="mt-1 text-pizarra">{r.subtitulo}</p>
+      {porResponder.map((p) => (
+        <Link
+          key={p.id}
+          href={`/panel/cotizaciones/${p.id}`}
+          className="mt-5 flex flex-wrap items-center gap-3 border-l-2 border-morpho bg-nube px-4 py-3 text-sm hover:bg-nube/70"
+        >
+          <span className="datos font-semibold">{p.codigo}</span>
+          <span>{t.estadosPedido.cotizado}</span>
+          <span className="ml-auto font-medium text-morpho">{t.cotizaciones.ver} →</span>
+        </Link>
+      ))}
     </div>
   );
 

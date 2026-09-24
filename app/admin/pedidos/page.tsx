@@ -17,14 +17,27 @@ export default async function PedidosAdmin({
   const { estado } = await searchParams;
   const [pedidos, clientes] = await Promise.all([listarPedidos(estado), listarClientes()]);
   const nombrePorId = new Map(clientes.map((c) => [c.id, c.nombre]));
+  const solicitudes = estado === "solicitado" ? 0 : (await listarPedidos("solicitado")).length;
 
   return (
     <div className="space-y-10">
       <div>
         <h1 className="titulo-2">Pedidos</h1>
         <p className="mt-2 text-pizarra">
-          Cada pedido que creés aparece de inmediato en el panel del cliente correspondiente.
+          Las solicitudes de cotización llegan desde el catálogo; los pedidos que crees a mano aparecen de
+          inmediato en el panel del cliente.
         </p>
+        {solicitudes > 0 ? (
+          <Link
+            href="/admin/pedidos?estado=solicitado"
+            className="mt-4 inline-flex items-center gap-3 border-l-2 border-morpho bg-nube px-4 py-2.5 text-sm hover:bg-nube/70"
+          >
+            {solicitudes === 1
+              ? "Hay 1 solicitud de cotización esperando precio."
+              : `Hay ${solicitudes} solicitudes de cotización esperando precio.`}
+            <span className="font-medium text-morpho">Ver →</span>
+          </Link>
+        ) : null}
       </div>
 
       <Bloque titulo="Nuevo pedido">

@@ -6,6 +6,7 @@ import Foto from "@/components/Foto";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import TarjetaEspecie from "@/components/TarjetaEspecie";
+import BotonCotizar from "@/components/cotizacion/BotonCotizar";
 import { obtenerMarca } from "@/lib/ajustes";
 import { obtenerEspecie, obtenerEspecies } from "@/lib/datos";
 import { slugDeEspecie } from "@/lib/especies-foto";
@@ -75,12 +76,15 @@ export default async function FichaEspecie({ params }: Props) {
               <Dato etiqueta={te.disponibilidad} valor={especie.disponibilidad} />
             </dl>
 
-            <a
-              href={`mailto:${marca.correo}?subject=${asunto}`}
-              className="mt-8 inline-block bg-tinta px-6 py-3 text-sm text-papel transition-colors hover:bg-morpho"
-            >
-              {te.consultar}
-            </a>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <BotonCotizar slug={especie.slug} agregar={t.cotizar.agregar} agregada={t.cotizar.agregada} />
+              <a
+                href={`mailto:${marca.correo}?subject=${asunto}`}
+                className="border-b border-linea pb-0.5 text-sm text-pizarra transition-colors hover:border-tinta hover:text-tinta"
+              >
+                {te.consultar}
+              </a>
+            </div>
           </div>
         </article>
 
@@ -99,7 +103,12 @@ export default async function FichaEspecie({ params }: Props) {
               <ul className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
                 {parientes.map((e) => (
                   <li key={e.id}>
-                    <TarjetaEspecie especie={e} textoVacio={te.sinFoto} polilla={te.polilla} />
+                    <TarjetaEspecie
+                      especie={e}
+                      textoVacio={te.sinFoto}
+                      polilla={te.polilla}
+                      cotizar={{ agregar: t.cotizar.agregar, agregada: t.cotizar.agregada }}
+                    />
                   </li>
                 ))}
               </ul>

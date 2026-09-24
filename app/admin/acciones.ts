@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { bloqueoDemo, requerirAdmin } from "@/lib/admin";
+import { avisarCliente } from "@/lib/avisos";
 import type { Traducciones } from "@/lib/i18n/contenido";
 import { IDIOMA_BASE_CONTENIDO, NOMBRE_IDIOMA, esIdioma } from "@/lib/i18n/idiomas";
 import { supabaseAdmin } from "@/lib/supabase-servidor";
@@ -38,12 +39,93 @@ async function preparar(): Promise<Resultado> {
   }
 }
 
-/** Recalcula el total del pedido a partir de sus líneas. */
+/** Recalcula el total del pedido: líneas + flete. */
 async function recalcularTotal(pedidoId: string) {
   const admin = supabaseAdmin();
-  const { data } = await admin.from("pedido_items").select("cantidad, precio_unitario").eq("pedido_id", pedidoId);
-  const total = (data ?? []).reduce((s, i) => s + i.cantidad * Number(i.precio_unitario), 0);
-  await admin.from("pedidos").update({ total }).eq("id", pedidoId);
+  const [{ data }, { data: pedido }] = await Promise.all([
+    admin.from("pedido_items").select("cantidad, precio_unitario").eq("pedido_id", pedidoId),
+    admin.from("pedidos").select("flete").eq("id", pedidoId).maybeSingle(),
+  ]);
+  const lineas = (data ?? []).reduce((s, i) => s + i.cantidad * Number(i.precio_unitario), 0);
+  await admin.from("pedidos").update({ total: lineas + Number(pedido?.flete ?? 0) }).eq("id", pedidoId);
+}
+
+/** Cambios de estado que se le avisan al cliente por correo. */
+async function avisarCambioDeEstado(pedidoId: string, anterior: string | null, nuevo: string) {
+  if (anterior === nuevo) return;
+  if (nuevo === "confirmado") await avisarCliente(pedidoId, "confirmado");
+  if (nuevo === "enviado") await avisarCliente(pedidoId, "enviado");
+}
+
+// ─── Cotizaciones ────────────────────────────────────────────────────────────
+
+/**
+ * Pone precio a cada línea, flete y vigencia, y le manda la cotización al
+ * cliente. Enviar una cotización aprueba la cuenta del cliente: a partir de
+ * ahí ve precios y pedidos en su panel.
+ */
+export async function enviarCotizacion(_previo: Resultado, formulario: FormData): Promise<Resultado> {
+  const alto = await preparar();
+  if (alto) return alto;
+
+  const pedido_id = texto(formulario, "pedido_id");
+  const admin = supabaseAdmin();
+  const { data: pedido } = await admin.from("pedidos").select("id, cliente_id, estado").eq("id", pedido_id).maybeSingle();
+  if (!pedido) return { error: "No encontré el pedido." };
+  if (!["solicitado", "cotizado", "rechazado"].includes(pedido.estado)) {
+    return { error: "Este pedido ya no es una cotización: editá las líneas abajo." };
+  }
+
+  const { data: items } = await admin.from("pedido_items").select("id").eq("pedido_id", pedido_id);
+  for (const item of items ?? []) {
+    const precio = numero(formulario, `precio_${item.id}`);
+    if (precio === null || !Number.isFinite(precio) || precio <= 0) {
+      return { error: "Poné un precio mayor que cero a cada especie." };
+    }
+    await admin.from("pedido_items").update({ precio_unitario: precio }).eq("id", item.id);
+  }
+
+  const flete = numero(formulario, "flete") ?? 0;
+  const { error } = await admin
+    .from("pedidos")
+    .update({
+      estado: "cotizado",
+      flete: Number.isFinite(flete) && flete > 0 ? flete : 0,
+      moneda: texto(formulario, "moneda") || "USD",
+      valida_hasta: oNulo(formulario, "valida_hasta"),
+      respuesta: oNulo(formulario, "respuesta"),
+      cotizado_en: new Date().toISOString(),
+    })
+    .eq("id", pedido_id);
+  if (error) return { error: `No se pudo guardar: ${error.message}` };
+
+  await recalcularTotal(pedido_id);
+  await admin
+    .from("perfiles")
+    .update({ aprobado: true, aprobado_en: new Date().toISOString() })
+    .eq("id", pedido.cliente_id)
+    .eq("aprobado", false);
+
+  await avisarCliente(pedido_id, "cotizacion");
+  refrescar(`/admin/pedidos/${pedido_id}`);
+  revalidatePath("/panel", "layout");
+  return { ok: "Cotización enviada. Le llegó un correo al cliente con el detalle." };
+}
+
+/** El cliente aceptó: se confirma el pedido y se le avisa. */
+export async function confirmarPedido(formulario: FormData) {
+  const alto = await preparar();
+  if (alto) return;
+  const pedido_id = texto(formulario, "pedido_id");
+  const { data } = await supabaseAdmin()
+    .from("pedidos")
+    .update({ estado: "confirmado", confirmado_en: new Date().toISOString() })
+    .eq("id", pedido_id)
+    .eq("estado", "pendiente")
+    .select("id");
+  if (data?.length) await avisarCliente(pedido_id, "confirmado");
+  refrescar(`/admin/pedidos/${pedido_id}`);
+  revalidatePath("/panel", "layout");
 }
 
 // ─── Pedidos ─────────────────────────────────────────────────────────────────
@@ -76,18 +158,27 @@ export async function actualizarPedido(_previo: Resultado, formulario: FormData)
   if (alto) return alto;
 
   const id = texto(formulario, "pedido_id");
+  const estado = texto(formulario, "estado");
+  const { data: antes } = await supabaseAdmin().from("pedidos").select("estado").eq("id", id).maybeSingle();
   const { error } = await supabaseAdmin()
     .from("pedidos")
     .update({
-      estado: texto(formulario, "estado"),
+      estado,
       notas: oNulo(formulario, "notas"),
       moneda: texto(formulario, "moneda") || "USD",
+      ...(estado === "confirmado" && antes?.estado !== "confirmado" ? { confirmado_en: new Date().toISOString() } : {}),
     })
     .eq("id", id);
 
   if (error) return { error: `No se pudo guardar: ${error.message}` };
+  await avisarCambioDeEstado(id, antes?.estado ?? null, estado);
   refrescar(`/admin/pedidos/${id}`);
-  return { ok: "Pedido actualizado." };
+  revalidatePath("/panel", "layout");
+  return {
+    ok: ["confirmado", "enviado"].includes(estado) && antes?.estado !== estado
+      ? "Pedido actualizado. Se le avisó al cliente por correo."
+      : "Pedido actualizado.",
+  };
 }
 
 export async function eliminarPedido(formulario: FormData) {

@@ -26,11 +26,14 @@ export function crearFormato(idioma: Idioma) {
     },
     fecha(valor: string | null) {
       if (!valor) return "—";
+      // Una fecha sola ("2026-11-20") es un día del calendario, no un instante:
+      // se lee en UTC para que no se corra al día anterior en Costa Rica.
+      const soloDia = /^\d{4}-\d{2}-\d{2}$/.test(valor);
       return new Intl.DateTimeFormat(locale, {
         day: "2-digit",
         month: "short",
         year: "numeric",
-        timeZone: ZONA,
+        timeZone: soloDia ? "UTC" : ZONA,
       }).format(new Date(valor));
     },
     fechaHora(valor: string | null) {
@@ -55,7 +58,10 @@ export const fecha = formatoAdmin.fecha;
 export const fechaHora = formatoAdmin.fechaHora;
 
 export const etiquetaPedido: Record<EstadoPedido, string> = {
-  pendiente: "Pendiente de pago",
+  solicitado: "Cotización solicitada",
+  cotizado: "Cotización enviada",
+  rechazado: "Cotización rechazada",
+  pendiente: "Aceptada, por confirmar",
   confirmado: "Confirmado",
   preparando: "En preparación",
   enviado: "Enviado",
@@ -74,6 +80,9 @@ export const etiquetaEnvio: Record<EstadoEnvio, string> = {
 
 /** Clases Tailwind del chip de estado, por estado de pedido. */
 export const colorPedido: Record<EstadoPedido, string> = {
+  solicitado: "bg-rose-100 text-rose-900 ring-rose-200",
+  cotizado: "bg-indigo-100 text-indigo-900 ring-indigo-200",
+  rechazado: "bg-stone-200 text-stone-700 ring-stone-300",
   pendiente: "bg-amber-100 text-amber-900 ring-amber-200",
   confirmado: "bg-sky-100 text-sky-900 ring-sky-200",
   preparando: "bg-violet-100 text-violet-900 ring-violet-200",

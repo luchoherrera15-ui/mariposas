@@ -2,6 +2,7 @@ import Link from "next/link";
 import { obtenerMarca } from "@/lib/ajustes";
 import { obtenerUsuario } from "@/lib/datos";
 import { obtenerIdioma, obtenerTextos } from "@/lib/i18n/servidor";
+import IndicadorCotizacion from "./cotizacion/IndicadorCotizacion";
 import SelectorIdioma from "./SelectorIdioma";
 
 /**
@@ -38,6 +39,7 @@ export default async function SiteHeader({ sobreFoto = false }: { sobreFoto?: bo
               {e.texto}
             </Link>
           ))}
+          <IndicadorCotizacion etiqueta={t.cotizar.etiqueta} sobreFoto={sobreFoto} />
           <Link
             href={usuario ? "/panel" : "/entrar"}
             className={

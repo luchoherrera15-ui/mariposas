@@ -2,7 +2,7 @@ import "server-only";
 import { modoDemo } from "./config";
 import { pedidosDemo, proyectosDemo } from "./demo";
 import { supabaseAdmin, supabaseServidor } from "./supabase-servidor";
-import type { Pedido } from "./tipos";
+import { ESTADOS_COMPRA, type Pedido } from "./tipos";
 
 /**
  * Acceso al panel administrativo. Todas las lecturas y escrituras de /admin
@@ -55,6 +55,7 @@ export function bloqueoDemo() {
 
 const SELECT_PEDIDO = `
   id, codigo, cliente_id, estado, total, moneda, notas, creado_en,
+  destino_pais, fecha_deseada, mensaje_cliente, respuesta, flete, valida_hasta, cotizado_en, idioma,
   items:pedido_items (
     id, cantidad, precio_unitario,
     especie:especies ( id, nombre_comun, nombre_cientifico )
@@ -80,6 +81,14 @@ function normalizar(fila: any): PedidoAdmin {
     moneda: fila.moneda,
     notas: fila.notas,
     creado_en: fila.creado_en,
+    destino_pais: fila.destino_pais ?? null,
+    fecha_deseada: fila.fecha_deseada ?? null,
+    mensaje_cliente: fila.mensaje_cliente ?? null,
+    respuesta: fila.respuesta ?? null,
+    flete: Number(fila.flete ?? 0),
+    valida_hasta: fila.valida_hasta ?? null,
+    cotizado_en: fila.cotizado_en ?? null,
+    idioma: fila.idioma ?? "en",
     items: (fila.items ?? []).map((i: any) => ({
       id: i.id,
       cantidad: i.cantidad,
@@ -271,8 +280,9 @@ export async function listarAjustes() {
 /** Cifras del encabezado de /admin. */
 export async function resumenAdmin() {
   const pedidos = await listarPedidos();
-  const vivos = pedidos.filter((p) => p.estado !== "cancelado");
+  const vivos = pedidos.filter((p) => ESTADOS_COMPRA.includes(p.estado));
   return {
+    solicitudes: pedidos.filter((p) => p.estado === "solicitado").length,
     pedidos: vivos.length,
     porCobrar: vivos.filter((p) => p.estado === "pendiente").length,
     enCurso: vivos.filter((p) => p.envio && p.envio.estado !== "entregado").length,

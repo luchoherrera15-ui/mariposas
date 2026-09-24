@@ -61,7 +61,13 @@ export default async function Especies({ searchParams }: { searchParams: Promise
         <ul className="mx-auto grid max-w-[82rem] gap-x-6 gap-y-12 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visibles.map((e, indice) => (
             <li key={e.id}>
-              <TarjetaEspecie especie={e} textoVacio={te.sinFoto} polilla={te.polilla} prioridad={indice < 4} />
+              <TarjetaEspecie
+                especie={e}
+                textoVacio={te.sinFoto}
+                polilla={te.polilla}
+                prioridad={indice < 4}
+                cotizar={{ agregar: t.cotizar.agregar, agregada: t.cotizar.agregada }}
+              />
             </li>
           ))}
         </ul>

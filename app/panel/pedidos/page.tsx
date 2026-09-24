@@ -5,6 +5,7 @@ import { Chip, Tarjeta, Vacio } from "@/components/ui";
 import { obtenerPedidos, obtenerUsuario } from "@/lib/datos";
 import { colorEnvio, colorPedido } from "@/lib/formato";
 import { fmt } from "@/lib/i18n/idiomas";
+import { ESTADOS_COTIZACION } from "@/lib/tipos";
 import { obtenerFormato, obtenerTextos } from "@/lib/i18n/servidor";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,12 +13,14 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function PanelPedidos() {
-  const [usuario, pedidos, t, { fecha, moneda, numero }] = await Promise.all([
+  const [usuario, todos, t, { fecha, moneda, numero }] = await Promise.all([
     obtenerUsuario(),
     obtenerPedidos(),
     obtenerTextos(),
     obtenerFormato(),
   ]);
+  // Solicitudes y cotizaciones van en /panel/cotizaciones.
+  const pedidos = todos.filter((p) => !ESTADOS_COTIZACION.includes(p.estado));
   const tp = t.panel.pedidos;
 
   return (

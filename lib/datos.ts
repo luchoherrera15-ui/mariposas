@@ -11,6 +11,7 @@ import {
 import { traducir } from "./i18n/contenido";
 import { obtenerIdioma } from "./i18n/servidor";
 import { supabaseServidor } from "./supabase-servidor";
+import { ESTADOS_COMPRA } from "./tipos";
 import type {
   Envio,
   Especie,
@@ -175,6 +176,7 @@ export async function obtenerRegistrosImpacto(): Promise<RegistroImpacto[]> {
 
 const SELECT_PEDIDO = `
   id, codigo, estado, total, moneda, notas, creado_en,
+  destino_pais, fecha_deseada, mensaje_cliente, respuesta, flete, valida_hasta, cotizado_en, idioma,
   items:pedido_items (
     id, cantidad, precio_unitario,
     especie:especies ( nombre_comun, nombre_cientifico, emoji, traducciones )
@@ -221,6 +223,14 @@ function normalizarPedido(fila: any, idioma: Idioma): Pedido {
     moneda: fila.moneda,
     notas: fila.notas,
     creado_en: fila.creado_en,
+    destino_pais: fila.destino_pais ?? null,
+    fecha_deseada: fila.fecha_deseada ?? null,
+    mensaje_cliente: fila.mensaje_cliente ?? null,
+    respuesta: fila.respuesta ?? null,
+    flete: Number(fila.flete ?? 0),
+    valida_hasta: fila.valida_hasta ?? null,
+    cotizado_en: fila.cotizado_en ?? null,
+    idioma: fila.idioma ?? "en",
     items: (fila.items ?? []).map((i: any) => ({
       id: i.id,
       cantidad: i.cantidad,
@@ -248,7 +258,7 @@ function especieTraducida(especie: any, idioma: Idioma) {
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
 export function calcularResumen(pedidos: Pedido[]): ResumenCliente {
-  const vivos = pedidos.filter((p) => p.estado !== "cancelado");
+  const vivos = pedidos.filter((p) => ESTADOS_COMPRA.includes(p.estado));
   return {
     mariposas: vivos.reduce((t, p) => t + p.items.reduce((s, i) => s + i.cantidad, 0), 0),
     pedidos: vivos.length,
@@ -262,7 +272,7 @@ export function calcularResumen(pedidos: Pedido[]): ResumenCliente {
 export function mariposasPorEspecie(pedidos: Pedido[], sinEspecie = "—") {
   const mapa = new Map<string, { nombre: string; emoji: string | null; cantidad: number }>();
   for (const pedido of pedidos) {
-    if (pedido.estado === "cancelado") continue;
+    if (!ESTADOS_COMPRA.includes(pedido.estado)) continue;
     for (const item of pedido.items) {
       const nombre = item.especie?.nombre_comun ?? sinEspecie;
       const previo = mapa.get(nombre);

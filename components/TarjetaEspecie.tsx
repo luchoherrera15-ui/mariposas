@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { slugDeEspecie } from "@/lib/especies-foto";
 import type { Especie } from "@/lib/tipos";
+import BotonCotizar from "./cotizacion/BotonCotizar";
 import Foto from "./Foto";
 
 /** Tarjeta de la grilla; la usa también la ficha para "más de la familia". */
@@ -9,13 +10,17 @@ export default function TarjetaEspecie({
   textoVacio,
   polilla,
   prioridad = false,
+  cotizar,
 }: {
   especie: Especie;
   textoVacio: string;
   polilla: string;
   prioridad?: boolean;
+  /** Si viene, se muestra el botón "Agregar a la cotización" debajo. */
+  cotizar?: { agregar: string; agregada: string };
 }) {
   return (
+    <div>
     <Link href={`/especies/${e.slug}`} className="group block">
       <div className="relative overflow-hidden">
         <Foto
@@ -37,5 +42,11 @@ export default function TarjetaEspecie({
         {e.envergadura ? ` · ${e.envergadura}` : ""}
       </p>
     </Link>
+    {cotizar ? (
+      <div className="mt-3">
+        <BotonCotizar slug={e.slug} agregar={cotizar.agregar} agregada={cotizar.agregada} compacto />
+      </div>
+    ) : null}
+    </div>
   );
 }

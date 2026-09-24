@@ -77,6 +77,9 @@ export function Bloque({ titulo, children }: { titulo: string; children: ReactNo
 }
 
 export const ESTADOS_PEDIDO = [
+  "solicitado",
+  "cotizado",
+  "rechazado",
   "pendiente",
   "confirmado",
   "preparando",

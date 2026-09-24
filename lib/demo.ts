@@ -82,8 +82,21 @@ const esp = (i: number) => ({
   emoji: especiesDemo[i].emoji,
 });
 
+/** Campos de cotización vacíos: los pedidos de ejemplo ya son compras. */
+const sinCotizacion = {
+  destino_pais: null,
+  fecha_deseada: null,
+  mensaje_cliente: null,
+  respuesta: null,
+  flete: 0,
+  valida_hasta: null,
+  cotizado_en: null,
+  idioma: "es",
+};
+
 export const pedidosDemo: Pedido[] = [
   {
+    ...sinCotizacion,
     id: "d1", codigo: "MAR-01001", estado: "entregado", total: 1253.0, moneda: "USD",
     notas: "Exhibición de verano — entrega en dos tandas", creado_en: hace(62),
     items: [
@@ -106,6 +119,7 @@ export const pedidosDemo: Pedido[] = [
     },
   },
   {
+    ...sinCotizacion,
     id: "d2", codigo: "MAR-01002", estado: "enviado", total: 910.5, moneda: "USD",
     notas: "Reposición mensual", creado_en: hace(9),
     items: [
@@ -128,6 +142,7 @@ export const pedidosDemo: Pedido[] = [
     },
   },
   {
+    ...sinCotizacion,
     id: "d3", codigo: "MAR-01003", estado: "preparando", total: 516.0, moneda: "USD",
     notas: "Pedido para taller escolar", creado_en: hace(2),
     items: [
@@ -146,6 +161,7 @@ export const pedidosDemo: Pedido[] = [
     },
   },
   {
+    ...sinCotizacion,
     id: "d4", codigo: "MAR-01004", estado: "pendiente", total: 340.0, moneda: "USD",
     notas: "Cotización aprobada, a la espera del anticipo", creado_en: hace(0.4),
     items: [{ id: "i10", cantidad: 40, precio_unitario: 8.5, especie: esp(0) }],

@@ -1,4 +1,7 @@
 export type EstadoPedido =
+  | "solicitado"
+  | "cotizado"
+  | "rechazado"
   | "pendiente"
   | "confirmado"
   | "preparando"
@@ -38,7 +41,7 @@ export type ItemPedido = {
   id: string;
   cantidad: number;
   precio_unitario: number;
-  especie: Pick<Especie, "nombre_comun" | "nombre_cientifico" | "emoji"> | null;
+  especie: (Pick<Especie, "nombre_comun" | "nombre_cientifico" | "emoji"> & { id?: string }) | null;
 };
 
 export type EnvioEvento = {
@@ -74,7 +77,21 @@ export type Pedido = {
   creado_en: string;
   items: ItemPedido[];
   envio: Envio | null;
+  /** Datos de la cotización (ver 012_cotizaciones.sql). */
+  destino_pais: string | null;
+  fecha_deseada: string | null;
+  mensaje_cliente: string | null;
+  /** Nota de la empresa para el cliente, junto con la cotización. */
+  respuesta: string | null;
+  flete: number;
+  valida_hasta: string | null;
+  cotizado_en: string | null;
+  idioma: string;
 };
+
+/** Solicitudes y cotizaciones todavía no son pedidos: no cuentan como compras. */
+export const ESTADOS_COTIZACION: EstadoPedido[] = ["solicitado", "cotizado", "rechazado"];
+export const ESTADOS_COMPRA: EstadoPedido[] = ["pendiente", "confirmado", "preparando", "enviado", "entregado"];
 
 export type ReglaImpacto = {
   mariposas_por_bloque: number;
