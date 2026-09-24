@@ -8,8 +8,9 @@ const enlaces = [
   { href: "/admin/pedidos", texto: "Pedidos" },
   { href: "/admin/clientes", texto: "Clientes" },
   { href: "/admin/correo", texto: "Correo" },
+  { href: "/admin/visitas", texto: "Visitas" },
   { href: "/admin/especies", texto: "Catálogo" },
-  { href: "/admin/impacto", texto: "Trabajo social" },
+  { href: "/admin/impacto", texto: "Compromiso ambiental" },
   { href: "/admin/ajustes", texto: "Textos del sitio" },
 ];
 

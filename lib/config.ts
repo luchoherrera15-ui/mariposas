@@ -25,6 +25,6 @@ export const marca = {
   descripcionCorta:
     "Comercialización y exportación de mariposas tropicales vivas desde Costa Rica, con impacto social medible.",
   correo: "ventas@tropicalbutterflyexports.com",
-  telefono: "+506 8888 8888",
+  telefono: "+506 8710 3739",
   ubicacion: "San Rafael de Alajuela, Costa Rica",
 };

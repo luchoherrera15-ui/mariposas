@@ -4,7 +4,7 @@ import AvisoDemo from "@/components/AvisoDemo";
 import Foto from "@/components/Foto";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
-import { leerPasos, obtenerAjustes, obtenerMarca } from "@/lib/ajustes";
+import { obtenerAjustes, obtenerMarca } from "@/lib/ajustes";
 import {
   obtenerEspecies,
   obtenerImpacto,
@@ -26,7 +26,6 @@ export default async function Inicio() {
     obtenerFormato(),
   ]);
 
-  const ciclo = leerPasos(ajustes.ciclo_pasos);
 
   // Las marcadas como destacadas en /admin/especies; si no hay, las primeras.
   const marcadas = especies.filter((e) => e.destacada);
@@ -153,25 +152,6 @@ export default async function Inicio() {
         </ul>
       </section>
 
-      {/* ── Ciclo ───────────────────────────────────────────────────────── */}
-      <section className="border-y border-linea bg-papel">
-        <div className="mx-auto grid max-w-[82rem] gap-12 px-6 py-24 lg:grid-cols-[24rem_1fr] lg:gap-20">
-          <div>
-            <h2 className="titulo-2">{ajustes.ciclo_titulo}</h2>
-            <p className="prosa mt-6 text-pizarra">{ajustes.ciclo_texto}</p>
-          </div>
-          <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {ciclo.map((paso) => (
-              <li key={paso.dia} className="border-t border-linea pt-5">
-                <p className="datos text-sm text-morpho">{fmt(t.inicio.dia, { n: paso.dia })}</p>
-                <h3 className="titulo-3 mt-2">{paso.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-pizarra">{paso.detalle}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
       {/* ── Trabajo social ──────────────────────────────────────────────── */}
       <section className="bg-noche text-white">
         <div className="mx-auto max-w-[82rem] px-6 py-24">
@@ -225,6 +205,26 @@ export default async function Inicio() {
         </div>
       </section>
 
+      {/* ── Visitanos ───────────────────────────────────────────────────── */}
+      <section className="mx-auto grid w-full max-w-[82rem] items-center gap-10 px-6 pt-24 lg:grid-cols-2 lg:gap-16">
+        <Foto
+          slug="visita-poas"
+          alt="Volcán Poás, Costa Rica"
+          className="aspect-[4/3] w-full"
+          sizes="(min-width: 1024px) 50vw, 100vw"
+        />
+        <div>
+          <h2 className="titulo-2">{t.inicio.visitaTitulo}</h2>
+          <p className="prosa mt-6 text-pizarra">{t.inicio.visitaTexto}</p>
+          <Link
+            href="/visitas"
+            className="mt-8 inline-block bg-tinta px-7 py-3.5 text-papel transition-colors hover:bg-morpho"
+          >
+            {t.inicio.visitaBoton}
+          </Link>
+        </div>
+      </section>
+
       {/* ── Panel ───────────────────────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-[82rem] px-6 py-24">
         <div className="grid gap-12 lg:grid-cols-[26rem_1fr] lg:gap-20">
@@ -235,6 +235,12 @@ export default async function Inicio() {
               className="mt-8 inline-block bg-tinta px-7 py-3.5 text-papel transition-colors hover:bg-morpho"
             >
               {t.inicio.entrarAlPanel}
+            </Link>
+            <Link
+              href="/por-que-elegirnos"
+              className="mt-8 ml-6 inline-block border-b border-linea pb-0.5 text-sm transition-colors hover:border-tinta"
+            >
+              {t.inicio.porQueBoton}
             </Link>
           </div>
           <dl className="grid gap-x-12 gap-y-8 sm:grid-cols-2">
@@ -261,7 +267,15 @@ export default async function Inicio() {
             >
               {marca.correo}
             </a>
-            <span className="datos text-pizarra">{marca.telefono}</span>
+            {marca.telefonos.map((tel) => (
+              <a
+                key={tel}
+                href={`tel:${tel.replace(/[^\d+]/g, "")}`}
+                className="datos text-pizarra transition-colors hover:text-tinta"
+              >
+                {tel}
+              </a>
+            ))}
           </div>
         </div>
       </section>

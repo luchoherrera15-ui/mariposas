@@ -14,8 +14,8 @@ export const AJUSTES_POR_DEFECTO = {
   marca_nombre: "Tropical Butterfly Exports",
   marca_descripcion:
     "Comercialización y exportación de mariposas tropicales vivas desde Costa Rica, con impacto social medible.",
-  marca_correo: "ventas@tropicalbutterflyexports.com",
-  marca_telefono: "+506 8888 8888",
+  marca_correo: "info@tropicalbutterflies.lat",
+  marca_telefono: ["+506 8710 3739", "+506 8689 3939", "+1 (954) 609-8485"].join("\n"),
   marca_ubicacion: "San Rafael de Alajuela, Costa Rica",
   marca_pie:
     "Comercializadora y exportadora de mariposas tropicales vivas. San Rafael de Alajuela, Costa Rica.",
@@ -24,12 +24,12 @@ export const AJUSTES_POR_DEFECTO = {
   inicio_entradilla:
     "Comercializamos ocho especies tropicales y las exportamos vivas a mariposarios, museos y centros de ciencia. Trabajamos con criaderos costarricenses, con cadena de frío registrada de punta a punta y reposición de toda pupa que no abra.",
 
-  cifra1_valor: "38 420",
-  cifra1_texto: "mariposas exportadas desde 2019",
-  cifra2_valor: "97,4 %",
-  cifra2_texto: "abren sanas al llegar a destino",
-  cifra3_valor: "11",
-  cifra3_texto: "países con envíos recurrentes",
+  cifra1_valor: "50",
+  cifra1_texto: "especies disponibles",
+  cifra2_valor: "13–16 °C",
+  cifra2_texto: "cadena de frío registrada en cada caja",
+  cifra3_valor: "24 h",
+  cifra3_texto: "para responder cada cotización",
 
   ciclo_titulo: "Nueve días desde que cerrás el pedido",
   ciclo_texto:
@@ -85,7 +85,11 @@ export async function obtenerMarca() {
     nombre: a.marca_nombre,
     descripcionCorta: a.marca_descripcion,
     correo: a.marca_correo,
-    telefono: a.marca_telefono,
+    /** Uno por línea en /admin/ajustes. */
+    telefonos: a.marca_telefono
+      .split(/\n|;/)
+      .map((t) => t.trim())
+      .filter(Boolean),
     ubicacion: a.marca_ubicacion,
     pie: a.marca_pie,
   };

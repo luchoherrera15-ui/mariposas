@@ -16,9 +16,12 @@ export default async function SiteHeader({ sobreFoto = false }: { sobreFoto?: bo
     obtenerIdioma(),
     obtenerTextos(),
   ]);
+  // Cada enlace aparece desde un ancho de pantalla: así el menú no se amontona.
   const enlaces = [
-    { href: "/especies", texto: t.nav.especies },
-    { href: "/impacto", texto: t.nav.trabajoSocial },
+    { href: "/especies", texto: t.nav.especies, desde: "md:inline" },
+    { href: "/por-que-elegirnos", texto: t.nav.porQue, desde: "lg:inline" },
+    { href: "/visitas", texto: t.nav.visitas, desde: "lg:inline" },
+    { href: "/impacto", texto: t.nav.trabajoSocial, desde: "xl:inline" },
   ];
 
   const base = sobreFoto
@@ -35,7 +38,7 @@ export default async function SiteHeader({ sobreFoto = false }: { sobreFoto?: bo
 
         <nav className="ml-auto flex items-center gap-4 text-[0.92rem] sm:gap-7">
           {enlaces.map((e) => (
-            <Link key={e.href} href={e.href} className={`hidden transition-colors md:inline ${apagado}`}>
+            <Link key={e.href} href={e.href} className={`hidden whitespace-nowrap transition-colors ${e.desde} ${apagado}`}>
               {e.texto}
             </Link>
           ))}

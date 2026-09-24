@@ -228,3 +228,51 @@ export async function avisarAdmins(pedidoId: string, tipo: AvisoAdmin) {
     texto: `${textos.titulo}\n\n${textos.parrafos.join("\n")}\n\n${SITIO}/admin/pedidos/${d.id}`,
   });
 }
+
+// ─── Solicitudes de visita ───────────────────────────────────────────────────
+
+/** Etiquetas en español de los intereses del formulario de /visitas. */
+export const INTERESES_VISITA = {
+  instalaciones: "Nuestras instalaciones",
+  criaderos: "Los criaderos",
+  hospedaje: "Hospedaje",
+  tour: "Tour por Costa Rica",
+  negocios: "Día de negocios",
+  capacitacion: "Capacitación",
+  arbol: "Sembrar su árbol",
+} as const;
+export type InteresVisita = keyof typeof INTERESES_VISITA;
+
+export async function avisarVisita(v: {
+  id: string;
+  nombre: string;
+  empresa: string | null;
+  email: string;
+  pais: string;
+  fechas: string | null;
+  personas: number | null;
+  intereses: string[];
+  mensaje: string | null;
+}) {
+  const para = await correosAdmins();
+  if (!para.length) return;
+  const quien = v.empresa ? `${v.nombre} (${v.empresa})` : v.nombre;
+  const parrafos = [
+    `${quien} · ${v.email} · ${v.pais}`,
+    [v.fechas && `Fechas: ${v.fechas}`, v.personas && `Personas: ${v.personas}`].filter(Boolean).join(" · "),
+    v.intereses.length
+      ? `Le interesa: ${v.intereses.map((i) => INTERESES_VISITA[i as InteresVisita] ?? i).join(", ")}`
+      : "",
+    v.mensaje ? `Mensaje: ${v.mensaje}` : "",
+  ].filter(Boolean);
+  await enviar({
+    para,
+    asunto: `Solicitud de visita — ${quien}`,
+    html: plantilla({
+      titulo: "Nueva solicitud de visita",
+      parrafos,
+      boton: { texto: "Abrir en el panel", url: `${SITIO}/admin/visitas` },
+    }),
+    texto: `Nueva solicitud de visita\n\n${parrafos.join("\n")}\n\n${SITIO}/admin/visitas`,
+  });
+}

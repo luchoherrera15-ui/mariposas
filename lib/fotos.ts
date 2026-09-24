@@ -296,6 +296,30 @@ export const creditos: Record<string, CreditoFoto> = {
     "licencia": "CC BY-SA 4.0",
     "origen": "https://commons.wikimedia.org/wiki/File:Rothschildia_lebeau_6576974.jpg",
     "titulo": "Rothschildia lebeau 6576974.jpg"
+  },
+  "visita-poas": {
+    "autor": "Peter Andersen",
+    "licencia": "CC BY 2.5",
+    "origen": "https://commons.wikimedia.org/wiki/File:Poas_crater.jpg",
+    "titulo": "Poas crater.jpg"
+  },
+  "visita-bosque": {
+    "autor": "Haakon S. Krohn",
+    "licencia": "CC BY-SA 3.0",
+    "origen": "https://commons.wikimedia.org/wiki/File:Monteverde_bosque.jpg",
+    "titulo": "Monteverde bosque.jpg"
+  },
+  "visita-cafe": {
+    "autor": "The original uploader was DirkvdM at English Wikipedia.",
+    "licencia": "CC BY 1.0",
+    "origen": "https://commons.wikimedia.org/wiki/File:Coffee_shadow_trees_costa_rica.jpg",
+    "titulo": "Coffee shadow trees costa rica.jpg"
+  },
+  "visita-selva": {
+    "autor": "Geoff Gallice",
+    "licencia": "CC BY 2.0",
+    "origen": "https://commons.wikimedia.org/wiki/File:Jungle_stream_(La_Selva_Biological_Station).jpg",
+    "titulo": "Jungle stream (La Selva Biological Station).jpg"
   }
 };
 

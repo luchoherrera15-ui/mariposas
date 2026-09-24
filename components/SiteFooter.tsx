@@ -23,6 +23,16 @@ export default async function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/por-que-elegirnos" className="transition-colors hover:text-morpho">
+                {t.nav.porQue}
+              </Link>
+            </li>
+            <li>
+              <Link href="/visitas" className="transition-colors hover:text-morpho">
+                {t.nav.visitas}
+              </Link>
+            </li>
+            <li>
               <Link href="/impacto" className="transition-colors hover:text-morpho">
                 {t.nav.trabajoSocial}
               </Link>
@@ -48,7 +58,13 @@ export default async function SiteFooter() {
                 {marca.correo}
               </a>
             </li>
-            <li className="datos">{marca.telefono}</li>
+            {marca.telefonos.map((tel) => (
+              <li key={tel} className="datos">
+                <a href={`tel:${tel.replace(/[^\d+]/g, "")}`} className="transition-colors hover:text-morpho">
+                  {tel}
+                </a>
+              </li>
+            ))}
             <li className="text-pizarra">{marca.ubicacion}</li>
           </ul>
         </div>
