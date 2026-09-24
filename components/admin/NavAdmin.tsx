@@ -7,6 +7,7 @@ const enlaces = [
   { href: "/admin", texto: "Resumen" },
   { href: "/admin/pedidos", texto: "Pedidos" },
   { href: "/admin/clientes", texto: "Clientes" },
+  { href: "/admin/correo", texto: "Correo" },
   { href: "/admin/especies", texto: "Catálogo" },
   { href: "/admin/impacto", texto: "Trabajo social" },
   { href: "/admin/ajustes", texto: "Textos del sitio" },
